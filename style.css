@@ -1,0 +1,680 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gilroy';
+}
+*::selection{
+    color: blueviolet;
+    background-color: yellow;
+}
+
+::placeholder {
+    color: white;
+    font-size: 1.2rem;
+    font-family: futura;
+}
+
+body{
+	background-color:black;
+}
+html{
+    scroll-behavior: smooth;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+    
+}
+
+#page1{
+    min-height: 62.5rem;
+    position: relative;
+    width: 100%;
+    padding: 1.5rem 1.2rem;
+    padding-top: 1rem;
+    background-color: black;
+}
+
+#page1 h1{
+    font-size: 12rem;
+    text-transform: uppercase;
+    font-family: futura;
+    color: white;
+    padding-left: 10%;
+    line-height: 18rem;
+    letter-spacing: -5px;
+}
+
+
+
+.nav-container{
+    padding: 10px 15%;
+
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 20px 20px;
+    align-items: center;
+}
+
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 2rem;
+    font-family: futura;
+    position: relative;
+
+}
+
+
+
+nav ul li a::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background:green;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transform: 0.5s;
+}
+
+nav ul li a:hover::after{
+    width: 100%;
+
+}
+
+#about{
+    padding: 80px 0;
+    color: whitesmoke;
+    font-family: futura;
+}
+
+.row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    font-family: futura;
+    
+}
+
+.about-col-1{
+    flex-basis: 35%;
+}
+
+
+
+.about-col-2 h1{
+    font-family: futura;
+    color:white;
+    font-size: 2.4rem;
+}
+
+.about-col-2 {
+    flex-basis: 60%;
+}
+
+.about-col-2 p{
+    font-size: 1.2rem;
+    font-family: futura;
+    color: white;
+    padding-top: 2%; 
+}
+
+.tab-titles{
+    display: flex;
+    margin: 20px 40px;
+}
+
+.tab-links{
+    margin-right: 30px;
+    font-size: 20px;
+    font-family: futura;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+
+.tab-links::after{
+    content: "";
+    width: 0;
+    height: 3px;
+    background: peru;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
+}
+
+.tab-links.active-link::after{
+    width: 50%;
+}
+
+.tab-contents ul li{
+    list-style: none;
+    font-family: futura;
+    margin: 10px 0;
+    font-size: 15px;
+}
+.tab-contents ul li span{
+    color: rgba(128, 255, 0, 0.714);
+    font-family: futura;
+    font-size: 25px;
+}
+
+.tab-contents{
+    display: none;
+}
+
+.tab-contents.active-tab{
+    display: block;
+}
+
+#projects{
+    padding: 50px 30px;
+}
+
+#projects h1{
+    font-family: futura;
+    color:white;
+    font-size: 2.4rem;
+}
+
+
+
+
+.work-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+
+.work{
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.work img{
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.layer{
+    width: 100%;
+    height: 0;
+    background: linear-gradient(rgba(0,0,0,0.6),rgb(247, 64, 64));
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    font-size: 30px;
+    transition: height 0.5s;
+}
+
+
+.layer h3{
+    padding-top: 30%;
+    font-family: futura;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+
+}
+.layer h4{
+    padding-top: 10%;
+    font-family: futura;
+    font-size: 1rem;
+    color: white;
+    font-weight: 500;
+    margin-bottom: 20px;
+
+}
+.layer p{
+    font-family: futura;
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 20px;
+
+}
+
+.layer a{
+    margin-top: 20px;
+    color: red;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    background: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+
+}
+
+.work:hover img{
+    transform: scale(1.1);
+
+}
+
+.work:hover .layer{
+    height: 100%;
+
+}
+
+.btn{
+    display: block;
+    margin: 50px auto;
+    width: fit-content;
+    border: 1px solid coral;
+    padding: 14px 50px;
+    border-radius: 6px;
+    text-decoration: none;
+    color:white;
+    font-family: futura;
+    transition: background 0.5s;
+    
+}
+
+.btn:hover{
+    background: rgb(216, 141, 0);
+}
+
+
+
+#contact h1{
+    padding: 0 50px;
+    font-family: futura;
+    color:white;
+    font-size: 2vw;
+}
+
+
+#contact .row{
+    display: grid;
+    grid-template-columns: 1fr 0.69fr;
+    grid-gap: 0px;
+    font-family: futura;
+    
+}
+
+.contact-left{
+    padding-left: 10%;
+    flex-basis: 50%;
+}
+
+.contact-right{
+    padding: 0 50px;
+    flex-basis: 50%;
+}
+
+.contact-left p i{
+    color: rgb(85, 0, 255);
+    margin-right: 15px;
+    font-size: 25px;
+
+}
+
+.contact-left a{
+    color: white;
+    text-decoration: none;
+    font-family: futura;
+    margin-right: 15px;
+    font-size: 25px;
+
+}
+.contact-left p {
+    padding-top: 10px;
+    color: white;
+    font-family: futura;
+    margin-right: 15px;
+    font-size: 25px;
+
+}
+
+
+.contact-left a i{
+    padding-top: 20px;
+    color: rgb(85, 0, 255);
+    margin-right: 15px;
+    font-size: 25px;
+
+}
+
+
+.social-icons{
+    margin-top: 10px;
+
+}
+
+.social-icons a{
+    text-decoration: none;
+    font-size: 100px;
+    margin-right: 15px;
+    color: rgb(85, 0, 255);
+}
+
+.social-icons a i{
+    color: rgb(85, 0, 255);
+    margin-right: 15px;
+    font-size: 69px;
+
+}
+
+
+.social-icons a i:hover{
+    color: coral;
+    transform: translateY(-5px);
+
+}
+
+.btn.btn2{
+    display: inline-block;
+    border: 3px solid white;
+    background-color: rgb(85, 0, 255);
+}
+
+
+#contact-form{
+    width: 100%;
+    padding-left: 40%;
+}
+
+form input, form textarea{
+    width: 50%;
+    border: 0;
+    outline: none;
+    background:  rgb(85, 0, 255);
+    padding: 15px;
+    margin: 15px 0;
+    color: white;
+    font-size: 18px;
+    border-radius: 6x;
+    font-family: furutra;
+
+}
+
+#footer{
+    width: 100%;
+    text-align: center;
+    padding: 25px 0;
+    background: rgb(37, 37, 37);
+    font-weight: 300;
+    font-family: futura;
+    margin-top: 20px;
+}
+
+#footer p{
+    text-align: center;
+    color: white;
+    font-weight: 300;
+    font-family: futura;
+   
+}
+
+@media only screen and (max-width: 600px){
+    #page1 h1{
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        font-family: futura;
+        color: white;
+        padding-left: 1%;
+        line-height: 3rem;
+        letter-spacing: 0px;
+    }
+    
+    .nav-container{
+        padding: 10px 15%;
+    
+    }
+    
+    nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    nav ul li a{
+        color: white;
+        text-decoration: none;
+        font-size: 4vh;
+        font-family: futura;
+        position: relative;
+    
+    }
+    #page1{
+        min-height: 14vh;
+        position: relative;
+        width: 100%;
+        padding: 0 6.9vw;
+        padding-top: 1vh;
+        background-color: black;
+    }
+
+    #about h1{
+        font-size: 40px;
+    }
+    .row{
+        display: flex;
+        grid-gap: 20px;
+        font-family: futura;
+        
+    }
+    
+    .about-col-1 spline-asset-char{
+        height: 100px;
+        width: 100px;
+    }
+    .about-col-1{
+        display: none;
+        flex-basis: 100%;
+    }
+    .about-col-2{
+        flex-basis: 100%;
+    }
+    .about-col-1{
+        margin-bottom: 30px;
+    }
+
+    .about-col-2 p{
+        font-size: 8px;
+        font-family: futura;
+        color: white;
+        padding-top: 2%; 
+    }
+
+    #projects h1{
+        font-family: futura;
+        color:white;
+        font-size: 20px;
+    }
+
+
+    .tab-links{
+        margin-right: 30px;
+        font-size: 30px;
+        font-family: futura;
+        font-weight: 200;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    .tab-contents ul li{
+        list-style: none;
+        font-family: futura;
+        margin: 10px 0;
+        font-size: 14px;
+    }
+    .tab-contents ul li span{
+        color: rgba(128, 255, 0, 0.714);
+        font-family: futura;
+        font-size: 18px;
+    }
+    .layer h3{
+        padding-top: 10%;
+        font-family: futura;
+        color: white;
+        font-size: 15px;
+        font-weight: 500;
+        margin-bottom: 20px;
+    
+    }
+    .layer h4{
+        padding-top: 2%;
+        font-family: futura;
+        color: white;
+        font-size: 15px;
+        font-weight: 500;
+        margin-bottom: 20px;
+    
+    }
+    .layer p{
+        font-family: futura;
+        color: white;
+        font-weight: 500;
+        font-size: 14px;
+        margin-bottom: 20px;
+    
+    }
+    
+    .layer a{
+        margin-top: px;
+        color: red;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 30px;
+        background: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        text-align: center;
+    
+    }
+
+    #contact h1{
+        padding: 0 20px;
+        font-family: futura;
+        color:white;
+        font-size: 30px;
+    }
+
+    .contact-left a{
+        color: white;
+        text-decoration: none;
+        font-family: futura;
+        margin-right: 15px;
+        font-size: 15px;
+    
+    }
+    .contact-left p {
+        padding-top: 10px;
+        color: white;
+        font-family: futura;
+        margin-right: 15px;
+        font-size: 15px;
+    
+    }
+    .contact-left a i{
+        padding-top: 20px;
+        color: rgb(85, 0, 255);
+        margin-right: 15px;
+        font-size: 30px;
+    
+    }
+
+    .btn.btn2{
+        display: inline-block;
+        border: 3px solid white;
+        background-color: rgb(85, 0, 255);
+    }
+    
+    
+    #contact-form{
+        width: 100%;
+        padding-left: 40%;
+    }
+    
+    form input, form textarea{
+        width: 50%;
+        border: 0;
+        outline: none;
+        background:  rgb(85, 0, 255);
+        padding: 15px;
+        margin: 15px 0;
+        color: white;
+        font-size: 18px;
+        border-radius: 6x;
+        font-family: furutra;
+    
+    }
+    ::placeholder {
+        color: white;
+        font-size: 10px;
+        font-family: futura;
+    }
+
+    #contact .row{
+        display:flex;
+        font-family: futura;
+        
+    }
+    
+    .contact-left{
+        padding-left: 10%;
+        flex-basis: 100%;
+    }
+    
+    .contact-right{
+        display: none;
+        padding: 0 50px;
+        flex-basis: 100%;
+    }
+
+    .nav-container{
+        padding: 10px 5%;
+    
+    }
+    #footer p{
+        text-align: center;
+        font-size: 10px;
+        color: white;
+        font-weight: 300;
+        font-family: futura;
+       
+    }
+    .work img{
+        width: 75%;
+        border-radius: 10px;
+        display: block;
+        transition: transform 0.5s;
+    }
+    
+    
+    
+    
+
+
+    
+    
+}
