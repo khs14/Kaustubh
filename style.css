@@ -172,9 +172,10 @@ nav ul li a:hover::after{
     font-size: 25px;
 }
 .tab-contents ul li span a{
-    color: rgba(128, 255, 0, 0.714);
+     list-style: none;
     font-family: futura;
-    font-size: 25px;
+    margin: 10px 0;
+    font-size: 15px;
 }
 
 .tab-contents{
