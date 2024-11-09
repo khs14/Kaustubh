@@ -171,7 +171,7 @@ nav ul li a:hover::after{
     font-family: futura;
     font-size: 25px;
 }
-.tab-contents ul li a{
+.tab-contents ul li span a{
     color: rgba(128, 255, 0, 0.714);
     font-family: futura;
     font-size: 25px;
