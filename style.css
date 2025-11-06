@@ -1,10 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Gilroy';
 }
-*::selection{
+*::selection {
     color: blueviolet;
     background-color: yellow;
 }
@@ -15,18 +15,19 @@
     font-family: futura;
 }
 
-body{
-    background-color:black;
+body {
+    background-color: black;
 }
-html{
+html {
     scroll-behavior: smooth;
 }
-html,body{
+html, body {
     height: 100%;
     width: 100%;
 }
 
-#page1{
+/* === PAGE 1 (HOME) === */
+#page1 {
     min-height: 62.5rem;
     position: relative;
     width: 100%;
@@ -35,7 +36,7 @@ html,body{
     background-color: black;
 }
 
-#page1 h1{
+#page1 h1 {
     font-size: 9rem;
     text-transform: uppercase;
     font-family: futura;
@@ -45,25 +46,26 @@ html,body{
     letter-spacing: -5px;
 }
 
-.nav-container{
+/* === NAVBAR === */
+.nav-container {
     padding: 10px 15%;
 }
 
-nav{
+nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-nav ul li{
+nav ul li {
     display: inline-block;
     list-style: none;
     margin: 20px 20px;
     align-items: center;
 }
 
-nav ul li a{
+nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 1.5rem;
@@ -71,146 +73,171 @@ nav ul li a{
     position: relative;
 }
 
-nav ul li a::after{
+nav ul li a::after {
     content: '';
     width: 0;
     height: 3px;
-    background:green;
+    background: green;
     position: absolute;
     left: 0;
     bottom: -6px;
     transition: 0.5s;
 }
 
-nav ul li a:hover::after{
+nav ul li a:hover::after {
     width: 100%;
 }
 
-#about{
+/* === ABOUT SECTION === */
+#about {
     padding: 80px 0;
     color: whitesmoke;
     font-family: futura;
 }
 
-.container{
+.container {
     padding: 0 50px;
 }
 
-.row{
+.row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
     font-family: futura;
 }
 
-.about-col-1{
+.about-col-1 {
     flex-basis: 35%;
-}
-
-.about-col-2 h1{
-    font-family: futura;
-    color:white;
-    font-size: 1.8rem;
 }
 
 .about-col-2 {
     flex-basis: 60%;
+    position: relative;
+    min-height: 550px; /* keeps layout stable */
 }
 
-.about-col-2 p{
+.about-col-2 h1 {
+    font-family: futura;
+    color: white;
+    font-size: 1.8rem;
+}
+
+.about-col-2 p {
     font-size: 0.9rem;
     font-family: futura;
     color: white;
     padding-top: 2%; 
 }
 
-.tab-titles{
+/* === TAB MENU BAR === */
+.tab-titles {
     display: flex;
-    margin: 20px 40px;
     flex-wrap: wrap;
+    gap: 25px;
+    justify-content: flex-start;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin: 25px 0 35px;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+    backdrop-filter: blur(10px);
 }
 
-.tab-links{
-    margin-right: 30px;
-    font-size: 15px;
+.tab-links {
+    position: relative;
+    font-size: 1rem;
     font-family: futura;
     font-weight: 500;
+    color: #ccc;
     cursor: pointer;
+    padding: 10px 18px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tab-links:hover {
+    color: #00ffcc;
+    background-color: rgba(0, 255, 204, 0.1);
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+}
+
+.tab-links.active-link {
+    color: #00ffcc;
+    background-color: rgba(0, 255, 204, 0.2);
+    box-shadow: inset 0 0 12px rgba(0, 255, 204, 0.4);
+    font-weight: 600;
+}
+
+/* === TAB CONTENT STABILIZED === */
+.tab-contents {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+}
+
+.tab-contents.active-tab {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
     position: relative;
 }
 
-.tab-links::after{
-    content: "";
-    width: 0;
-    height: 3px;
-    background: peru;
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    transition: 0.5s;
-}
-
-.tab-links.active-link::after{
-    width: 50%;
-}
-
-.tab-contents ul li{
+/* === TAB CONTENT TEXT === */
+.tab-contents ul li {
     list-style: none;
     font-family: futura;
-    margin: 10px 0;
-    font-size: 11px;
+    margin: 12px 0;
+    font-size: 0.95rem;
+    line-height: 1.6rem;
+    color: #eaeaea;
 }
-.tab-contents ul li span{
-    color: rgba(128, 255, 0, 0.714);
+
+.tab-contents ul li span {
+    color: #00ffcc;
     font-family: futura;
-    font-size: 19px;
-}
-.tab-contents ul li span a{
-    list-style: none;
-    font-family: futura;
-    margin: 10px 0;
-    font-size: 11px;
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
-.tab-contents{
-    display: none;
-}
-
-.tab-contents.active-tab{
-    display: block;
-}
-
-#projects{
+/* === PROJECTS === */
+#projects {
     padding: 50px 30px;
 }
 
-#projects h1{
+#projects h1 {
     font-family: futura;
-    color:white;
+    color: white;
     font-size: 1.8rem;
 }
 
-.work-list{
+.work-list {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
     grid-gap: 40px;
     margin-top: 50px;
 }
 
-.work{
+.work {
     border-radius: 10px;
     position: relative;
     overflow: hidden;
 }
 
-.work img{
+.work img {
     width: 100%;
     border-radius: 10px;
     display: block;
     transition: transform 0.5s;
 }
 
-.layer{
+.layer {
     width: 100%;
     height: 0;
     background: linear-gradient(rgba(0,0,0,0.6),rgb(247, 64, 64));
@@ -228,7 +255,7 @@ nav ul li a:hover::after{
     transition: height 0.5s;
 }
 
-.layer h3{
+.layer h3 {
     padding-top: 30%;
     font-family: futura;
     color: white;
@@ -236,7 +263,7 @@ nav ul li a:hover::after{
     font-weight: 500;
     margin-bottom: 20px;
 }
-.layer h4{
+.layer h4 {
     padding-top: 10%;
     font-family: futura;
     font-size: 0.75rem;
@@ -244,7 +271,7 @@ nav ul li a:hover::after{
     font-weight: 500;
     margin-bottom: 20px;
 }
-.layer p{
+.layer p {
     font-family: futura;
     color: white;
     font-weight: 500;
@@ -252,7 +279,7 @@ nav ul li a:hover::after{
     margin-bottom: 20px;
 }
 
-.layer a{
+.layer a {
     margin-top: 20px;
     color: red;
     text-decoration: none;
@@ -265,15 +292,15 @@ nav ul li a:hover::after{
     text-align: center;
 }
 
-.work:hover img{
+.work:hover img {
     transform: scale(1.1);
 }
 
-.work:hover .layer{
+.work:hover .layer {
     height: 100%;
 }
 
-.btn{
+.btn {
     display: block;
     margin: 50px auto;
     width: fit-content;
@@ -281,46 +308,47 @@ nav ul li a:hover::after{
     padding: 14px 50px;
     border-radius: 6px;
     text-decoration: none;
-    color:white;
+    color: white;
     font-family: futura;
     transition: background 0.5s;
 }
 
-.btn:hover{
+.btn:hover {
     background: rgb(216, 141, 0);
 }
 
-#contact h1{
+/* === CONTACT === */
+#contact h1 {
     padding: 0 0px;
     font-family: futura;
-    color:white;
+    color: white;
     font-size: 1.8rem;
     margin-bottom: 30px;
 }
 
-#contact .row{
+#contact .row {
     display: grid;
     grid-template-columns: 1fr 0.69fr;
     grid-gap: 40px;
     font-family: futura;
 }
 
-.contact-left{
+.contact-left {
     padding-left: 0;
     flex-basis: 50%;
 }
 
-.contact-right{
+.contact-right {
     flex-basis: 50%;
 }
 
-.contact-left p i{
+.contact-left p i {
     color: rgb(85, 0, 255);
     margin-right: 15px;
     font-size: 19px;
 }
 
-.contact-left a{
+.contact-left a {
     color: white;
     text-decoration: none;
     font-family: futura;
@@ -335,49 +363,50 @@ nav ul li a:hover::after{
     font-size: 19px;
 }
 
-.contact-left a i{
+.contact-left a i {
     padding-top: 20px;
     color: rgb(85, 0, 255);
     margin-right: 15px;
     font-size: 19px;
 }
 
-.social-icons{
+.social-icons {
     margin-top: 30px;
 }
 
-.social-icons a{
+.social-icons a {
     text-decoration: none;
     font-size: 100px;
     margin-right: 15px;
     color: rgb(85, 0, 255);
 }
 
-.social-icons a i{
+.social-icons a i {
     color: rgb(85, 0, 255);
     margin-right: 15px;
     font-size: 52px;
 }
 
-.social-icons a i:hover{
+.social-icons a i:hover {
     color: coral;
     transform: translateY(-5px);
 }
 
-.btn.btn2{
+.btn.btn2 {
     display: inline-block;
     border: 3px solid white;
     background-color: rgb(85, 0, 255);
     margin-top: 30px;
 }
 
-#contact-form{
+/* === CONTACT FORM === */
+#contact-form {
     width: 100%;
     padding: 0 50px;
     margin-top: 50px;
 }
 
-form input, form textarea{
+form input, form textarea {
     width: 100%;
     max-width: 600px;
     border: 0;
@@ -391,7 +420,8 @@ form input, form textarea{
     font-family: futura;
 }
 
-#footer{
+/* === FOOTER === */
+#footer {
     width: 100%;
     text-align: center;
     padding: 25px 0;
@@ -401,260 +431,101 @@ form input, form textarea{
     margin-top: 20px;
 }
 
-#footer p{
+#footer p {
     text-align: center;
     color: white;
     font-weight: 300;
     font-family: futura;
 }
 
-/* Tablet Responsiveness */
-@media only screen and (max-width: 768px){
-    .nav-container{
+/* === RESPONSIVE === */
+@media only screen and (max-width: 768px) {
+    .nav-container {
         padding: 10px 5%;
     }
-    
-    nav ul li{
+    nav ul li {
         margin: 15px 10px;
     }
-    
-    nav ul li a{
+    nav ul li a {
         font-size: 1.5rem;
     }
-    
-    #page1 h1{
+    #page1 h1 {
         font-size: 8rem;
         line-height: 12rem;
         padding-left: 5%;
     }
-    
-    .row{
+    .row {
         grid-template-columns: 1fr;
     }
-    
-    .about-col-1, .about-col-2{
+    .about-col-1, .about-col-2 {
         flex-basis: 100%;
     }
-    
-    #contact .row{
+    #contact .row {
         grid-template-columns: 1fr;
     }
-    
-    .tab-titles{
-        margin: 20px 10px;
-    }
-    
-    .container{
+    .container {
         padding: 0 30px;
     }
-    
-    #contact-form{
+    #contact-form {
         padding: 0 30px;
     }
 }
 
-/* Mobile Responsiveness */
-@media only screen and (max-width: 600px){
-    #page1{
+/* === MOBILE === */
+@media only screen and (max-width: 600px) {
+    #page1 {
         min-height: 100vh;
         padding: 20px;
         padding-top: 10px;
     }
-    
-    #page1 h1{
+    #page1 h1 {
         font-size: 3rem;
         line-height: 3.5rem;
         padding-left: 0;
         letter-spacing: -2px;
         padding-top: 20px;
     }
-    
-    .nav-container{
+    .nav-container {
         padding: 10px 20px;
     }
-    
-    nav ul{
+    nav ul {
         padding: 0;
         text-align: center;
     }
-    
-    nav ul li{
+    nav ul li {
         display: block;
         margin: 10px 0;
     }
-    
-    nav ul li a{
+    nav ul li a {
         font-size: 1.2rem;
     }
 
-    .container{
-        padding: 0 20px;
-    }
-
-    #about{
-        padding: 40px 0;
-    }
-
-    #about h1{
-        font-size: 2rem;
-    }
-    
-    .row{
+    .row {
         display: flex;
         flex-direction: column;
         grid-gap: 20px;
     }
-    
-    .about-col-1{
-        display: none;
+
+    /* 🔥 Hide 3D Spline animation on mobile */
+    .about-col-1 {
+        display: none !important;
     }
-    
-    .about-col-2{
+
+    .about-col-2 {
         flex-basis: 100%;
+        min-height: auto; /* adjusts naturally without 3D */
     }
 
-    .about-col-2 h1{
-        font-size: 2rem;
-    }
-
-    .about-col-2 p{
-        font-size: 0.9rem;
-        line-height: 1.5;
-    }
-
-    .tab-titles{
-        margin: 20px 0;
-        flex-wrap: wrap;
-    }
-
-    .tab-links{
-        margin-right: 20px;
-        margin-bottom: 15px;
-        font-size: 1rem;
-    }
-    
-    .tab-contents ul li{
-        font-size: 0.85rem;
-        line-height: 1.6;
-        margin: 15px 0;
-    }
-    
-    .tab-contents ul li span{
-        font-size: 1rem;
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    #projects{
-        padding: 30px 20px;
-    }
-
-    #projects h1{
-        font-size: 2rem;
-    }
-
-    .work-list{
-        grid-template-columns: 1fr;
-        grid-gap: 30px;
-    }
-
-    .work img{
-        width: 100%;
-    }
-    
-    .layer h3{
-        padding-top: 20%;
-        font-size: 1.2rem;
-        margin-bottom: 15px;
-    }
-    
-    .layer h4{
-        padding-top: 5%;
-        font-size: 1rem;
-        margin-bottom: 15px;
-    }
-    
-    .layer p{
-        font-size: 0.9rem;
-        margin-bottom: 15px;
-    }
-    
-    .layer a{
-        margin-top: 10px;
-        line-height: 40px;
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
-
-    #contact{
-        padding: 40px 20px;
-    }
-
-    #contact h1{
-        font-size: 2rem;
-        margin-bottom: 20px;
-    }
-
-    #contact .row{
+    #contact .row {
         display: flex;
         flex-direction: column;
     }
-    
-    .contact-left{
-        padding-left: 0;
-        flex-basis: 100%;
-        margin-bottom: 30px;
-    }
-    
-    .contact-right{
-        display: none;
+
+    .contact-right {
+        display: none !important;
     }
 
-    .contact-left a,
-    .contact-left p{
-        font-size: 1rem;
-    }
-
-    .contact-left a i,
-    .contact-left p i{
-        font-size: 1.2rem;
-    }
-
-    .social-icons{
-        margin-top: 20px;
-    }
-
-    .social-icons a i{
-        font-size: 2.5rem;
-        margin-right: 10px;
-    }
-
-    .btn{
-        padding: 12px 30px;
-        font-size: 0.9rem;
-    }
-
-    .btn.btn2{
-        margin-top: 20px;
-    }
-    
-    #contact-form{
-        padding: 0 20px;
-        margin-top: 30px;
-    }
-    
-    form input, form textarea{
-        width: 100%;
-        padding: 12px;
-        font-size: 1rem;
-    }
-
-    ::placeholder {
-        font-size: 0.9rem;
-    }
-
-    #footer p{
+    #footer p {
         font-size: 0.8rem;
     }
 }
