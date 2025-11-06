@@ -16,7 +16,7 @@
 }
 
 body{
-	background-color:black;
+    background-color:black;
 }
 html{
     scroll-behavior: smooth;
@@ -24,7 +24,6 @@ html{
 html,body{
     height: 100%;
     width: 100%;
-    
 }
 
 #page1{
@@ -46,11 +45,8 @@ html,body{
     letter-spacing: -5px;
 }
 
-
-
 .nav-container{
     padding: 10px 15%;
-
 }
 
 nav{
@@ -73,10 +69,7 @@ nav ul li a{
     font-size: 2rem;
     font-family: futura;
     position: relative;
-
 }
-
-
 
 nav ul li a::after{
     content: '';
@@ -86,12 +79,11 @@ nav ul li a::after{
     position: absolute;
     left: 0;
     bottom: -6px;
-    transform: 0.5s;
+    transition: 0.5s;
 }
 
 nav ul li a:hover::after{
     width: 100%;
-
 }
 
 #about{
@@ -100,19 +92,20 @@ nav ul li a:hover::after{
     font-family: futura;
 }
 
+.container{
+    padding: 0 50px;
+}
+
 .row{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
     font-family: futura;
-    
 }
 
 .about-col-1{
     flex-basis: 35%;
 }
-
-
 
 .about-col-2 h1{
     font-family: futura;
@@ -134,6 +127,7 @@ nav ul li a:hover::after{
 .tab-titles{
     display: flex;
     margin: 20px 40px;
+    flex-wrap: wrap;
 }
 
 .tab-links{
@@ -172,7 +166,7 @@ nav ul li a:hover::after{
     font-size: 25px;
 }
 .tab-contents ul li span a{
-     list-style: none;
+    list-style: none;
     font-family: futura;
     margin: 10px 0;
     font-size: 15px;
@@ -195,9 +189,6 @@ nav ul li a:hover::after{
     color:white;
     font-size: 2.4rem;
 }
-
-
-
 
 .work-list{
     display: grid;
@@ -237,7 +228,6 @@ nav ul li a:hover::after{
     transition: height 0.5s;
 }
 
-
 .layer h3{
     padding-top: 30%;
     font-family: futura;
@@ -245,7 +235,6 @@ nav ul li a:hover::after{
     font-size: 1.5rem;
     font-weight: 500;
     margin-bottom: 20px;
-
 }
 .layer h4{
     padding-top: 10%;
@@ -254,7 +243,6 @@ nav ul li a:hover::after{
     color: white;
     font-weight: 500;
     margin-bottom: 20px;
-
 }
 .layer p{
     font-family: futura;
@@ -262,7 +250,6 @@ nav ul li a:hover::after{
     font-weight: 500;
     font-size: 1rem;
     margin-bottom: 20px;
-
 }
 
 .layer a{
@@ -276,17 +263,14 @@ nav ul li a:hover::after{
     height: 60px;
     border-radius: 50%;
     text-align: center;
-
 }
 
 .work:hover img{
     transform: scale(1.1);
-
 }
 
 .work:hover .layer{
     height: 100%;
-
 }
 
 .btn{
@@ -300,38 +284,33 @@ nav ul li a:hover::after{
     color:white;
     font-family: futura;
     transition: background 0.5s;
-    
 }
 
 .btn:hover{
     background: rgb(216, 141, 0);
 }
 
-
-
 #contact h1{
-    padding: 0 50px;
+    padding: 0 0px;
     font-family: futura;
     color:white;
-    font-size: 2vw;
+    font-size: 2.4rem;
+    margin-bottom: 30px;
 }
-
 
 #contact .row{
     display: grid;
     grid-template-columns: 1fr 0.69fr;
-    grid-gap: 0px;
+    grid-gap: 40px;
     font-family: futura;
-    
 }
 
 .contact-left{
-    padding-left: 10%;
+    padding-left: 0;
     flex-basis: 50%;
 }
 
 .contact-right{
-    padding: 0 50px;
     flex-basis: 50%;
 }
 
@@ -339,7 +318,6 @@ nav ul li a:hover::after{
     color: rgb(85, 0, 255);
     margin-right: 15px;
     font-size: 25px;
-
 }
 
 .contact-left a{
@@ -348,7 +326,6 @@ nav ul li a:hover::after{
     font-family: futura;
     margin-right: 15px;
     font-size: 25px;
-
 }
 .contact-left p {
     padding-top: 10px;
@@ -356,22 +333,17 @@ nav ul li a:hover::after{
     font-family: futura;
     margin-right: 15px;
     font-size: 25px;
-
 }
-
 
 .contact-left a i{
     padding-top: 20px;
     color: rgb(85, 0, 255);
     margin-right: 15px;
     font-size: 25px;
-
 }
 
-
 .social-icons{
-    margin-top: 10px;
-
+    margin-top: 30px;
 }
 
 .social-icons a{
@@ -385,40 +357,38 @@ nav ul li a:hover::after{
     color: rgb(85, 0, 255);
     margin-right: 15px;
     font-size: 69px;
-
 }
-
 
 .social-icons a i:hover{
     color: coral;
     transform: translateY(-5px);
-
 }
 
 .btn.btn2{
     display: inline-block;
     border: 3px solid white;
     background-color: rgb(85, 0, 255);
+    margin-top: 30px;
 }
-
 
 #contact-form{
     width: 100%;
-    padding-left: 40%;
+    padding: 0 50px;
+    margin-top: 50px;
 }
 
 form input, form textarea{
-    width: 50%;
+    width: 100%;
+    max-width: 600px;
     border: 0;
     outline: none;
-    background:  rgb(85, 0, 255);
+    background: rgb(85, 0, 255);
     padding: 15px;
     margin: 15px 0;
     color: white;
     font-size: 18px;
-    border-radius: 6x;
-    font-family: furutra;
-
+    border-radius: 6px;
+    font-family: futura;
 }
 
 #footer{
@@ -436,251 +406,255 @@ form input, form textarea{
     color: white;
     font-weight: 300;
     font-family: futura;
-   
 }
 
-@media only screen and (max-width: 600px){
+/* Tablet Responsiveness */
+@media only screen and (max-width: 768px){
+    .nav-container{
+        padding: 10px 5%;
+    }
+    
+    nav ul li{
+        margin: 15px 10px;
+    }
+    
+    nav ul li a{
+        font-size: 1.5rem;
+    }
+    
     #page1 h1{
-        font-size: 2.5rem;
-        text-transform: uppercase;
-        font-family: futura;
-        color: white;
-        padding-left: 1%;
-        line-height: 3rem;
-        letter-spacing: 0px;
+        font-size: 8rem;
+        line-height: 12rem;
+        padding-left: 5%;
+    }
+    
+    .row{
+        grid-template-columns: 1fr;
+    }
+    
+    .about-col-1, .about-col-2{
+        flex-basis: 100%;
+    }
+    
+    #contact .row{
+        grid-template-columns: 1fr;
+    }
+    
+    .tab-titles{
+        margin: 20px 10px;
+    }
+    
+    .container{
+        padding: 0 30px;
+    }
+    
+    #contact-form{
+        padding: 0 30px;
+    }
+}
+
+/* Mobile Responsiveness */
+@media only screen and (max-width: 600px){
+    #page1{
+        min-height: 100vh;
+        padding: 20px;
+        padding-top: 10px;
+    }
+    
+    #page1 h1{
+        font-size: 3rem;
+        line-height: 3.5rem;
+        padding-left: 0;
+        letter-spacing: -2px;
+        padding-top: 20px;
     }
     
     .nav-container{
-        padding: 10px 15%;
-    
+        padding: 10px 20px;
     }
     
-    nav{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
+    nav ul{
+        padding: 0;
+        text-align: center;
     }
+    
+    nav ul li{
+        display: block;
+        margin: 10px 0;
+    }
+    
     nav ul li a{
-        color: white;
-        text-decoration: none;
-        font-size: 4vh;
-        font-family: futura;
-        position: relative;
-    
+        font-size: 1.2rem;
     }
-    #page1{
-        min-height: 14vh;
-        position: relative;
-        width: 100%;
-        padding: 0 6.9vw;
-        padding-top: 1vh;
-        background-color: black;
+
+    .container{
+        padding: 0 20px;
+    }
+
+    #about{
+        padding: 40px 0;
     }
 
     #about h1{
-        font-size: 40px;
-    }
-    .row{
-        display: flex;
-        grid-gap: 20px;
-        font-family: futura;
-        
+        font-size: 2rem;
     }
     
-    .about-col-1 spline-asset-char{
-        height: 100px;
-        width: 100px;
+    .row{
+        display: flex;
+        flex-direction: column;
+        grid-gap: 20px;
     }
+    
     .about-col-1{
         display: none;
-        flex-basis: 100%;
     }
+    
     .about-col-2{
         flex-basis: 100%;
     }
-    .about-col-1{
-        margin-bottom: 30px;
+
+    .about-col-2 h1{
+        font-size: 2rem;
     }
 
     .about-col-2 p{
-        font-size: 8px;
-        font-family: futura;
-        color: white;
-        padding-top: 2%; 
+        font-size: 0.9rem;
+        line-height: 1.5;
     }
 
-    #projects h1{
-        font-family: futura;
-        color:white;
-        font-size: 20px;
+    .tab-titles{
+        margin: 20px 0;
+        flex-wrap: wrap;
     }
-
 
     .tab-links{
-        margin-right: 30px;
-        font-size: 30px;
-        font-family: futura;
-        font-weight: 200;
-        cursor: pointer;
-        position: relative;
+        margin-right: 20px;
+        margin-bottom: 15px;
+        font-size: 1rem;
     }
     
     .tab-contents ul li{
-        list-style: none;
-        font-family: futura;
-        margin: 10px 0;
-        font-size: 14px;
+        font-size: 0.85rem;
+        line-height: 1.6;
+        margin: 15px 0;
     }
+    
     .tab-contents ul li span{
-        color: rgba(128, 255, 0, 0.714);
-        font-family: futura;
-        font-size: 18px;
+        font-size: 1rem;
+        display: block;
+        margin-bottom: 5px;
     }
+
+    #projects{
+        padding: 30px 20px;
+    }
+
+    #projects h1{
+        font-size: 2rem;
+    }
+
+    .work-list{
+        grid-template-columns: 1fr;
+        grid-gap: 30px;
+    }
+
+    .work img{
+        width: 100%;
+    }
+    
     .layer h3{
-        padding-top: 10%;
-        font-family: futura;
-        color: white;
-        font-size: 15px;
-        font-weight: 500;
-        margin-bottom: 20px;
-    
+        padding-top: 20%;
+        font-size: 1.2rem;
+        margin-bottom: 15px;
     }
+    
     .layer h4{
-        padding-top: 2%;
-        font-family: futura;
-        color: white;
-        font-size: 15px;
-        font-weight: 500;
-        margin-bottom: 20px;
-    
+        padding-top: 5%;
+        font-size: 1rem;
+        margin-bottom: 15px;
     }
-    .layer p{
-        font-family: futura;
-        color: white;
-        font-weight: 500;
-        font-size: 14px;
-        margin-bottom: 20px;
     
+    .layer p{
+        font-size: 0.9rem;
+        margin-bottom: 15px;
     }
     
     .layer a{
-        margin-top: px;
-        color: red;
-        text-decoration: none;
-        font-size: 18px;
-        line-height: 30px;
-        background: white;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        text-align: center;
-    
+        margin-top: 10px;
+        line-height: 40px;
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    #contact{
+        padding: 40px 20px;
     }
 
     #contact h1{
-        padding: 0 20px;
-        font-family: futura;
-        color:white;
-        font-size: 30px;
-    }
-
-    .contact-left a{
-        color: white;
-        text-decoration: none;
-        font-family: futura;
-        margin-right: 15px;
-        font-size: 15px;
-    
-    }
-    .contact-left p {
-        padding-top: 10px;
-        color: white;
-        font-family: futura;
-        margin-right: 15px;
-        font-size: 15px;
-    
-    }
-    .contact-left a i{
-        padding-top: 20px;
-        color: rgb(85, 0, 255);
-        margin-right: 15px;
-        font-size: 30px;
-    
-    }
-
-    .btn.btn2{
-        display: inline-block;
-        border: 3px solid white;
-        background-color: rgb(85, 0, 255);
-    }
-    
-    
-    #contact-form{
-        width: 100%;
-        padding-left: 40%;
-    }
-    
-    form input, form textarea{
-        width: 50%;
-        border: 0;
-        outline: none;
-        background:  rgb(85, 0, 255);
-        padding: 15px;
-        margin: 15px 0;
-        color: white;
-        font-size: 18px;
-        border-radius: 6x;
-        font-family: furutra;
-    
-    }
-    ::placeholder {
-        color: white;
-        font-size: 10px;
-        font-family: futura;
+        font-size: 2rem;
+        margin-bottom: 20px;
     }
 
     #contact .row{
-        display:flex;
-        font-family: futura;
-        
+        display: flex;
+        flex-direction: column;
     }
     
     .contact-left{
-        padding-left: 10%;
+        padding-left: 0;
         flex-basis: 100%;
+        margin-bottom: 30px;
     }
     
     .contact-right{
         display: none;
-        padding: 0 50px;
-        flex-basis: 100%;
     }
 
-    .nav-container{
-        padding: 10px 5%;
-    
+    .contact-left a,
+    .contact-left p{
+        font-size: 1rem;
     }
+
+    .contact-left a i,
+    .contact-left p i{
+        font-size: 1.2rem;
+    }
+
+    .social-icons{
+        margin-top: 20px;
+    }
+
+    .social-icons a i{
+        font-size: 2.5rem;
+        margin-right: 10px;
+    }
+
+    .btn{
+        padding: 12px 30px;
+        font-size: 0.9rem;
+    }
+
+    .btn.btn2{
+        margin-top: 20px;
+    }
+    
+    #contact-form{
+        padding: 0 20px;
+        margin-top: 30px;
+    }
+    
+    form input, form textarea{
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    ::placeholder {
+        font-size: 0.9rem;
+    }
+
     #footer p{
-        text-align: center;
-        font-size: 10px;
-        color: white;
-        font-weight: 300;
-        font-family: futura;
-       
+        font-size: 0.8rem;
     }
-    .work img{
-        width: 75%;
-        border-radius: 10px;
-        display: block;
-        transition: transform 0.5s;
-    }
-    
-    
-    
-    
-
-
-    
-    
 }
