@@ -11,7 +11,7 @@
 
 ::placeholder {
     color: white;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     font-family: futura;
 }
 
@@ -36,12 +36,12 @@ html,body{
 }
 
 #page1 h1{
-    font-size: 12rem;
+    font-size: 9rem;
     text-transform: uppercase;
     font-family: futura;
     color: white;
     padding-left: 10%;
-    line-height: 18rem;
+    line-height: 13.5rem;
     letter-spacing: -5px;
 }
 
@@ -66,7 +66,7 @@ nav ul li{
 nav ul li a{
     color: white;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-family: futura;
     position: relative;
 }
@@ -110,7 +110,7 @@ nav ul li a:hover::after{
 .about-col-2 h1{
     font-family: futura;
     color:white;
-    font-size: 2.4rem;
+    font-size: 1.8rem;
 }
 
 .about-col-2 {
@@ -118,7 +118,7 @@ nav ul li a:hover::after{
 }
 
 .about-col-2 p{
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     font-family: futura;
     color: white;
     padding-top: 2%; 
@@ -132,7 +132,7 @@ nav ul li a:hover::after{
 
 .tab-links{
     margin-right: 30px;
-    font-size: 20px;
+    font-size: 15px;
     font-family: futura;
     font-weight: 500;
     cursor: pointer;
@@ -158,18 +158,18 @@ nav ul li a:hover::after{
     list-style: none;
     font-family: futura;
     margin: 10px 0;
-    font-size: 15px;
+    font-size: 11px;
 }
 .tab-contents ul li span{
     color: rgba(128, 255, 0, 0.714);
     font-family: futura;
-    font-size: 25px;
+    font-size: 19px;
 }
 .tab-contents ul li span a{
     list-style: none;
     font-family: futura;
     margin: 10px 0;
-    font-size: 15px;
+    font-size: 11px;
 }
 
 .tab-contents{
@@ -187,7 +187,7 @@ nav ul li a:hover::after{
 #projects h1{
     font-family: futura;
     color:white;
-    font-size: 2.4rem;
+    font-size: 1.8rem;
 }
 
 .work-list{
@@ -232,14 +232,14 @@ nav ul li a:hover::after{
     padding-top: 30%;
     font-family: futura;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.125rem;
     font-weight: 500;
     margin-bottom: 20px;
 }
 .layer h4{
     padding-top: 10%;
     font-family: futura;
-    font-size: 1rem;
+    font-size: 0.75rem;
     color: white;
     font-weight: 500;
     margin-bottom: 20px;
@@ -248,7 +248,7 @@ nav ul li a:hover::after{
     font-family: futura;
     color: white;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 0.75rem;
     margin-bottom: 20px;
 }
 
@@ -256,11 +256,11 @@ nav ul li a:hover::after{
     margin-top: 20px;
     color: red;
     text-decoration: none;
-    font-size: 18px;
-    line-height: 60px;
+    font-size: 13.5px;
+    line-height: 45px;
     background: white;
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     text-align: center;
 }
@@ -294,7 +294,7 @@ nav ul li a:hover::after{
     padding: 0 0px;
     font-family: futura;
     color:white;
-    font-size: 2.4rem;
+    font-size: 1.8rem;
     margin-bottom: 30px;
 }
 
@@ -317,7 +317,7 @@ nav ul li a:hover::after{
 .contact-left p i{
     color: rgb(85, 0, 255);
     margin-right: 15px;
-    font-size: 25px;
+    font-size: 19px;
 }
 
 .contact-left a{
@@ -325,21 +325,21 @@ nav ul li a:hover::after{
     text-decoration: none;
     font-family: futura;
     margin-right: 15px;
-    font-size: 25px;
+    font-size: 19px;
 }
 .contact-left p {
     padding-top: 10px;
     color: white;
     font-family: futura;
     margin-right: 15px;
-    font-size: 25px;
+    font-size: 19px;
 }
 
 .contact-left a i{
     padding-top: 20px;
     color: rgb(85, 0, 255);
     margin-right: 15px;
-    font-size: 25px;
+    font-size: 19px;
 }
 
 .social-icons{
@@ -356,7 +356,7 @@ nav ul li a:hover::after{
 .social-icons a i{
     color: rgb(85, 0, 255);
     margin-right: 15px;
-    font-size: 69px;
+    font-size: 52px;
 }
 
 .social-icons a i:hover{
@@ -386,7 +386,7 @@ form input, form textarea{
     padding: 15px;
     margin: 15px 0;
     color: white;
-    font-size: 18px;
+    font-size: 13.5px;
     border-radius: 6px;
     font-family: futura;
 }
