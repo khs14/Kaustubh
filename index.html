@@ -7,8 +7,60 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="images/portfolio.png">
     <script src="https://kit.fontawesome.com/38616bc8f6.js" crossorigin="anonymous"></script>
+    <style>
+        /* === Preloader Styles === */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 9999;
+            color: #00ffcc;
+            font-family: 'Poppins', sans-serif;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .loader {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid #00ffcc;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 18px;
+            box-shadow: 0 0 20px #00ffcc;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #preloader p {
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        #main {
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- === PRELOADER === -->
+    <div id="preloader">
+        <div class="loader"></div>
+        <p>Loading 3D experience... 0%</p>
+    </div>
+
     <div id="main">
         <div class="nav-container">
             <nav>
@@ -21,6 +73,7 @@
                 </ul>
             </nav>
         </div>
+
         <div id="page1">
             <h1>Kaustubh<br> Hari Sethi</h1>
         </div> 
@@ -73,7 +126,7 @@
                                 <li> 
                                     <span>ISRO (Indian Space Research Organisation): </span><br> 
                                     3rd June 2024 - 30th December 2024 | Project Intern | On-site 
-                                    <br>Developed an AI-powered natural disaster monitoring platform on NRSC, ISRO Delhi servers, operating 24/7. The project is now copyrighted and a research paper based on this work is under journal review.  
+                                    <br>Developed an AI-powered natural disaster monitoring platform on NRSC, ISRO Delhi servers, operating 24/7. 
                                     <br><span>Skills:</span> AI/ML, Data Analysis, Predictive Analytics, Python, PostgreSQL, Node.js, React.js, Data Visualization
                                 </li>
 
@@ -125,25 +178,34 @@
                                     B. Tech Computer Science AI/ML | 2021 - 2025 (Ongoing)
                                     <br>Received 10 grade points in programming subjects of C, Java, and Python.<br>
                                     Peer Tutor for Python and Cyber Security.<br>
-                                    Published a patent with a team of batchmates on “Artificial Intelligence Based Virtual Reality Therapy System”.<br>
+                                    Published a patent on “Artificial Intelligence Based Virtual Reality Therapy System”.<br>
                                     Current CGPA: 8.90
                                 </li>
                                 <li> 
                                     <span>Sardar Patel Vidyalaya: </span><br> 
                                     High School | 2007-2021 
-                                    <br>High school subjects included Python and MySQL - helped with foundational concepts of computer science.<br>
-                                    Class representative from grade 9 to 12 - learned about leadership, teamwork, and communication.<br>
+                                    <br>High school subjects included Python and MySQL.<br>
+                                    Class representative from grade 9 to 12.<br>
                                     Grade 12 percentage: 90.8%
                                 </li>
                             </ul>
                         </div>
 
-                        <!-- Industry Knowledge -->
+                        <!-- Updated Industry Knowledge -->
                         <div class="tab-contents" id="industry-knowlege">
                             <ul>
-                                <li><span>Cloud:</span><br>GCP (Google Cloud Platform)</li>
-                                <li><span>Development:</span><br>Android Development, Front-end Web Development, Git & GitHub</li>
-                                <li><span>AI/ML:</span><br>Machine Learning, Data Analytics, Data Visualization, NLP</li>
+                                <li>
+                                    <span>Development:</span><br>
+                                    Android Development, Web (React.js, Flask, CSS), Backend (MySQL, Python), Cloud (Google Cloud Platform)
+                                </li>
+                                <li>
+                                    <span>AI/ML:</span><br>
+                                    Data Cleaning, Analytics, Visualization, Deep Learning, NLP, Computer Vision
+                                </li>
+                                <li>
+                                    <span>Programming:</span><br>
+                                    Python, Java, Kotlin, C, JavaScript, Dart
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -161,8 +223,7 @@
                     <img src="images/2.png" alt="project1">
                     <div class="layer" id="layer1">
                         <h3>Offensive Check Model</h3>
-                        <p>The project uses NLP and machine learning models to predict if the input text is offensive or not. 
-                            Using Streamlit for the user interface and hosting online.</p>
+                        <p>Predicts if text is offensive using NLP & ML. Built with Streamlit and hosted online.</p>
                         <a href="https://offensive-check.streamlit.app/" target="_blank"><i class="fa-solid fa-link"></i></a>
                     </div>
                 </div>
@@ -170,8 +231,7 @@
                     <img src="images/3.png" alt="project2">
                     <div class="layer">
                         <h4>Escalation</h4>
-                        <p>A ReactJS project demonstrating a platform for sustainable brands and businesses to 
-                            explore innovative marketing solutions with three pages I made.</p>
+                        <p>A ReactJS demo platform for sustainable brands and marketing innovation.</p>
                         <a href="https://4usyhq.csb.app/" target="_blank"><i class="fa-solid fa-link"></i></a>
                         <a href="https://wkwsuj.csb.app/" target="_blank"><i class="fa-solid fa-link"></i></a>
                         <a href="https://github.com/khs14/escalation-dashboard" target="_blank"><i class="fa-solid fa-link"></i></a>
@@ -181,8 +241,7 @@
                     <img src="images/1.png" alt="project3">
                     <div class="layer">
                         <h3>Event Hub</h3>
-                        <p>An app built with Kotlin and Jetpack Compose featuring navigation, splash screens, and multiple layouts. 
-                            Allows clubs to publish and manage upcoming college events.</p>
+                        <p>An app made using Kotlin & Jetpack Compose for managing college club events.</p>
                         <a href="https://github.com/khs14/event_hub" target="_blank"><i class="fa-solid fa-link"></i></a>
                     </div>
                 </div>
@@ -229,20 +288,48 @@
         <p>Made by Kaustubh © 2024</p>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" 
-    integrity="sha512-EZI2cBcGPnmR89wTgVnN3602Yyi7muWo8y1B3a8WmIv1J9tYG+udH4LvmYjLiGp37yHB7FfaPBo8ly178m9g4Q==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
     <script src="script.js"></script>
+
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxGohhAlDtF2M9sOfonWqAyuX2YRsElYG-EzS02tENU1XKk3PMIeT9fWgqAJhf2sZtQIQ/exec'
-        const form = document.forms['submit-to-google-sheet']
-      
+        // === Google Sheet Form ===
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxGohhAlDtF2M9sOfonWqAyuX2YRsElYG-EzS02tENU1XKk3PMIeT9fWgqAJhf2sZtQIQ/exec';
+        const form = document.forms['submit-to-google-sheet'];
         form.addEventListener('submit', e => {
-          e.preventDefault()
-          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => console.log('Success!', response))
-            .catch(error => console.error('Error!', error.message))
-        })
+            e.preventDefault();
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message));
+        });
+
+        // === Smart Preloader ===
+        const preloader = document.getElementById('preloader');
+        const main = document.getElementById('main');
+        const splineScenes = document.querySelectorAll('spline-viewer');
+        const loaderText = document.querySelector('#preloader p');
+        let loadedCount = 0;
+
+        function updateProgress() {
+            const percent = Math.round((loadedCount / splineScenes.length) * 100);
+            loaderText.textContent = `Loading 3D experience... ${percent}%`;
+        }
+
+        function hidePreloader() {
+            preloader.style.opacity = '0';
+            preloader.style.visibility = 'hidden';
+            main.style.opacity = '1';
+        }
+
+        splineScenes.forEach(scene => {
+            scene.addEventListener('load', () => {
+                loadedCount++;
+                updateProgress();
+                if (loadedCount === splineScenes.length) hidePreloader();
+            });
+        });
+
+        // Fallback: hide after 10s in case of slow connection
+        setTimeout(hidePreloader, 10000);
     </script>
 </body>
 </html>
