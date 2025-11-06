@@ -1,335 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaustubh</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="images/portfolio.png">
-    <script src="https://kit.fontawesome.com/38616bc8f6.js" crossorigin="anonymous"></script>
-    <style>
-        /* === Preloader Styles === */
-        #preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            background-color: #0a0a0a;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            z-index: 9999;
-            color: #00ffcc;
-            font-family: 'Poppins', sans-serif;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaustubh</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="images/portfolio.png" />
+  <script src="https://kit.fontawesome.com/38616bc8f6.js" crossorigin="anonymous"></script>
+  <style>
+    /* === Preloader Styles === */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: radial-gradient(circle at center, #0a0a0a 80%, #000);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      color: #00ffee;
+      font-family: "Poppins", sans-serif;
+      transition: opacity 1s ease, visibility 1s ease;
+    }
 
-        .loader {
-            border: 4px solid rgba(255, 255, 255, 0.1);
-            border-top: 4px solid #00ffcc;
-            border-radius: 50%;
-            width: 70px;
-            height: 70px;
-            animation: spin 1s linear infinite;
-            margin-bottom: 18px;
-            box-shadow: 0 0 20px #00ffcc;
-        }
+    .loader-ring {
+      width: 80px;
+      height: 80px;
+      border: 4px solid rgba(255, 255, 255, 0.1);
+      border-top: 4px solid #00ffee;
+      border-radius: 50%;
+      animation: spin 1.1s linear infinite;
+      box-shadow: 0 0 20px #00ffee;
+    }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
 
-        #preloader p {
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-        }
+    .loading-text {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      text-align: center;
+      animation: pulse 2s ease-in-out infinite;
+    }
 
-        #main {
-            opacity: 0;
-            transition: opacity 1s ease-in;
-        }
-    </style>
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.6;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    #main {
+      opacity: 0;
+      transition: opacity 1.5s ease-in;
+    }
+  </style>
 </head>
+
 <body>
+  <!-- === PRELOADER === -->
+  <div id="preloader">
+    <div class="loader-ring"></div>
+    <p class="loading-text" id="loading-text">Loading environment... 0%</p>
+  </div>
 
-    <!-- === PRELOADER === -->
-    <div id="preloader">
-        <div class="loader"></div>
-        <p>Loading 3D experience... 0%</p>
+  <div id="main">
+    <div class="nav-container">
+      <nav>
+        <ul>
+          <li><a href="#page1">Home</a></li>
+          <li><a href="#about">Experience</a></li>
+          <li><a href="#projects">My Work</a></li>
+          <li><a href="#contact">Resume</a></li>
+          <li><a href="#contact">Contact Me</a></li>
+        </ul>
+      </nav>
     </div>
+    <div id="page1">
+      <h1>Kaustubh<br />Hari Sethi</h1>
+    </div>
+  </div>
 
-    <div id="main">
-        <div class="nav-container">
-            <nav>
-                <ul>
-                    <li><a href="#page1">Home</a></li>
-                    <li><a href="#about">Experience</a></li>
-                    <li><a href="#projects">My Work</a></li>
-                    <li><a href="#contact">Resume</a></li>
-                    <li><a href="#contact">Contact Me</a></li>
-                </ul>
-            </nav>
+  <div id="about">
+    <div class="container">
+      <div class="row">
+        <div class="about-col-1">
+          <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.17/build/spline-viewer.js"></script>
+          <spline-viewer id="spline1" url="https://prod.spline.design/oKw6yd1hLqedmLIl/scene.splinecode"></spline-viewer>
         </div>
+        <div class="about-col-2">
+          <h1>About Me</h1>
+          <p>
+            22-year-old <br />innovative computer science engineering student with expertise in<br />
+            machine learning, mobile app, and web development.<br />
+            A creative problem-solver, dedicated to transforming ideas into impactful technological solutions.
+          </p>
+          <div class="tab-titles">
+            <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+            <p class="tab-links" onclick="opentab('experience')">Experience</p>
+            <p class="tab-links" onclick="opentab('education')">Education</p>
+            <p class="tab-links" onclick="opentab('industry-knowlege')">Industry Knowledge</p>
+          </div>
 
-        <div id="page1">
-            <h1>Kaustubh<br> Hari Sethi</h1>
-        </div> 
-    </div>
+          <!-- Skills -->
+          <div class="tab-contents active-tab" id="skills">
+            <ul>
+              <li>
+                <span>Programming:</span><br />Python (Advanced), Java (Intermediate), Kotlin (Intermediate), C (Intermediate), JavaScript (Intermediate), Dart (Beginner)
+              </li>
+              <li><span>Machine learning:</span><br />TensorFlow, Keras, NLTK, spaCy, Deep Learning, NLP</li>
+              <li><span>Frontend:</span><br />React.js, Flask, Streamlit, CSS, Tailwind CSS, Spline (3D Modelling)</li>
+              <li><span>Android:</span><br />Jetpack Compose</li>
+              <li><span>Backend:</span><br />MySQL, Python, JavaScript</li>
+            </ul>
+          </div>
 
-    <div id="about">
-        <div class="container">
-            <div class="row">
-                <div class="about-col-1">
-                    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.17/build/spline-viewer.js"></script>
-                    <spline-viewer id="spline-asset-char" url="https://prod.spline.design/oKw6yd1hLqedmLIl/scene.splinecode"></spline-viewer>  
-                </div>
-                <div class="about-col-2">
-                    <h1>About Me</h1>
-                    <div id="bio">
-                        <p>22-year-old <br>innovative computer science engineering student with expertise in<br> machine learning, mobile app, and web 
-                            development.<br> A creative problem-solver, dedicated to transforming ideas into impactful technological solutions.
-                        </p>
-                        <div class="tab-titles">
-                            <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                            <p class="tab-links" onclick="opentab('experience')">Experience</p>
-                            <p class="tab-links" onclick="opentab('education')">Education</p>
-                            <p class="tab-links" onclick="opentab('industry-knowlege')">Industry Knowledge</p>
-                        </div>
+          <!-- Experience -->
+          <div class="tab-contents" id="experience">
+            <ul>
+              <li>
+                <span>Kotronix Technologies:</span><br />Feb 2025 - Present | Self Employed | On-site<br />
+                • Led service & maintenance of 21 DC fast chargers for LCTSL, achieving ~87% cost savings.<br />
+                • Restored non-functional chargers & improved EV depot uptime.<br />
+                • Collaborated with govt teams for sustainable e-mobility.<br />
+                <span>Skills:</span> High-voltage DC systems, electrical diagnostics, preventive maintenance, troubleshooting, safety compliance, govt project coordination, business development.
+              </li>
 
-                        <!-- Skills -->
-                        <div class="tab-contents active-tab" id="skills">
-                            <ul>
-                                <li><span>Programming languages: </span><br>Python (Advanced), Java (Intermediate), Kotlin (Intermediate), C (Intermediate), JavaScript (Intermediate), Dart (Beginner)</li>
-                                <li><span>Machine learning: </span><br>TensorFlow, Keras, NLTK, spaCy, Deep Learning, NLP</li>
-                                <li><span>Front-end Development (Web): </span><br>React.js, Flask, Streamlit, CSS, Tailwind CSS, Spline (3D Modelling)</li>
-                                <li><span>Front-end Development (Android): </span><br>Jetpack Compose</li>
-                                <li><span>Backend: </span><br>MySQL, Python, JavaScript</li>
-                            </ul>
-                        </div>
+              <li>
+                <span>ISRO (Indian Space Research Organisation):</span><br />Jun–Dec 2024 | Project Intern | On-site<br />
+                Developed an AI-powered natural disaster monitoring platform on NRSC, ISRO Delhi servers. Project now under journal review.<br />
+                <span>Skills:</span> AI/ML, Data Analytics, Predictive Analytics, Python, PostgreSQL, Node.js, React.js
+              </li>
 
-                        <!-- Experience -->
-                        <div class="tab-contents" id="experience">
-                            <ul>
-                                <li> 
-                                    <span>Kotronix Technologies:</span><br>
-                                    February 2025 - Present | Self Employed | On-site<br>
-                                    ● Led service and maintenance of 21 DC fast chargers, achieving ~87% cost savings compared to replacement for Lucknow City Transport Service Ltd. (LCTSL).<br>
-                                    ● Restored non-functional chargers, optimizing depot operations where idle EV buses were previously unusable.<br>
-                                    ● Enabled full utilization of EV bus fleets by reviving critical charging infrastructure and preventing service downtime.<br>
-                                    ● Collaborated with government teams to improve maintenance workflows and support the growth of sustainable e-mobility.<br>
-                                    <span>Skills:</span> High-voltage DC systems, electrical diagnostics, preventive maintenance, troubleshooting, safety compliance, government project coordination, business development.
-                                </li>
+              <li>
+                <span>CWE (Catalyst for Women Entrepreneurship):</span><br />May–Jun 2024 | Intern | Remote<br />
+                Built data automation tools saving 5 hours of manual work into seconds — <a href="https://cwe-data.streamlit.app/" target="_blank">Project Link</a><br />
+                <span>Skills:</span> Python, Data Analytics, Mailchimp
+              </li>
 
-                                <li> 
-                                    <span>ISRO (Indian Space Research Organisation): </span><br> 
-                                    3rd June 2024 - 30th December 2024 | Project Intern | On-site 
-                                    <br>Developed an AI-powered natural disaster monitoring platform on NRSC, ISRO Delhi servers, operating 24/7. 
-                                    <br><span>Skills:</span> AI/ML, Data Analysis, Predictive Analytics, Python, PostgreSQL, Node.js, React.js, Data Visualization
-                                </li>
+              <li>
+                <span>Rancho Labs:</span><br />Jun–Oct 2023 | AI/ML Intern | Remote<br />
+                Created educational ML materials & projects.<br />
+                <span>Skills:</span> Python, CNNs, ML Algorithms
+              </li>
 
-                                <li> 
-                                    <span>CWE (Catalyst for Women Entrepreneurship)</span><br> 
-                                    28th May 2024 - 28th June 2024 | 1 month | Intern | Remote 
-                                    <br>Created data automation tools saving 5 hours of manual work into seconds - 
-                                    <span><a href="https://cwe-data.streamlit.app/" target="_blank"> Link to Project </a></span> 
-                                    <br><span>Skills:</span> Data analytics, Python, Mailchimp 
-                                </li>
+              <li>
+                <span>Leoforce:</span><br />May–Jul 2023 | Software Development Intern | Remote<br />
+                Created playgrounds/dashboards for AI product testing.<br />
+                <span>Skills:</span> JavaScript, REST API, Kubernetes, GitLab
+              </li>
+            </ul>
+          </div>
 
-                                <li> 
-                                    <span>Rancho Labs: </span><br>
-                                    15 June 2023 - 15 October 2023 | 4 months | AI/ML Intern | Remote 
-                                    <br>Worked as a facilitator preparing material and projects for machine learning concepts.
-                                    <br><span>Skills:</span> Python, ML Algorithms, CNN
-                                </li>
+          <!-- Education -->
+          <div class="tab-contents" id="education">
+            <ul>
+              <li>
+                <span>The NorthCap University:</span><br />B.Tech CSE (AI/ML) | 2021–2025<br />CGPA: 8.9<br />
+                Peer Tutor for Python & Cybersecurity. Patent on “AI-based VR Therapy System”.
+              </li>
+              <li>
+                <span>Sardar Patel Vidyalaya:</span><br />High School | 2007–2021<br />12th %: 90.8<br />Python & MySQL foundation.
+              </li>
+            </ul>
+          </div>
 
-                                <li> 
-                                    <span>Leoforce: </span><br>
-                                    25 May 2023 - 25 July 2023 | 2 months | Software Development Intern | Remote 
-                                    <br>An AI-based product company. Created playgrounds and dashboards for the product management team to test AI products. 
-                                    <br><span>Skills:</span> JavaScript, REST API, Kubernetes, GitLab
-                                </li>
-
-                                <li> 
-                                    <span>Google Developers Student Club NCU: </span><br>
-                                    August 2022 - May 2023 | Technical Lead | College Premise and Remote
-                                    <br>Participated in 30 Days of Google Cloud and submitted project in Solution Challenge. 
-                                    Later facilitated Jetpack Compose Camp as core team member.
-                                    <br><span>Skills:</span> App Development, Teamwork
-                                </li>
-
-                                <li> 
-                                    <span>Enactus NCU: </span><br>
-                                    October 2022 - Present | Finance Head | College Premise and Remote 
-                                    <br>Started in the graphics team creating event posters and certificates. 
-                                    Later led a team of 5 as graphics head, and now manage project finances and future pitch calculations.
-                                    <br><span>Skills:</span> Graphics, Teamwork, Finance
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- Education -->
-                        <div class="tab-contents" id="education">
-                            <ul>
-                                <li> 
-                                    <span>The NorthCap University: </span><br> 
-                                    B. Tech Computer Science AI/ML | 2021 - 2025 (Ongoing)
-                                    <br>Received 10 grade points in programming subjects of C, Java, and Python.<br>
-                                    Peer Tutor for Python and Cyber Security.<br>
-                                    Published a patent on “Artificial Intelligence Based Virtual Reality Therapy System”.<br>
-                                    Current CGPA: 8.90
-                                </li>
-                                <li> 
-                                    <span>Sardar Patel Vidyalaya: </span><br> 
-                                    High School | 2007-2021 
-                                    <br>High school subjects included Python and MySQL.<br>
-                                    Class representative from grade 9 to 12.<br>
-                                    Grade 12 percentage: 90.8%
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- Updated Industry Knowledge -->
-                        <div class="tab-contents" id="industry-knowlege">
-                            <ul>
-                                <li>
-                                    <span>Development:</span><br>
-                                    Android Development, Web (React.js, Flask, CSS), Backend (MySQL, Python), Cloud (Google Cloud Platform)
-                                </li>
-                                <li>
-                                    <span>AI/ML:</span><br>
-                                    Data Cleaning, Analytics, Visualization, Deep Learning, NLP, Computer Vision
-                                </li>
-                                <li>
-                                    <span>Programming:</span><br>
-                                    Python, Java, Kotlin, C, JavaScript, Dart
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <!-- Industry Knowledge -->
+          <div class="tab-contents" id="industry-knowlege">
+            <ul>
+              <li>
+                <span>Development:</span><br />Android (Jetpack Compose), Web (React.js, Flask, CSS), Backend (MySQL, Python), Cloud (Google Cloud Platform)
+              </li>
+              <li><span>AI/ML:</span><br />Data Cleaning, Analytics, Visualization, Deep Learning, NLP, Computer Vision</li>
+              <li><span>Programming:</span><br />Python, Java, Kotlin, C, JavaScript, Dart</li>
+            </ul>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Projects -->
-    <div id="projects">
-        <div class="container">
-            <h1 class="sub-title">PERSONAL PROJECTS</h1>
-            <div class="work-list">
-                <div class="work">
-                    <img src="images/2.png" alt="project1">
-                    <div class="layer" id="layer1">
-                        <h3>Offensive Check Model</h3>
-                        <p>Predicts if text is offensive using NLP & ML. Built with Streamlit and hosted online.</p>
-                        <a href="https://offensive-check.streamlit.app/" target="_blank"><i class="fa-solid fa-link"></i></a>
-                    </div>
-                </div>
-                <div class="work">
-                    <img src="images/3.png" alt="project2">
-                    <div class="layer">
-                        <h4>Escalation</h4>
-                        <p>A ReactJS demo platform for sustainable brands and marketing innovation.</p>
-                        <a href="https://4usyhq.csb.app/" target="_blank"><i class="fa-solid fa-link"></i></a>
-                        <a href="https://wkwsuj.csb.app/" target="_blank"><i class="fa-solid fa-link"></i></a>
-                        <a href="https://github.com/khs14/escalation-dashboard" target="_blank"><i class="fa-solid fa-link"></i></a>
-                    </div>
-                </div>
-                <div class="work">
-                    <img src="images/1.png" alt="project3">
-                    <div class="layer">
-                        <h3>Event Hub</h3>
-                        <p>An app made using Kotlin & Jetpack Compose for managing college club events.</p>
-                        <a href="https://github.com/khs14/event_hub" target="_blank"><i class="fa-solid fa-link"></i></a>
-                    </div>
-                </div>
-            </div>
-            <a href="https://github.com/khs14" target="_blank" class="btn">See more</a>
+  <!-- Another Spline (Contact) -->
+  <div id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="contact-left">
+          <h1>Contact Me</h1>
+          <a href="mailto:kaustubhsethi14@gmail.com"><i class="fa-solid fa-envelope"></i> kaustubhsethi14@gmail.com</a>
+          <p><i class="fa-solid fa-phone"></i> +91 9205004891</p>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/kaustubh-hari-sethi/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/khs14" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://twitter.com/CodesKhs" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+          <a href="images/Resume Kaustubh Hari Sethi.pdf" download class="btn btn2">Download Resume</a>
         </div>
-    </div>
-
-    <!-- Contact -->
-    <div id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="contact-left">
-                    <h1>Contact Me</h1>
-                    <a href="mailto:kaustubhsethi14@gmail.com"><i class="fa-solid fa-envelope"></i> kaustubhsethi14@gmail.com</a>
-                    <p><i class="fa-solid fa-phone"></i> +91 9205004891</p>
-                    <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/kaustubh-hari-sethi/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="https://github.com/khs14" target="_blank"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://twitter.com/CodesKhs" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-                    </div>
-                    <a href="images/Resume Kaustubh Hari Sethi.pdf" download class="btn btn2">Download Resume</a>
-                </div>
-                <div class="contact-right">
-                    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.17/build/spline-viewer.js"></script>
-                    <spline-viewer url="https://prod.spline.design/BwYaL01FZaW9YoFD/scene.splinecode"></spline-viewer>
-                </div>
-            </div>
+        <div class="contact-right">
+          <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.17/build/spline-viewer.js"></script>
+          <spline-viewer id="spline2" url="https://prod.spline.design/BwYaL01FZaW9YoFD/scene.splinecode"></spline-viewer>
         </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Contact Form -->
-    <div id="contact-form">
-        <form name="submit-to-google-sheet">
-            <input type="text" name="Name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your E-mail" required>
-            <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-            <br>
-            <button type="submit" class="btn btn2">Submit</button>
-        </form>
-    </div>
+  <div id="footer">
+    <p>Made by Kaustubh © 2024</p>
+  </div>
 
-    <div id="footer">
-        <p>Made by Kaustubh © 2024</p>
-    </div>
+  <script>
+    // === Accurate Preloader for Spline Scenes ===
+    const preloader = document.getElementById("preloader");
+    const main = document.getElementById("main");
+    const loaderText = document.getElementById("loading-text");
+    const splineScenes = document.querySelectorAll("spline-viewer");
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
-    <script src="script.js"></script>
+    let loadedCount = 0;
+    let fakeProgress = 0;
 
-    <script>
-        // === Google Sheet Form ===
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxGohhAlDtF2M9sOfonWqAyuX2YRsElYG-EzS02tENU1XKk3PMIeT9fWgqAJhf2sZtQIQ/exec';
-        const form = document.forms['submit-to-google-sheet'];
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => console.log('Success!', response))
-                .catch(error => console.error('Error!', error.message));
-        });
+    function smoothProgress() {
+      // Increment slow progress until real load catches up
+      if (fakeProgress < Math.min(loadedCount * (100 / splineScenes.length), 95)) {
+        fakeProgress += 0.3; // smooth animation
+        loaderText.textContent = `Loading 3D environment... ${Math.round(fakeProgress)}%`;
+      }
+      requestAnimationFrame(smoothProgress);
+    }
 
-        // === Smart Preloader ===
-        const preloader = document.getElementById('preloader');
-        const main = document.getElementById('main');
-        const splineScenes = document.querySelectorAll('spline-viewer');
-        const loaderText = document.querySelector('#preloader p');
-        let loadedCount = 0;
+    smoothProgress();
 
-        function updateProgress() {
-            const percent = Math.round((loadedCount / splineScenes.length) * 100);
-            loaderText.textContent = `Loading 3D experience... ${percent}%`;
+    splineScenes.forEach(scene => {
+      scene.addEventListener("load", () => {
+        loadedCount++;
+        loaderText.textContent = `Loading 3D environment... ${Math.round((loadedCount / splineScenes.length) * 100)}%`;
+        if (loadedCount === splineScenes.length) {
+          // Add a short delay to allow render stabilization
+          setTimeout(() => {
+            preloader.style.opacity = "0";
+            preloader.style.visibility = "hidden";
+            main.style.opacity = "1";
+          }, 1800);
         }
+      });
+    });
 
-        function hidePreloader() {
-            preloader.style.opacity = '0';
-            preloader.style.visibility = 'hidden';
-            main.style.opacity = '1';
-        }
-
-        splineScenes.forEach(scene => {
-            scene.addEventListener('load', () => {
-                loadedCount++;
-                updateProgress();
-                if (loadedCount === splineScenes.length) hidePreloader();
-            });
-        });
-
-        // Fallback: hide after 10s in case of slow connection
-        setTimeout(hidePreloader, 10000);
-    </script>
+    // Fallback in case of slow Spline CDN
+    setTimeout(() => {
+      preloader.style.opacity = "0";
+      preloader.style.visibility = "hidden";
+      main.style.opacity = "1";
+    }, 15000);
+  </script>
 </body>
 </html>
