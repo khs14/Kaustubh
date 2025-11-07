@@ -174,18 +174,18 @@ nav ul li a:hover::after {
 }
 
 /* === TAB CONTENT FIXED === */
-.tab-contents {
-    display: none;
-    opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
+.tab-links:hover {
+    color: #008000;
+    background-color: rgba(0,128,0,0.1);
+    box-shadow: 0 0 10px rgba(0,128,0,0.3);
 }
 
-.tab-contents.active-tab {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
+.tab-links.active-link {
+    color: #008000;
+    background-color: rgba(0,128,0,0.2);
+    box-shadow: inset 0 0 12px rgba(0,128,0,0.4);
 }
+
 
 /* === TAB CONTENT TEXT === */
 .tab-contents ul li {
@@ -526,3 +526,4 @@ form input, form textarea {
         font-size: 0.8rem;
     }
 }
+
