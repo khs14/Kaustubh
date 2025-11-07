@@ -8,33 +8,43 @@
     <link rel="icon" type="image/x-icon" href="images/portfolio.png">
     <script src="https://kit.fontawesome.com/38616bc8f6.js" crossorigin="anonymous"></script>
     <style>
-        /* === Preloader Styles === */
+        /* === Preloader Styles (Desktop Only) === */
         #preloader {
             position: fixed;
             top: 0;
             left: 0;
             height: 100%;
             width: 100%;
-            background-color: #0a0a0a;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             z-index: 9999;
-            color: #00ffcc;
+            color: #ffffff;
             font-family: 'Poppins', sans-serif;
             transition: opacity 0.6s ease, visibility 0.6s ease;
         }
 
+        /* Hide preloader on mobile */
+        @media (max-width: 768px) {
+            #preloader {
+                display: none !important;
+            }
+            #main {
+                opacity: 1 !important;
+            }
+        }
+
         .loader {
             border: 4px solid rgba(255, 255, 255, 0.1);
-            border-top: 4px solid #00ffcc;
+            border-top: 4px solid #ffffff;
             border-radius: 50%;
             width: 70px;
             height: 70px;
             animation: spin 1s linear infinite;
             margin-bottom: 18px;
-            box-shadow: 0 0 20px #00ffcc;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
         }
 
         @keyframes spin {
@@ -44,13 +54,14 @@
 
         #preloader p {
             font-size: 1.1rem;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             margin: 5px 0;
+            font-weight: 300;
         }
 
         #preloader .progress-bar {
             width: 300px;
-            height: 4px;
+            height: 3px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 2px;
             margin-top: 20px;
@@ -59,38 +70,213 @@
 
         #preloader .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #00ffcc, #00cc99);
+            background: linear-gradient(90deg, #ffffff, #cccccc);
             width: 0%;
             transition: width 0.3s ease;
-            box-shadow: 0 0 10px #00ffcc;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
         }
 
         #preloader .loading-stage {
-            font-size: 0.9rem;
-            opacity: 0.7;
+            font-size: 0.85rem;
+            opacity: 0.6;
             margin-top: 10px;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
         #main {
             opacity: 0;
             transition: opacity 1s ease-in;
         }
+
+        /* === Mobile Burger Menu === */
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 10001;
+            padding: 10px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .burger-menu span {
+            width: 28px;
+            height: 3px;
+            background-color: #fff;
+            margin: 3px 0;
+            transition: 0.4s;
+            border-radius: 2px;
+        }
+
+        .burger-menu.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-6px, 6px);
+        }
+
+        .burger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger-menu.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-6px, -6px);
+        }
+
+        /* Mobile menu overlay */
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9998;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .menu-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Mobile Navigation Styles */
+        @media only screen and (max-width: 768px) {
+            .burger-menu {
+                display: flex;
+            }
+
+            .nav-container {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                max-width: 350px;
+                height: 100vh;
+                background: rgba(10, 10, 10, 0.98);
+                transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                z-index: 9999;
+                backdrop-filter: blur(15px);
+                border-left: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+                padding: 0 !important;
+            }
+
+            .nav-container.active {
+                right: 0;
+            }
+
+            .nav-container nav {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+            }
+
+            .nav-container nav ul {
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+                text-align: center;
+                width: 100%;
+            }
+
+            .nav-container nav ul li {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                opacity: 0;
+                transform: translateX(50px);
+                transition: all 0.4s ease;
+                display: block;
+            }
+
+            .nav-container.active nav ul li {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            .nav-container.active nav ul li:nth-child(1) { transition-delay: 0.1s; }
+            .nav-container.active nav ul li:nth-child(2) { transition-delay: 0.15s; }
+            .nav-container.active nav ul li:nth-child(3) { transition-delay: 0.2s; }
+            .nav-container.active nav ul li:nth-child(4) { transition-delay: 0.25s; }
+            .nav-container.active nav ul li:nth-child(5) { transition-delay: 0.3s; }
+
+            .nav-container nav ul li a {
+                font-size: 1.4rem !important;
+                color: #fff;
+                text-decoration: none;
+                font-weight: 400;
+                transition: all 0.3s ease;
+                display: block;
+                padding: 20px 30px;
+                font-family: futura;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .nav-container nav ul li a:hover {
+                color: #00ffcc;
+                background: rgba(0, 255, 204, 0.05);
+                padding-left: 40px;
+            }
+
+            .nav-container nav ul li a::after {
+                display: none;
+            }
+        }
+
+        /* Desktop navigation remains visible */
+        @media only screen and (min-width: 769px) {
+            .burger-menu {
+                display: none !important;
+            }
+            
+            .menu-overlay {
+                display: none !important;
+            }
+
+            .nav-container {
+                position: relative !important;
+                right: auto !important;
+                width: auto !important;
+                height: auto !important;
+                background: transparent !important;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- === PRELOADER === -->
+    <!-- === PRELOADER (Desktop Only) === -->
     <div id="preloader">
         <div class="loader"></div>
-        <p id="progress-text">Initializing... 0%</p>
+        <p id="progress-text">INITIALIZING... 0%</p>
         <div class="progress-bar">
             <div class="progress-fill" id="progress-fill"></div>
         </div>
         <p class="loading-stage" id="loading-stage">Preparing assets...</p>
     </div>
 
+    <!-- Burger Menu (Mobile Only) -->
+    <div class="burger-menu" id="burger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+
     <div id="main">
-        <div class="nav-container">
+        <div class="nav-container" id="nav-container">
             <nav>
                 <ul>
                     <li><a href="#page1">Home</a></li>
@@ -142,7 +328,7 @@
                         <div class="tab-contents" id="experience">
                             <ul>
                                 <li> 
-                                    <span>Kotronix Technologies:</span><br>
+                                    <span>Kotronix Technologies (<a href="https://kotornixtechnologies.com" target="_blank" style="color: #00ffcc; text-decoration: underline;">kotornixtechnologies.com</a>):</span><br>
                                     February 2025 - Present | Self Employed | On-site<br>
                                     ● Led service and maintenance of 21 DC fast chargers, achieving ~87% cost savings compared to replacement for Lucknow City Transport Service Ltd. (LCTSL).<br>
                                     ● Restored non-functional chargers, optimizing depot operations where idle EV buses were previously unusable.<br>
@@ -320,6 +506,31 @@
     <script src="script.js"></script>
 
     <script>
+        // === Mobile Menu Toggle ===
+        const burgerMenu = document.getElementById('burger-menu');
+        const navContainer = document.getElementById('nav-container');
+        const menuOverlay = document.getElementById('menu-overlay');
+        const navLinks = document.querySelectorAll('.nav-container nav ul li a');
+
+        function toggleMenu() {
+            burgerMenu.classList.toggle('active');
+            navContainer.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.style.overflow = navContainer.classList.contains('active') ? 'hidden' : '';
+        }
+
+        burgerMenu.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking a nav link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    toggleMenu();
+                }
+            });
+        });
+
         // === Google Sheet Form ===
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxGohhAlDtF2M9sOfonWqAyuX2YRsElYG-EzS02tENU1XKk3PMIeT9fWgqAJhf2sZtQIQ/exec';
         const form = document.forms['submit-to-google-sheet'];
@@ -330,138 +541,144 @@
                 .catch(error => console.error('Error!', error.message));
         });
 
-        // === Enhanced Smart Preloader ===
+        // === Enhanced Smart Preloader (Desktop Only) ===
         const preloader = document.getElementById('preloader');
         const main = document.getElementById('main');
         const progressText = document.getElementById('progress-text');
         const progressFill = document.getElementById('progress-fill');
         const loadingStage = document.getElementById('loading-stage');
         
-        let progress = 0;
-        const loadingStages = [
-            'Loading...',
-            'Loading...',
-            'Loading...',
-            'Loading...',
-            'Almost ready...'
-        ];
-        let currentStage = 0;
+        // Skip preloader on mobile
+        if (window.innerWidth <= 768) {
+            if (preloader) preloader.style.display = 'none';
+            main.style.opacity = '1';
+        } else {
+            let progress = 0;
+            const loadingStages = [
+                'Loading assets...',
+                'Initializing components...',
+                'Loading 3D models...',
+                'Preparing interface...',
+                'Almost ready...'
+            ];
+            let currentStage = 0;
 
-        function updateProgress(value, stage) {
-            progress = Math.min(value, 100);
-            progressText.textContent = `Loading portfolio... ${Math.round(progress)}%`;
-            progressFill.style.width = `${progress}%`;
-            
-            if (stage !== undefined && stage < loadingStages.length) {
-                currentStage = stage;
-                loadingStage.textContent = loadingStages[stage];
+            function updateProgress(value, stage) {
+                progress = Math.min(value, 100);
+                progressText.textContent = `LOADING PORTFOLIO... ${Math.round(progress)}%`;
+                progressFill.style.width = `${progress}%`;
+                
+                if (stage !== undefined && stage < loadingStages.length) {
+                    currentStage = stage;
+                    loadingStage.textContent = loadingStages[stage];
+                }
             }
-        }
 
-        function hidePreloader() {
-            updateProgress(100, 4);
-            setTimeout(() => {
-                preloader.style.opacity = '0';
-                preloader.style.visibility = 'hidden';
-                main.style.opacity = '1';
-            }, 300);
-        }
-
-        // Track multiple loading stages
-        const loadTracker = {
-            domReady: false,
-            stylesLoaded: false,
-            splineViewerReady: false,
-            spline1Loaded: false,
-            spline2Loaded: false
-        };
-
-        function checkLoadingProgress() {
-            let completed = 0;
-            const total = Object.keys(loadTracker).length;
-            
-            Object.values(loadTracker).forEach(loaded => {
-                if (loaded) completed++;
-            });
-            
-            const percentage = (completed / total) * 100;
-            
-            // Update stage based on progress
-            let stage = 0;
-            if (percentage > 20) stage = 1;
-            if (percentage > 40) stage = 2;
-            if (percentage > 60) stage = 3;
-            if (percentage > 80) stage = 4;
-            
-            updateProgress(percentage, stage);
-            
-            if (completed === total) {
-                hidePreloader();
+            function hidePreloader() {
+                updateProgress(100, 4);
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    preloader.style.visibility = 'hidden';
+                    main.style.opacity = '1';
+                }, 300);
             }
-        }
 
-        // Initial progress
-        updateProgress(0, 0);
+            // Track multiple loading stages
+            const loadTracker = {
+                domReady: false,
+                stylesLoaded: false,
+                splineViewerReady: false,
+                spline1Loaded: false,
+                spline2Loaded: false
+            };
 
-        // Track DOM ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => {
+            function checkLoadingProgress() {
+                let completed = 0;
+                const total = Object.keys(loadTracker).length;
+                
+                Object.values(loadTracker).forEach(loaded => {
+                    if (loaded) completed++;
+                });
+                
+                const percentage = (completed / total) * 100;
+                
+                // Update stage based on progress
+                let stage = 0;
+                if (percentage > 20) stage = 1;
+                if (percentage > 40) stage = 2;
+                if (percentage > 60) stage = 3;
+                if (percentage > 80) stage = 4;
+                
+                updateProgress(percentage, stage);
+                
+                if (completed === total) {
+                    hidePreloader();
+                }
+            }
+
+            // Initial progress
+            updateProgress(0, 0);
+
+            // Track DOM ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => {
+                    loadTracker.domReady = true;
+                    checkLoadingProgress();
+                });
+            } else {
                 loadTracker.domReady = true;
                 checkLoadingProgress();
-            });
-        } else {
-            loadTracker.domReady = true;
-            checkLoadingProgress();
-        }
+            }
 
-        // Track stylesheet loading
-        setTimeout(() => {
-            loadTracker.stylesLoaded = true;
-            checkLoadingProgress();
-        }, 200);
-
-        // Track Spline viewer script
-        const checkSplineViewer = setInterval(() => {
-            if (typeof customElements !== 'undefined' && customElements.get('spline-viewer')) {
-                loadTracker.splineViewerReady = true;
+            // Track stylesheet loading
+            setTimeout(() => {
+                loadTracker.stylesLoaded = true;
                 checkLoadingProgress();
-                clearInterval(checkSplineViewer);
-                
-                // Now attach listeners to Spline scenes
-                const splineScenes = document.querySelectorAll('spline-viewer');
-                
-                splineScenes.forEach((scene, index) => {
-                    // Track both load and error events
-                    scene.addEventListener('load', () => {
-                        if (index === 0) loadTracker.spline1Loaded = true;
-                        if (index === 1) loadTracker.spline2Loaded = true;
-                        checkLoadingProgress();
-                    });
+            }, 200);
+
+            // Track Spline viewer script
+            const checkSplineViewer = setInterval(() => {
+                if (typeof customElements !== 'undefined' && customElements.get('spline-viewer')) {
+                    loadTracker.splineViewerReady = true;
+                    checkLoadingProgress();
+                    clearInterval(checkSplineViewer);
                     
-                    scene.addEventListener('error', () => {
-                        console.warn(`Spline scene ${index + 1} failed to load`);
-                        if (index === 0) loadTracker.spline1Loaded = true;
-                        if (index === 1) loadTracker.spline2Loaded = true;
-                        checkLoadingProgress();
+                    // Now attach listeners to Spline scenes
+                    const splineScenes = document.querySelectorAll('spline-viewer');
+                    
+                    splineScenes.forEach((scene, index) => {
+                        // Track both load and error events
+                        scene.addEventListener('load', () => {
+                            if (index === 0) loadTracker.spline1Loaded = true;
+                            if (index === 1) loadTracker.spline2Loaded = true;
+                            checkLoadingProgress();
+                        });
+                        
+                        scene.addEventListener('error', () => {
+                            console.warn(`Spline scene ${index + 1} failed to load`);
+                            if (index === 0) loadTracker.spline1Loaded = true;
+                            if (index === 1) loadTracker.spline2Loaded = true;
+                            checkLoadingProgress();
+                        });
                     });
-                });
-            }
-        }, 100);
+                }
+            }, 100);
 
-        // Fallback: Force complete after 12 seconds
-        setTimeout(() => {
-            if (progress < 100) {
-                console.log('Fallback timeout triggered');
-                Object.keys(loadTracker).forEach(key => {
-                    loadTracker[key] = true;
-                });
-                hidePreloader();
-            }
-        }, 12000);
+            // Fallback: Force complete after 12 seconds
+            setTimeout(() => {
+                if (progress < 100) {
+                    console.log('Fallback timeout triggered');
+                    Object.keys(loadTracker).forEach(key => {
+                        loadTracker[key] = true;
+                    });
+                    hidePreloader();
+                }
+            }, 12000);
 
-        // Simulate some early progress for better UX
-        setTimeout(() => updateProgress(15, 0), 100);
-        setTimeout(() => updateProgress(25, 1), 300);
+            // Simulate some early progress for better UX
+            setTimeout(() => updateProgress(15, 0), 100);
+            setTimeout(() => updateProgress(25, 1), 300);
+        }
     </script>
 </body>
 </html>
