@@ -108,12 +108,15 @@ nav ul li a:hover::after {
 
 .about-col-1 {
     flex-basis: 35%;
+    position: sticky;
+    top: 80px;
+    align-self: start;
+    height: fit-content;
 }
 
 .about-col-2 {
     flex-basis: 60%;
     position: relative;
-    min-height: 550px; /* keeps layout stable */
 }
 
 .about-col-2 h1 {
@@ -170,23 +173,18 @@ nav ul li a:hover::after {
     font-weight: 600;
 }
 
-/* === TAB CONTENT STABILIZED === */
+/* === TAB CONTENT FIXED === */
 .tab-contents {
-    position: absolute;
-    top: 80px;
-    left: 0;
-    width: 100%;
+    display: none;
     opacity: 0;
-    visibility: hidden;
     transform: translateY(15px);
-    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .tab-contents.active-tab {
+    display: block;
     opacity: 1;
-    visibility: visible;
     transform: translateY(0);
-    position: relative;
 }
 
 /* === TAB CONTENT TEXT === */
@@ -475,8 +473,7 @@ form input, form textarea {
 @media only screen and (max-width: 600px) {
     #page1 {
         min-height: 100vh;
-        padding: 20px;
-        padding-top: 10px;
+        padding: 80px 20px 20px 20px;
     }
     #page1 h1 {
         font-size: 3rem;
@@ -506,14 +503,14 @@ form input, form textarea {
         grid-gap: 20px;
     }
 
-    /* 🔥 Hide 3D Spline animation on mobile */
+    /* Hide 3D Spline animation on mobile */
     .about-col-1 {
         display: none !important;
     }
 
     .about-col-2 {
         flex-basis: 100%;
-        min-height: auto; /* adjusts naturally without 3D */
+        min-height: auto;
     }
 
     #contact .row {
