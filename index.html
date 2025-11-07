@@ -508,20 +508,18 @@
 
     <script>
         // === TAB SWITCHING FUNCTION ===
-        function opentab(tabname) {
+        function opentab(element, tabname) {
             const tablinks = document.getElementsByClassName("tab-links");
             const tabcontents = document.getElementsByClassName("tab-contents");
-            
-            // Remove active classes from all tabs and links
+
             for (let tablink of tablinks) {
                 tablink.classList.remove("active-link");
             }
             for (let tabcontent of tabcontents) {
                 tabcontent.classList.remove("active-tab");
             }
-            
-            // Add active class to clicked tab and corresponding content
-            event.currentTarget.classList.add("active-link");
+
+            element.classList.add("active-link");
             document.getElementById(tabname).classList.add("active-tab");
         }
 
@@ -785,3 +783,4 @@
     </script>
 </body>
 </html>
+
