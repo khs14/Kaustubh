@@ -507,11 +507,122 @@
     <script src="script.js"></script>
 
     <script>
-        // === Mobile Menu Toggle ===
+        // === TAB SWITCHING FUNCTION ===
+        function opentab(tabname) {
+            const tablinks = document.getElementsByClassName("tab-links");
+            const tabcontents = document.getElementsByClassName("tab-contents");
+            
+            // Remove active classes from all tabs and links
+            for (let tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (let tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            
+            // Add active class to clicked tab and corresponding content
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+
+        // === ENHANCED NAVIGATION WITH TAB SUPPORT ===
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-container nav ul li a');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Handle Experience link - scroll to about section and open experience tab
+                    if (href === '#about') {
+                        e.preventDefault();
+                        
+                        // Scroll to about section
+                        const aboutSection = document.getElementById('about');
+                        if (aboutSection) {
+                            aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                        
+                        // Wait for scroll, then open experience tab
+                        setTimeout(() => {
+                            const tablinks = document.getElementsByClassName("tab-links");
+                            const tabcontents = document.getElementsByClassName("tab-contents");
+                            
+                            // Remove active from all
+                            for (let tablink of tablinks) {
+                                tablink.classList.remove("active-link");
+                            }
+                            for (let tabcontent of tabcontents) {
+                                tabcontent.classList.remove("active-tab");
+                            }
+                            
+                            // Activate experience tab
+                            const experienceTab = document.querySelector('.tab-links[onclick*="experience"]');
+                            if (experienceTab) {
+                                experienceTab.classList.add("active-link");
+                                document.getElementById('experience').classList.add("active-tab");
+                            }
+                        }, 500);
+                        
+                        // Close mobile menu if open
+                        if (window.innerWidth <= 768) {
+                            toggleMenu();
+                        }
+                    }
+                    // Handle other section links normally (projects, contact, home)
+                    else if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetSection = document.querySelector(href);
+                        if (targetSection) {
+                            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                        
+                        // Close mobile menu if open
+                        if (window.innerWidth <= 768) {
+                            toggleMenu();
+                        }
+                    }
+                });
+            });
+            
+            // Set default tab on page load if none is active
+            const defaultTab = document.querySelector('.tab-links.active-link');
+            if (!defaultTab) {
+                const skillsTab = document.querySelector('.tab-links[onclick*="skills"]');
+                if (skillsTab) {
+                    skillsTab.classList.add('active-link');
+                    document.getElementById('skills').classList.add('active-tab');
+                }
+            }
+        });
+
+        // === URL HASH NAVIGATION (for direct links like #about) ===
+        window.addEventListener('load', function() {
+            if (window.location.hash === '#about') {
+                setTimeout(() => {
+                    const tablinks = document.getElementsByClassName("tab-links");
+                    const tabcontents = document.getElementsByClassName("tab-contents");
+                    
+                    for (let tablink of tablinks) {
+                        tablink.classList.remove("active-link");
+                    }
+                    for (let tabcontent of tabcontents) {
+                        tabcontent.classList.remove("active-tab");
+                    }
+                    
+                    const experienceTab = document.querySelector('.tab-links[onclick*="experience"]');
+                    if (experienceTab) {
+                        experienceTab.classList.add("active-link");
+                        document.getElementById('experience').classList.add("active-tab");
+                    }
+                }, 1000);
+            }
+        });
+
+        // === MOBILE MENU TOGGLE ===
         const burgerMenu = document.getElementById('burger-menu');
         const navContainer = document.getElementById('nav-container');
         const menuOverlay = document.getElementById('menu-overlay');
-        const navLinks = document.querySelectorAll('.nav-container nav ul li a');
 
         function toggleMenu() {
             burgerMenu.classList.toggle('active');
@@ -523,16 +634,7 @@
         burgerMenu.addEventListener('click', toggleMenu);
         menuOverlay.addEventListener('click', toggleMenu);
 
-        // Close menu when clicking a nav link
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    toggleMenu();
-                }
-            });
-        });
-
-        // === Google Sheet Form ===
+        // === GOOGLE SHEET FORM ===
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxGohhAlDtF2M9sOfonWqAyuX2YRsElYG-EzS02tENU1XKk3PMIeT9fWgqAJhf2sZtQIQ/exec';
         const form = document.forms['submit-to-google-sheet'];
         form.addEventListener('submit', e => {
@@ -542,7 +644,7 @@
                 .catch(error => console.error('Error!', error.message));
         });
 
-        // === Enhanced Smart Preloader (Desktop Only) ===
+        // === ENHANCED SMART PRELOADER (Desktop Only) ===
         const preloader = document.getElementById('preloader');
         const main = document.getElementById('main');
         const progressText = document.getElementById('progress-text');
@@ -683,5 +785,3 @@
     </script>
 </body>
 </html>
-
-
