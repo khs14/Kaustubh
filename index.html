@@ -1,909 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaustubh</title>
-    <link rel="icon" type="image/x-icon" href="images/portfolio.png">
-    <script src="https://kit.fontawesome.com/38616bc8f6.js" crossorigin="anonymous"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Gilroy', sans-serif;
-        }
-
-        body {
-            background-color: black;
-            color: white;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* === PRELOADER === */
-        #preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            z-index: 9999;
-            color: #ffffff;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
-        }
-
-        @media (max-width: 768px) {
-            #preloader {
-                display: none !important;
-            }
-            #main {
-                opacity: 1 !important;
-            }
-        }
-
-        .loader {
-            border: 4px solid rgba(255, 255, 255, 0.1);
-            border-top: 4px solid #ffffff;
-            border-radius: 50%;
-            width: 70px;
-            height: 70px;
-            animation: spin 1s linear infinite;
-            margin-bottom: 18px;
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        #preloader p {
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            margin: 5px 0;
-        }
-
-        #preloader .progress-bar {
-            width: 300px;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 2px;
-            margin-top: 20px;
-        }
-
-        #preloader .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #ffffff, #cccccc);
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-
-        #main {
-            opacity: 0;
-            transition: opacity 1s ease-in;
-        }
-
-        /* === BURGER MENU === */
-        .burger-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            z-index: 10001;
-            padding: 10px;
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-        }
-
-        .burger-menu span {
-            width: 28px;
-            height: 3px;
-            background-color: #fff;
-            margin: 3px 0;
-            transition: 0.4s;
-            border-radius: 2px;
-        }
-
-        .burger-menu.active span:nth-child(1) {
-            transform: rotate(-45deg) translate(-6px, 6px);
-        }
-
-        .burger-menu.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .burger-menu.active span:nth-child(3) {
-            transform: rotate(45deg) translate(-6px, -6px);
-        }
-
-        .menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 9998;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            backdrop-filter: blur(5px);
-        }
-
-        .menu-overlay.active {
-            display: block;
-            opacity: 1;
-        }
-
-        /* === PAGE 1 === */
-        #page1 {
-            min-height: 62.5rem;
-            position: relative;
-            width: 100%;
-            padding: 1.5rem 1.2rem;
-            padding-top: 1rem;
-            background-color: black;
-        }
-
-        #page1 h1 {
-            font-size: 9rem;
-            text-transform: uppercase;
-            color: white;
-            padding-left: 10%;
-            line-height: 13.5rem;
-            letter-spacing: -5px;
-        }
-
-        /* === NAVBAR === */
-        .nav-container {
-            padding: 10px 15%;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        nav ul li {
-            display: inline-block;
-            list-style: none;
-            margin: 20px 20px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.5rem;
-            position: relative;
-        }
-
-        nav ul li a::after {
-            content: '';
-            width: 0;
-            height: 3px;
-            background: green;
-            position: absolute;
-            left: 0;
-            bottom: -6px;
-            transition: 0.5s;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        /* === ABOUT === */
-        #about {
-            padding: 80px 0;
-            color: whitesmoke;
-        }
-
-        .container {
-            padding: 0 50px;
-        }
-
-        .row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
-        }
-
-        .about-col-2 h1 {
-            color: white;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-
-        .about-col-2 p {
-            font-size: 0.9rem;
-            color: white;
-            line-height: 1.6;
-        }
-
-        /* === TAB MENU === */
-        .tab-titles {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 12px 20px;
-            border-radius: 10px;
-            margin: 25px 0 35px;
-            backdrop-filter: blur(10px);
-        }
-
-        .tab-links {
-            position: relative;
-            font-size: 1rem;
-            font-weight: 500;
-            color: #ccc;
-            cursor: pointer;
-            padding: 10px 18px;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-        }
-
-        .tab-links:hover {
-            color: #008000;
-            background-color: rgba(0,128,0,0.1);
-        }
-
-        .tab-links.active-link {
-            color: #008000;
-            background-color: rgba(0,128,0,0.2);
-        }
-
-        .tab-contents {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .tab-contents.active-tab {
-            display: block;
-            opacity: 1;
-            animation: fadeIn 0.4s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .tab-contents ul li {
-            list-style: none;
-            margin: 12px 0;
-            font-size: 0.95rem;
-            line-height: 1.6rem;
-            color: #eaeaea;
-        }
-
-        .tab-contents ul li span {
-            color: #008000;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .tab-contents ul li a {
-            color: #00ffcc;
-            text-decoration: underline;
-        }
-
-        /* === PROJECTS === */
-        #projects {
-            padding: 50px 30px;
-        }
-
-        #projects h1 {
-            color: white;
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-        }
-
-        .work-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            grid-gap: 40px;
-            margin-top: 50px;
-        }
-
-        .work {
-            border-radius: 10px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .work img {
-            width: 100%;
-            border-radius: 10px;
-            display: block;
-            transition: transform 0.5s;
-        }
-
-        .layer {
-            width: 100%;
-            height: 0;
-            background: linear-gradient(rgba(0,0,0,0.6), rgb(247, 64, 64));
-            border-radius: 10px;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            padding: 0 40px;
-            text-align: center;
-            transition: height 0.5s;
-        }
-
-        .layer h3, .layer h4 {
-            color: white;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-
-        .layer p {
-            color: white;
-            font-size: 0.75rem;
-            margin-bottom: 20px;
-        }
-
-        .work:hover img {
-            transform: scale(1.1);
-        }
-
-        .work:hover .layer {
-            height: 100%;
-        }
-
-        .btn {
-            display: block;
-            margin: 50px auto;
-            width: fit-content;
-            border: 1px solid coral;
-            padding: 14px 50px;
-            border-radius: 6px;
-            text-decoration: none;
-            color: white;
-            transition: background 0.5s;
-        }
-
-        .btn:hover {
-            background: rgb(216, 141, 0);
-        }
-
-        /* === CONTACT === */
-        #contact {
-            padding: 50px 0;
-        }
-
-        #contact h1 {
-            color: white;
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-        }
-
-        #contact .row {
-            display: grid;
-            grid-template-columns: 1fr 0.69fr;
-            grid-gap: 40px;
-        }
-
-        .contact-left p, .contact-left a {
-            color: white;
-            font-size: 19px;
-            margin: 10px 0;
-        }
-
-        .contact-left a {
-            text-decoration: none;
-        }
-
-        .contact-left i {
-            color: rgb(85, 0, 255);
-            margin-right: 15px;
-        }
-
-        .social-icons {
-            margin-top: 30px;
-        }
-
-        .social-icons a i {
-            color: rgb(85, 0, 255);
-            font-size: 52px;
-            margin-right: 15px;
-            transition: all 0.3s;
-        }
-
-        .social-icons a i:hover {
-            color: coral;
-            transform: translateY(-5px);
-        }
-
-        .btn.btn2 {
-            display: inline-block;
-            border: 3px solid white;
-            background-color: rgb(85, 0, 255);
-            margin-top: 30px;
-        }
-
-        /* === CONTACT FORM === */
-        #contact-form {
-            width: 100%;
-            padding: 0 50px;
-            margin-top: 50px;
-        }
-
-        form input, form textarea {
-            width: 100%;
-            max-width: 600px;
-            border: 0;
-            outline: none;
-            background: rgb(85, 0, 255);
-            padding: 15px;
-            margin: 15px 0;
-            color: white;
-            font-size: 13.5px;
-            border-radius: 6px;
-        }
-
-        ::placeholder {
-            color: white;
-            opacity: 0.7;
-        }
-
-        /* === FOOTER === */
-        #footer {
-            width: 100%;
-            text-align: center;
-            padding: 25px 0;
-            background: rgb(37, 37, 37);
-            margin-top: 20px;
-        }
-
-        #footer p {
-            color: white;
-        }
-
-        /* === TABLET === */
-        @media only screen and (max-width: 768px) {
-            .burger-menu {
-                display: flex;
-            }
-
-            .nav-container {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 75%;
-                max-width: 350px;
-                height: 100vh;
-                background: rgba(10, 10, 10, 0.98);
-                transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-                z-index: 9999;
-                backdrop-filter: blur(15px);
-                padding: 0 !important;
-            }
-
-            .nav-container.active {
-                right: 0;
-            }
-
-            .nav-container nav {
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .nav-container nav ul {
-                display: flex;
-                flex-direction: column;
-                gap: 0;
-                padding: 0;
-                text-align: center;
-                width: 100%;
-            }
-
-            .nav-container nav ul li {
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: block;
-            }
-
-            .nav-container nav ul li a {
-                font-size: 1.4rem !important;
-                display: block;
-                padding: 20px 30px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            }
-
-            .nav-container nav ul li a:hover {
-                color: #00ffcc;
-                background: rgba(0, 255, 204, 0.05);
-            }
-
-            .nav-container nav ul li a::after {
-                display: none;
-            }
-
-            #page1 h1 {
-                font-size: 8rem;
-                line-height: 12rem;
-                padding-left: 5%;
-            }
-
-            .row {
-                grid-template-columns: 1fr;
-            }
-
-            .tab-titles {
-                gap: 10px;
-                padding: 10px 15px;
-            }
-
-            .tab-links {
-                font-size: 0.85rem;
-                padding: 8px 12px;
-            }
-        }
-
-        /* === MOBILE === */
-        @media only screen and (max-width: 600px) {
-            #page1 {
-                min-height: 100vh;
-                padding: 100px 20px 40px 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            #page1 h1 {
-                font-size: 3rem;
-                line-height: 3.5rem;
-                padding-left: 0;
-                letter-spacing: -2px;
-                padding-top: 0;
-                text-align: left;
-            }
-
-            nav ul li a {
-                font-size: 1.2rem !important;
-            }
-
-            .about-col-1 {
-                display: none !important;
-            }
-
-            .about-col-2 {
-                flex-basis: 100%;
-                padding-top: 0;
-            }
-
-            .about-col-2 h1 {
-                margin-top: 0;
-                padding-top: 0;
-            }
-
-            #about {
-                padding: 60px 0 40px 0;
-            }
-
-            #about .container {
-                padding: 0 20px;
-            }
-
-            #bio p {
-                font-size: 0.95rem;
-                line-height: 1.6;
-                margin-bottom: 20px;
-            }
-
-            #contact {
-                padding: 40px 0;
-            }
-
-            #contact .container {
-                padding: 0 20px;
-            }
-
-            #contact .row {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-right {
-                display: none !important;
-            }
-
-            #projects {
-                padding: 40px 20px;
-            }
-
-            #contact-form {
-                padding: 0 20px;
-                margin-top: 30px;
-            }
-
-            #footer p {
-                font-size: 0.8rem;
-            }
-
-            .tab-titles {
-                gap: 8px;
-                padding: 8px 10px;
-                justify-content: center;
-            }
-
-            .tab-links {
-                font-size: 0.75rem;
-                padding: 6px 10px;
-            }
-        }
-
-        @media only screen and (min-width: 769px) {
-            .burger-menu {
-                display: none !important;
-            }
-
-            .menu-overlay {
-                display: none !important;
-            }
-
-            .nav-container {
-                position: relative !important;
-                right: auto !important;
-                width: auto !important;
-                height: auto !important;
-                background: transparent !important;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaustubh</title>
+  <link rel="icon" type="image/x-icon" href="images/portfolio.png" />
+  <script src="https://kit.fontawesome.com/38616bc8f6.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div id="preloader">
-        <div class="loader"></div>
-        <p id="progress-text">INITIALIZING... 0%</p>
-        <div class="progress-bar">
-            <div class="progress-fill" id="progress-fill"></div>
-        </div>
-        <p class="loading-stage" id="loading-stage">Preparing assets...</p>
+  <!-- === PRELOADER === -->
+  <div id="preloader">
+    <div class="loader"></div>
+    <p id="progress-text">INITIALIZING... 0%</p>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+    <p class="loading-stage" id="loading-stage">Preparing assets...</p>
+  </div>
+
+  <!-- === BURGER MENU === -->
+  <div class="burger-menu" id="burger-menu">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="menu-overlay" id="menu-overlay"></div>
+
+  <!-- === MAIN CONTENT === -->
+  <div id="main">
+    <div class="nav-container" id="nav-container">
+      <nav>
+        <ul>
+          <li><a href="#page1">Home</a></li>
+          <li><a href="#about">Experience</a></li>
+          <li><a href="#projects">My Work</a></li>
+          <li><a href="#contact">Resume</a></li>
+          <li><a href="#contact">Contact Me</a></li>
+        </ul>
+      </nav>
     </div>
 
-    <div class="burger-menu" id="burger-menu">
-        <span></span>
-        <span></span>
-        <span></span>
+    <div id="page1">
+      <h1>Kaustubh<br />Hari Sethi</h1>
     </div>
+  </div>
 
-    <div class="menu-overlay" id="menu-overlay"></div>
-
-    <div id="main">
-        <div class="nav-container" id="nav-container">
-            <nav>
-                <ul>
-                    <li><a href="#page1">Home</a></li>
-                    <li><a href="#about">Experience</a></li>
-                    <li><a href="#projects">My Work</a></li>
-                    <li><a href="#contact">Resume</a></li>
-                    <li><a href="#contact">Contact Me</a></li>
-                </ul>
-            </nav>
+  <!-- === ABOUT SECTION === -->
+  <div id="about">
+    <div class="container">
+      <div class="row">
+        <div class="about-col-1">
+          <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.17/build/spline-viewer.js"></script>
+          <spline-viewer url="https://prod.spline.design/oKw6yd1hLqedmLIl/scene.splinecode"></spline-viewer>
         </div>
+        <div class="about-col-2">
+          <h1>About Me</h1>
+          <div id="bio">
+            <p>
+              22-year-old innovative computer science engineering student with
+              expertise in machine learning, mobile app, and web development. A
+              creative problem-solver, dedicated to transforming ideas into impactful
+              technological solutions.
+            </p>
 
-        <div id="page1">
-            <h1>Kaustubh<br>Hari Sethi</h1>
-        </div>
-    </div>
-
-    <div id="about">
-        <div class="container">
-            <div class="row">
-                <div class="about-col-1">
-                    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.17/build/spline-viewer.js"></script>
-                    <spline-viewer url="https://prod.spline.design/oKw6yd1hLqedmLIl/scene.splinecode"></spline-viewer>
-                </div>
-                <div class="about-col-2">
-                    <h1>About Me</h1>
-                    <div id="bio">
-                        <p>22-year-old innovative computer science engineering student with expertise in machine learning, mobile app, and web development. A creative problem-solver, dedicated to transforming ideas into impactful technological solutions.</p>
-                        
-                        <div class="tab-titles">
-                            <p class="tab-links active-link" onclick="opentab(this, 'skills')">Skills</p>
-                            <p class="tab-links" onclick="opentab(this, 'experience')">Experience</p>
-                            <p class="tab-links" onclick="opentab(this, 'education')">Education</p>
-                        </div>
-
-                        <div class="tab-contents active-tab" id="skills">
-                            <ul>
-                                <li><span>Programming languages:</span><br>Python (Advanced), Java (Intermediate), Kotlin (Intermediate), C (Intermediate), JavaScript (Intermediate)</li>
-                                <li><span>Machine learning:</span><br>TensorFlow, Keras, NLTK, spaCy, Deep Learning, NLP, Computer Vision</li>
-                                <li><span>Front-end Development:</span><br>React.js, Flask, Streamlit, CSS, Tailwind CSS</li>
-                                <li><span>Backend:</span><br>MySQL, Python, JavaScript</li>
-                                <li><span>Development:</span><br>Android, Web (React.js, Flask), Backend (MySQL, Python)</li>
-                                <li><span>AI/ML:</span><br>Deep Learning, NLP, Computer Vision, Data Analytics</li>
-                            </ul>
-                        </div>
-
-                        <div class="tab-contents" id="experience">
-                            <ul>
-                                <li>
-                                    <span>Kotronix Technologies (<a href="https://kotronixtechnologies.com/" target="_blank">kotronixtechnologies.com</a>):</span><br>
-                                    February 2025 - Present | Self Employed | On-site<br>
-                                    Led service and maintenance of 21 DC fast chargers, achieving ~87% cost savings for LCTSL.
-                                </li>
-                                <li>
-                                    <span>ISRO (Indian Space Research Organisation):</span><br>
-                                    June 2024 - December 2024 | Project Intern | On-site<br>
-                                    Developed an AI-powered natural disaster monitoring platform operating 24/7.
-                                </li>
-                                <li>
-                                    <span>CWE (Catalyst for Women Entrepreneurship):</span><br>
-                                    May 2024 - June 2024 | Intern | Remote<br>
-                                    Created data automation tools saving 5 hours of manual work.
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="tab-contents" id="education">
-                            <ul>
-                                <li>
-                                    <span>The NorthCap University:</span><br>
-                                    B. Tech Computer Science AI/ML | 2021 - 2025<br>
-                                    CGPA: 8.94 | 25% Merit-based scholarship
-                                </li>
-                                <li>
-                                    <span>Sardar Patel Vidyalaya:</span><br>
-                                    High School | 2007-2021<br>
-                                    Grade 12: 90.8%
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div class="tab-titles">
+              <p class="tab-links active-link" onclick="opentab(this, 'skills')">Skills</p>
+              <p class="tab-links" onclick="opentab(this, 'experience')">Experience</p>
+              <p class="tab-links" onclick="opentab(this, 'education')">Education</p>
             </div>
-        </div>
-    </div>
 
-    <div id="projects">
-        <div class="container">
-            <h1>PERSONAL PROJECTS</h1>
-            <div class="work-list">
-                <div class="work">
-                    <img src="images/2.png" alt="Offensive Check">
-                    <div class="layer">
-                        <h3>Offensive Check Model</h3>
-                        <p>Predicts if text is offensive using NLP & ML.</p>
-                        <a href="https://offensive-check.streamlit.app/" target="_blank"><i class="fa-solid fa-link"></i></a>
-                    </div>
-                </div>
-                <div class="work">
-                    <img src="images/3.png" alt="Escalation">
-                    <div class="layer">
-                        <h4>Escalation</h4>
-                        <p>ReactJS platform for sustainable brands.</p>
-                        <a href="https://4usyhq.csb.app/" target="_blank"><i class="fa-solid fa-link"></i></a>
-                    </div>
-                </div>
-                <div class="work">
-                    <img src="images/1.png" alt="Event Hub">
-                    <div class="layer">
-                        <h3>Event Hub</h3>
-                        <p>Kotlin & Jetpack Compose event management app.</p>
-                        <a href="https://github.com/khs14/event_hub" target="_blank"><i class="fa-solid fa-link"></i></a>
-                    </div>
-                </div>
+            <div class="tab-contents active-tab" id="skills">
+              <ul>
+                <li><span>Programming languages:</span><br />Python, Java, Kotlin, C, JavaScript</li>
+                <li><span>Machine learning:</span><br />TensorFlow, Keras, NLP, CV, DL</li>
+                <li><span>Front-end:</span><br />React.js, Flask, Streamlit, CSS, Tailwind</li>
+                <li><span>Backend:</span><br />MySQL, Python, JavaScript</li>
+                <li><span>AI/ML:</span><br />Deep Learning, NLP, CV, Analytics</li>
+              </ul>
             </div>
-            <a href="https://github.com/khs14" target="_blank" class="btn">See more</a>
-        </div>
-    </div>
 
-    <div id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="contact-left">
-                    <h1>Contact Me</h1>
-                    <a href="mailto:kaustubhsethi14@gmail.com"><i class="fa-solid fa-envelope"></i> kaustubhsethi14@gmail.com</a>
-                    <p><i class="fa-solid fa-phone"></i> +91 9205004891</p>
-                    <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/kaustubh-hari-sethi/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="https://github.com/khs14" target="_blank"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://twitter.com/CodesKhs" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-                    </div>
-                    <a href="#" class="btn btn2">Download Resume</a>
-                </div>
-                <div class="contact-right">
-                    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.17/build/spline-viewer.js"></script>
-                    <spline-viewer url="https://prod.spline.design/BwYaL01FZaW9YoFD/scene.splinecode"></spline-viewer>
-                </div>
+            <div class="tab-contents" id="experience">
+              <ul>
+                <li>
+                  <span>Kotronix Technologies</span><br />
+                  Feb 2025 - Present | Self Employed<br />
+                  Led service & maintenance of 21 DC fast chargers (~87% cost savings)
+                </li>
+                <li>
+                  <span>ISRO</span><br />
+                  Jun 2024 - Dec 2024 | Project Intern<br />
+                  Developed AI-powered disaster monitoring platform
+                </li>
+                <li>
+                  <span>CWE</span><br />
+                  May 2024 - Jun 2024 | Intern<br />
+                  Built automation tools saving 5 hrs/day
+                </li>
+              </ul>
             </div>
+
+            <div class="tab-contents" id="education">
+              <ul>
+                <li>
+                  <span>The NorthCap University</span><br />
+                  B.Tech CSE (AI/ML) | 2021 - 2025<br />
+                  CGPA: 8.94 | 25% Merit Scholarship
+                </li>
+                <li>
+                  <span>Sardar Patel Vidyalaya</span><br />
+                  Grade 12: 90.8%
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <div id="contact-form">
-        <form name="submit-to-google-sheet">
-            <input type="text" name="Name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your E-mail" required>
-            <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-            <button type="submit" class="btn btn2">Submit</button>
-        </form>
+  <!-- === PROJECTS SECTION === -->
+  <div id="projects">
+    <div class="container">
+      <h1>PERSONAL PROJECTS</h1>
+      <div class="work-list">
+        <div class="work">
+          <img src="images/2.png" alt="Offensive Check" />
+          <div class="layer">
+            <h3>Offensive Check</h3>
+            <p>Predicts if text is offensive using NLP & ML.</p>
+            <a href="https://offensive-check.streamlit.app/" target="_blank"><i class="fa-solid fa-link"></i></a>
+          </div>
+        </div>
+        <div class="work">
+          <img src="images/3.png" alt="Escalation" />
+          <div class="layer">
+            <h3>Escalation</h3>
+            <p>ReactJS platform for sustainable brands.</p>
+            <a href="https://4usyhq.csb.app/" target="_blank"><i class="fa-solid fa-link"></i></a>
+          </div>
+        </div>
+        <div class="work">
+          <img src="images/1.png" alt="Event Hub" />
+          <div class="layer">
+            <h3>Event Hub</h3>
+            <p>Kotlin + Jetpack Compose event app.</p>
+            <a href="https://github.com/khs14/event_hub" target="_blank"><i class="fa-solid fa-link"></i></a>
+          </div>
+        </div>
+      </div>
+      <a href="https://github.com/khs14" target="_blank" class="btn">See more</a>
     </div>
+  </div>
 
-    <div id="footer">
-        <p>Made by Kaustubh © 2024</p>
+  <!-- === CONTACT SECTION === -->
+  <div id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="contact-left">
+          <h1>Contact Me</h1>
+          <a href="mailto:kaustubhsethi14@gmail.com"><i class="fa-solid fa-envelope"></i> kaustubhsethi14@gmail.com</a>
+          <p><i class="fa-solid fa-phone"></i> +91 9205004891</p>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/kaustubh-hari-sethi/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/khs14" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://twitter.com/CodesKhs" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+          <a href="#" class="btn btn2">Download Resume</a>
+        </div>
+        <div class="contact-right">
+          <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.17/build/spline-viewer.js"></script>
+          <spline-viewer url="https://prod.spline.design/BwYaL01FZaW9YoFD/scene.splinecode"></spline-viewer>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <script>
-        function opentab(element, tabname) {
-            const tablinks = document.getElementsByClassName("tab-links");
-            const tabcontents = document.getElementsByClassName("tab-contents");
+  <div id="contact-form">
+    <form name="submit-to-google-sheet">
+      <input type="text" name="Name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your E-mail" required />
+      <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+      <button type="submit" class="btn btn2">Submit</button>
+    </form>
+  </div>
 
-            for (let tablink of tablinks) {
-                tablink.classList.remove("active-link");
-            }
-            for (let tabcontent of tabcontents) {
-                tabcontent.classList.remove("active-tab");
-            }
+  <div id="footer">
+    <p>Made by Kaustubh © 2024</p>
+  </div>
 
-            element.classList.add("active-link");
-            document.getElementById(tabname).classList.add("active-tab");
-        }
-
-        const burgerMenu = document.getElementById('burger-menu');
-        const navContainer = document.getElementById('nav-container');
-        const menuOverlay = document.getElementById('menu-overlay');
-
-        function toggleMenu() {
-            burgerMenu.classList.toggle('active');
-            navContainer.classList.toggle('active');
-            menuOverlay.classList.toggle('active');
-            document.body.style.overflow = navContainer.classList.contains('active') ? 'hidden' : '';
-        }
-
-        burgerMenu.addEventListener('click', toggleMenu);
-        menuOverlay.addEventListener('click', toggleMenu);
-
-        const navLinks = document.querySelectorAll('.nav-container nav ul li a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768) {
-                    toggleMenu();
-                }
-            });
-        });
-
-        // Preloader
-        if (window.innerWidth > 768) {
-            const preloader = document.getElementById('preloader');
-            const main = document.getElementById('main');
-            
-            setTimeout(() => {
-                preloader.style.opacity = '0';
-                preloader.style.visibility = 'hidden';
-                main.style.opacity = '1';
-            }, 2000);
-        }
-    </script>
+  <!-- GSAP + JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
