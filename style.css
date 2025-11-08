@@ -487,6 +487,15 @@ form textarea {
   border-radius: 6px;
 }
 
+#form-message {
+  text-align: center;
+  color: #00ff99;
+  font-size: 1rem;
+  margin-top: 10px;
+  transition: opacity 0.3s ease;
+}
+
+
 /* ================================
    FOOTER
 ================================== */
@@ -655,4 +664,5 @@ form textarea {
     background: transparent !important;
   }
 }
+
 
