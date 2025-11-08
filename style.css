@@ -449,6 +449,13 @@ nav ul li a:hover::after {
   margin-top: 30px;
 }
 
+.btn.btn2:hover {
+  background-color: rgb(95, 10, 255); /* slightly lighter shade */
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(85, 0, 255, 0.4);
+}
+
+
 /* ================================
    CONTACT FORM
 ================================== */
@@ -664,5 +671,6 @@ form textarea {
     background: transparent !important;
   }
 }
+
 
 
