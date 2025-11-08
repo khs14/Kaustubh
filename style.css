@@ -160,8 +160,6 @@ nav ul li a:hover::after {
     letter-spacing: 0.5px;
 }
 
-
-/* === TAB CONTENT FIXED === */
 .tab-links:hover {
     color: #008000;
     background-color: rgba(0,128,0,0.1);
@@ -174,6 +172,29 @@ nav ul li a:hover::after {
     box-shadow: inset 0 0 12px rgba(0,128,0,0.4);
 }
 
+/* === CRITICAL FIX: Tab Content Visibility === */
+.tab-contents {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tab-contents.active-tab {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 /* === TAB CONTENT TEXT === */
 .tab-contents ul li {
@@ -455,6 +476,17 @@ form input, form textarea {
     #contact-form {
         padding: 0 30px;
     }
+    
+    /* Make tabs more mobile-friendly */
+    .tab-titles {
+        gap: 10px;
+        padding: 10px 15px;
+    }
+    
+    .tab-links {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
 }
 
 /* === MOBILE === */
@@ -513,6 +545,16 @@ form input, form textarea {
     #footer p {
         font-size: 0.8rem;
     }
+    
+    /* Mobile tab adjustments */
+    .tab-titles {
+        gap: 8px;
+        padding: 8px 10px;
+        justify-content: center;
+    }
+    
+    .tab-links {
+        font-size: 0.75rem;
+        padding: 6px 10px;
+    }
 }
-
-
