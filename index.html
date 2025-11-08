@@ -4,11 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kaustubh</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="images/portfolio.png">
     <script src="https://kit.fontawesome.com/38616bc8f6.js" crossorigin="anonymous"></script>
     <style>
-        /* === Preloader Styles (Desktop Only) === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gilroy', sans-serif;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* === PRELOADER === */
         #preloader {
             position: fixed;
             top: 0;
@@ -22,11 +37,9 @@
             flex-direction: column;
             z-index: 9999;
             color: #ffffff;
-            font-family: 'Poppins', sans-serif;
             transition: opacity 0.6s ease, visibility 0.6s ease;
         }
 
-        /* Hide preloader on mobile */
         @media (max-width: 768px) {
             #preloader {
                 display: none !important;
@@ -56,7 +69,6 @@
             font-size: 1.1rem;
             letter-spacing: 2px;
             margin: 5px 0;
-            font-weight: 300;
         }
 
         #preloader .progress-bar {
@@ -65,7 +77,6 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 2px;
             margin-top: 20px;
-            overflow: hidden;
         }
 
         #preloader .progress-fill {
@@ -73,15 +84,6 @@
             background: linear-gradient(90deg, #ffffff, #cccccc);
             width: 0%;
             transition: width 0.3s ease;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-        }
-
-        #preloader .loading-stage {
-            font-size: 0.85rem;
-            opacity: 0.6;
-            margin-top: 10px;
-            font-weight: 300;
-            letter-spacing: 1px;
         }
 
         #main {
@@ -89,7 +91,7 @@
             transition: opacity 1s ease-in;
         }
 
-        /* === Mobile Burger Menu === */
+        /* === BURGER MENU === */
         .burger-menu {
             display: none;
             flex-direction: column;
@@ -125,7 +127,6 @@
             transform: rotate(45deg) translate(-6px, -6px);
         }
 
-        /* Mobile menu overlay */
         .menu-overlay {
             display: none;
             position: fixed;
@@ -145,7 +146,346 @@
             opacity: 1;
         }
 
-        /* Mobile Navigation Styles */
+        /* === PAGE 1 === */
+        #page1 {
+            min-height: 62.5rem;
+            position: relative;
+            width: 100%;
+            padding: 1.5rem 1.2rem;
+            padding-top: 1rem;
+            background-color: black;
+        }
+
+        #page1 h1 {
+            font-size: 9rem;
+            text-transform: uppercase;
+            color: white;
+            padding-left: 10%;
+            line-height: 13.5rem;
+            letter-spacing: -5px;
+        }
+
+        /* === NAVBAR === */
+        .nav-container {
+            padding: 10px 15%;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav ul li {
+            display: inline-block;
+            list-style: none;
+            margin: 20px 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: green;
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            transition: 0.5s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* === ABOUT === */
+        #about {
+            padding: 80px 0;
+            color: whitesmoke;
+        }
+
+        .container {
+            padding: 0 50px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        .about-col-2 h1 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .about-col-2 p {
+            font-size: 0.9rem;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* === TAB MENU === */
+        .tab-titles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin: 25px 0 35px;
+            backdrop-filter: blur(10px);
+        }
+
+        .tab-links {
+            position: relative;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #ccc;
+            cursor: pointer;
+            padding: 10px 18px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .tab-links:hover {
+            color: #008000;
+            background-color: rgba(0,128,0,0.1);
+        }
+
+        .tab-links.active-link {
+            color: #008000;
+            background-color: rgba(0,128,0,0.2);
+        }
+
+        .tab-contents {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tab-contents.active-tab {
+            display: block;
+            opacity: 1;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tab-contents ul li {
+            list-style: none;
+            margin: 12px 0;
+            font-size: 0.95rem;
+            line-height: 1.6rem;
+            color: #eaeaea;
+        }
+
+        .tab-contents ul li span {
+            color: #008000;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .tab-contents ul li a {
+            color: #00ffcc;
+            text-decoration: underline;
+        }
+
+        /* === PROJECTS === */
+        #projects {
+            padding: 50px 30px;
+        }
+
+        #projects h1 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
+        .work-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 40px;
+            margin-top: 50px;
+        }
+
+        .work {
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work img {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .layer {
+            width: 100%;
+            height: 0;
+            background: linear-gradient(rgba(0,0,0,0.6), rgb(247, 64, 64));
+            border-radius: 10px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 0 40px;
+            text-align: center;
+            transition: height 0.5s;
+        }
+
+        .layer h3, .layer h4 {
+            color: white;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .layer p {
+            color: white;
+            font-size: 0.75rem;
+            margin-bottom: 20px;
+        }
+
+        .work:hover img {
+            transform: scale(1.1);
+        }
+
+        .work:hover .layer {
+            height: 100%;
+        }
+
+        .btn {
+            display: block;
+            margin: 50px auto;
+            width: fit-content;
+            border: 1px solid coral;
+            padding: 14px 50px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: white;
+            transition: background 0.5s;
+        }
+
+        .btn:hover {
+            background: rgb(216, 141, 0);
+        }
+
+        /* === CONTACT === */
+        #contact {
+            padding: 50px 0;
+        }
+
+        #contact h1 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
+        #contact .row {
+            display: grid;
+            grid-template-columns: 1fr 0.69fr;
+            grid-gap: 40px;
+        }
+
+        .contact-left p, .contact-left a {
+            color: white;
+            font-size: 19px;
+            margin: 10px 0;
+        }
+
+        .contact-left a {
+            text-decoration: none;
+        }
+
+        .contact-left i {
+            color: rgb(85, 0, 255);
+            margin-right: 15px;
+        }
+
+        .social-icons {
+            margin-top: 30px;
+        }
+
+        .social-icons a i {
+            color: rgb(85, 0, 255);
+            font-size: 52px;
+            margin-right: 15px;
+            transition: all 0.3s;
+        }
+
+        .social-icons a i:hover {
+            color: coral;
+            transform: translateY(-5px);
+        }
+
+        .btn.btn2 {
+            display: inline-block;
+            border: 3px solid white;
+            background-color: rgb(85, 0, 255);
+            margin-top: 30px;
+        }
+
+        /* === CONTACT FORM === */
+        #contact-form {
+            width: 100%;
+            padding: 0 50px;
+            margin-top: 50px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            max-width: 600px;
+            border: 0;
+            outline: none;
+            background: rgb(85, 0, 255);
+            padding: 15px;
+            margin: 15px 0;
+            color: white;
+            font-size: 13.5px;
+            border-radius: 6px;
+        }
+
+        ::placeholder {
+            color: white;
+            opacity: 0.7;
+        }
+
+        /* === FOOTER === */
+        #footer {
+            width: 100%;
+            text-align: center;
+            padding: 25px 0;
+            background: rgb(37, 37, 37);
+            margin-top: 20px;
+        }
+
+        #footer p {
+            color: white;
+        }
+
+        /* === TABLET === */
         @media only screen and (max-width: 768px) {
             .burger-menu {
                 display: flex;
@@ -162,8 +502,6 @@
                 transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
                 z-index: 9999;
                 backdrop-filter: blur(15px);
-                border-left: 1px solid rgba(255, 255, 255, 0.1);
-                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
                 padding: 0 !important;
             }
 
@@ -176,7 +514,6 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                padding: 0;
             }
 
             .nav-container nav ul {
@@ -193,52 +530,143 @@
                 margin: 0;
                 padding: 0;
                 width: 100%;
-                opacity: 0;
-                transform: translateX(50px);
-                transition: all 0.4s ease;
                 display: block;
             }
-
-            .nav-container.active nav ul li {
-                opacity: 1;
-                transform: translateX(0);
-            }
-
-            .nav-container.active nav ul li:nth-child(1) { transition-delay: 0.1s; }
-            .nav-container.active nav ul li:nth-child(2) { transition-delay: 0.15s; }
-            .nav-container.active nav ul li:nth-child(3) { transition-delay: 0.2s; }
-            .nav-container.active nav ul li:nth-child(4) { transition-delay: 0.25s; }
-            .nav-container.active nav ul li:nth-child(5) { transition-delay: 0.3s; }
 
             .nav-container nav ul li a {
                 font-size: 1.4rem !important;
-                color: #fff;
-                text-decoration: none;
-                font-weight: 400;
-                transition: all 0.3s ease;
                 display: block;
                 padding: 20px 30px;
-                font-family: futura;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             }
 
             .nav-container nav ul li a:hover {
                 color: #00ffcc;
                 background: rgba(0, 255, 204, 0.05);
-                padding-left: 40px;
             }
 
             .nav-container nav ul li a::after {
                 display: none;
             }
+
+            #page1 h1 {
+                font-size: 8rem;
+                line-height: 12rem;
+                padding-left: 5%;
+            }
+
+            .row {
+                grid-template-columns: 1fr;
+            }
+
+            .tab-titles {
+                gap: 10px;
+                padding: 10px 15px;
+            }
+
+            .tab-links {
+                font-size: 0.85rem;
+                padding: 8px 12px;
+            }
         }
 
-        /* Desktop navigation remains visible */
+        /* === MOBILE === */
+        @media only screen and (max-width: 600px) {
+            #page1 {
+                min-height: 100vh;
+                padding: 100px 20px 40px 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #page1 h1 {
+                font-size: 3rem;
+                line-height: 3.5rem;
+                padding-left: 0;
+                letter-spacing: -2px;
+                padding-top: 0;
+                text-align: left;
+            }
+
+            nav ul li a {
+                font-size: 1.2rem !important;
+            }
+
+            .about-col-1 {
+                display: none !important;
+            }
+
+            .about-col-2 {
+                flex-basis: 100%;
+                padding-top: 0;
+            }
+
+            .about-col-2 h1 {
+                margin-top: 0;
+                padding-top: 0;
+            }
+
+            #about {
+                padding: 60px 0 40px 0;
+            }
+
+            #about .container {
+                padding: 0 20px;
+            }
+
+            #bio p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+                margin-bottom: 20px;
+            }
+
+            #contact {
+                padding: 40px 0;
+            }
+
+            #contact .container {
+                padding: 0 20px;
+            }
+
+            #contact .row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-right {
+                display: none !important;
+            }
+
+            #projects {
+                padding: 40px 20px;
+            }
+
+            #contact-form {
+                padding: 0 20px;
+                margin-top: 30px;
+            }
+
+            #footer p {
+                font-size: 0.8rem;
+            }
+
+            .tab-titles {
+                gap: 8px;
+                padding: 8px 10px;
+                justify-content: center;
+            }
+
+            .tab-links {
+                font-size: 0.75rem;
+                padding: 6px 10px;
+            }
+        }
+
         @media only screen and (min-width: 769px) {
             .burger-menu {
                 display: none !important;
             }
-            
+
             .menu-overlay {
                 display: none !important;
             }
@@ -254,8 +682,6 @@
     </style>
 </head>
 <body>
-
-    <!-- === PRELOADER (Desktop Only) === -->
     <div id="preloader">
         <div class="loader"></div>
         <p id="progress-text">INITIALIZING... 0%</p>
@@ -265,14 +691,12 @@
         <p class="loading-stage" id="loading-stage">Preparing assets...</p>
     </div>
 
-    <!-- Burger Menu (Mobile Only) - Fixed at top -->
     <div class="burger-menu" id="burger-menu">
         <span></span>
         <span></span>
         <span></span>
     </div>
 
-    <!-- Menu Overlay -->
     <div class="menu-overlay" id="menu-overlay"></div>
 
     <div id="main">
@@ -289,8 +713,8 @@
         </div>
 
         <div id="page1">
-            <h1>Kaustubh<br> Hari Sethi</h1>
-        </div> 
+            <h1>Kaustubh<br>Hari Sethi</h1>
+        </div>
     </div>
 
     <div id="about">
@@ -298,130 +722,69 @@
             <div class="row">
                 <div class="about-col-1">
                     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.17/build/spline-viewer.js"></script>
-                    <spline-viewer id="spline-asset-char" url="https://prod.spline.design/oKw6yd1hLqedmLIl/scene.splinecode"></spline-viewer>  
+                    <spline-viewer url="https://prod.spline.design/oKw6yd1hLqedmLIl/scene.splinecode"></spline-viewer>
                 </div>
                 <div class="about-col-2">
                     <h1>About Me</h1>
                     <div id="bio">
-                        <p>22-year-old <br>innovative computer science engineering student with expertise in<br> machine learning, mobile app, and web 
-                            development.<br> A creative problem-solver, dedicated to transforming ideas into impactful technological solutions.
-                        </p>
+                        <p>22-year-old innovative computer science engineering student with expertise in machine learning, mobile app, and web development. A creative problem-solver, dedicated to transforming ideas into impactful technological solutions.</p>
+                        
                         <div class="tab-titles">
-                                <p class="tab-links active-link" onclick="opentab(this, 'skills')">Skills</p>
-                                <p class="tab-links" onclick="opentab(this, 'experience')">Experience</p>
-                                <p class="tab-links" onclick="opentab(this, 'education')">Education</p>
-                                <p class="tab-links" onclick="opentab(this, 'industry-knowlege')">Industry Knowledge</p>
-
+                            <p class="tab-links active-link" onclick="opentab(this, 'skills')">Skills</p>
+                            <p class="tab-links" onclick="opentab(this, 'experience')">Experience</p>
+                            <p class="tab-links" onclick="opentab(this, 'education')">Education</p>
+                            <p class="tab-links" onclick="opentab(this, 'industry-knowlege')">Industry Knowledge</p>
                         </div>
 
-                        <!-- Skills -->
                         <div class="tab-contents active-tab" id="skills">
                             <ul>
-                                <li><span>Programming languages: </span><br>Python (Advanced), Java (Intermediate), Kotlin (Intermediate), C (Intermediate), JavaScript (Intermediate), Dart (Beginner)</li>
-                                <li><span>Machine learning: </span><br>TensorFlow, Keras, NLTK, spaCy, Deep Learning, NLP, Computer Vision</li>
-                                <li><span>Front-end Development (Web): </span><br>React.js, Flask, Streamlit, CSS, Tailwind CSS, Spline (3D Modelling)</li>
-                                <li><span>Front-end Development (Android): </span><br>Jetpack Compose</li>
-                                <li><span>Backend: </span><br>MySQL, Python, JavaScript</li>
+                                <li><span>Programming languages:</span><br>Python (Advanced), Java (Intermediate), Kotlin (Intermediate), C (Intermediate), JavaScript (Intermediate)</li>
+                                <li><span>Machine learning:</span><br>TensorFlow, Keras, NLTK, spaCy, Deep Learning, NLP, Computer Vision</li>
+                                <li><span>Front-end Development:</span><br>React.js, Flask, Streamlit, CSS, Tailwind CSS</li>
+                                <li><span>Backend:</span><br>MySQL, Python, JavaScript</li>
                             </ul>
                         </div>
 
-                        <!-- Experience -->
                         <div class="tab-contents" id="experience">
                             <ul>
-                                <li> 
-                                    <span>Kotronix Technologies (<a href="https://kotronixtechnologies.com/" target="_blank" style="color: #00ffcc; text-decoration: underline;">kotornixtechnologies.com</a>):</span><br>
+                                <li>
+                                    <span>Kotronix Technologies (<a href="https://kotronixtechnologies.com/" target="_blank">kotronixtechnologies.com</a>):</span><br>
                                     February 2025 - Present | Self Employed | On-site<br>
-                                    ● Led service and maintenance of 21 DC fast chargers, achieving ~87% cost savings compared to replacement for Lucknow City Transport Service Ltd. (LCTSL).<br>
-                                    ● Restored non-functional chargers, optimizing depot operations where idle EV buses were previously unusable.<br>
-                                    ● Enabled full utilization of EV bus fleets by reviving critical charging infrastructure and preventing service downtime.<br>
-                                    ● Collaborated with government teams to improve maintenance workflows and support the growth of sustainable e-mobility.<br>
-                                    <span>Skills:</span> High-voltage DC systems, electrical diagnostics, preventive maintenance, troubleshooting, safety compliance, government project coordination, business development.
+                                    Led service and maintenance of 21 DC fast chargers, achieving ~87% cost savings for LCTSL.
                                 </li>
-
-                                <li> 
-                                    <span>ISRO (Indian Space Research Organisation): </span><br> 
-                                    3rd June 2024 - 30th December 2024 | Project Intern | On-site 
-                                    <br>Developed an AI-powered natural disaster monitoring platform on NRSC, ISRO Delhi servers, operating 24/7. 
-                                    <br><span>Skills:</span> AI/ML, Data Analysis, Predictive Analytics, Python, PostgreSQL, Node.js, React.js, Data Visualization
+                                <li>
+                                    <span>ISRO (Indian Space Research Organisation):</span><br>
+                                    June 2024 - December 2024 | Project Intern | On-site<br>
+                                    Developed an AI-powered natural disaster monitoring platform operating 24/7.
                                 </li>
-
-                                <li> 
-                                    <span>CWE (Catalyst for Women Entrepreneurship)</span><br> 
-                                    28th May 2024 - 28th June 2024 | 1 month | Intern | Remote 
-                                    <br>Created data automation tools saving 5 hours of manual work into seconds - 
-                                    <span><a href="https://cwe-data.streamlit.app/" target="_blank"> Link to Project </a></span> 
-                                    <br><span>Skills:</span> Data analytics, Python, Mailchimp 
-                                </li>
-
-                                <li> 
-                                    <span>Rancho Labs: </span><br>
-                                    15 June 2023 - 15 October 2023 | 4 months | AI/ML Intern | Remote 
-                                    <br>Worked as a facilitator preparing material and projects for machine learning concepts.
-                                    <br><span>Skills:</span> Python, ML Algorithms, CNN
-                                </li>
-
-                                <li> 
-                                    <span>Leoforce: </span><br>
-                                    25 May 2023 - 25 July 2023 | 2 months | Software Development Intern | Remote 
-                                    <br>An AI-based product company. Created playgrounds and dashboards for the product management team to test AI products. 
-                                    <br><span>Skills:</span> JavaScript, REST API, Kubernetes, GitLab
-                                </li>
-
-                                <li> 
-                                    <span>Google Developers Student Club NCU: </span><br>
-                                    August 2022 - May 2023 | Technical Lead | College Premise and Remote
-                                    <br>Participated in 30 Days of Google Cloud and submitted project in Solution Challenge. 
-                                    Later facilitated Jetpack Compose Camp as core team member.
-                                    <br><span>Skills:</span> App Development, Teamwork
-                                </li>
-
-                                <li> 
-                                    <span>Enactus NCU: </span><br>
-                                    October 2022 - Present | Finance Head | College Premise and Remote 
-                                    <br>Started in the graphics team creating event posters and certificates. 
-                                    Later led a team of 5 as graphics head, and now manage project finances and future pitch calculations.
-                                    <br><span>Skills:</span> Graphics, Teamwork, Finance
+                                <li>
+                                    <span>CWE (Catalyst for Women Entrepreneurship):</span><br>
+                                    May 2024 - June 2024 | Intern | Remote<br>
+                                    Created data automation tools saving 5 hours of manual work.
                                 </li>
                             </ul>
                         </div>
 
-                        <!-- Education -->
                         <div class="tab-contents" id="education">
                             <ul>
-                                <li> 
-                                    <span>The NorthCap University: </span><br> 
-                                    B. Tech Computer Science AI/ML | 2021 - 2025 
-                                    <br>Received 10 grade points in programming subjects of C, Java, and Python.<br>
-                                    Peer Tutor for Python and Cyber Security.<br>
-                                    Published a patent on "Artificial Intelligence Based Virtual Reality Therapy System".<br>
-                                    25% Merit based scholarship every semester <br> 
-                                    CGPA: 8.94
+                                <li>
+                                    <span>The NorthCap University:</span><br>
+                                    B. Tech Computer Science AI/ML | 2021 - 2025<br>
+                                    CGPA: 8.94 | 25% Merit-based scholarship
                                 </li>
-                                <li> 
-                                    <span>Sardar Patel Vidyalaya: </span><br> 
-                                    High School | 2007-2021 
-                                    <br>High school subjects included Python and MySQL.<br>
-                                    Class representative from grade 9 to 12.<br>
-                                    Grade 12 percentage: 90.8%
+                                <li>
+                                    <span>Sardar Patel Vidyalaya:</span><br>
+                                    High School | 2007-2021<br>
+                                    Grade 12: 90.8%
                                 </li>
                             </ul>
                         </div>
 
-                        <!-- Updated Industry Knowledge -->
                         <div class="tab-contents" id="industry-knowlege">
                             <ul>
-                                <li>
-                                    <span>Development:</span><br>
-                                    Android Development, Web (React.js, Flask, CSS), Backend (MySQL, Python), Cloud (Google Cloud Platform)
-                                </li>
-                                <li>
-                                    <span>AI/ML:</span><br>
-                                    Data Cleaning, Analytics, Visualization, Deep Learning, NLP, Computer Vision
-                                </li>
-                                <li>
-                                    <span>Programming:</span><br>
-                                    Python, Java, Kotlin, C, JavaScript, Dart
-                                </li>
+                                <li><span>Development:</span><br>Android, Web (React.js, Flask), Backend (MySQL, Python)</li>
+                                <li><span>AI/ML:</span><br>Deep Learning, NLP, Computer Vision, Data Analytics</li>
+                                <li><span>Programming:</span><br>Python, Java, Kotlin, C, JavaScript</li>
                             </ul>
                         </div>
                     </div>
@@ -430,34 +793,31 @@
         </div>
     </div>
 
-    <!-- Projects -->
     <div id="projects">
         <div class="container">
-            <h1 class="sub-title">PERSONAL PROJECTS</h1>
+            <h1>PERSONAL PROJECTS</h1>
             <div class="work-list">
                 <div class="work">
-                    <img src="images/2.png" alt="project1">
-                    <div class="layer" id="layer1">
+                    <img src="https://via.placeholder.com/400x300/1a1a1a/00ff00?text=Offensive+Check" alt="Offensive Check">
+                    <div class="layer">
                         <h3>Offensive Check Model</h3>
-                        <p>Predicts if text is offensive using NLP & ML. Built with Streamlit and hosted online.</p>
+                        <p>Predicts if text is offensive using NLP & ML.</p>
                         <a href="https://offensive-check.streamlit.app/" target="_blank"><i class="fa-solid fa-link"></i></a>
                     </div>
                 </div>
                 <div class="work">
-                    <img src="images/3.png" alt="project2">
+                    <img src="https://via.placeholder.com/400x300/1a1a1a/ff6b6b?text=Escalation" alt="Escalation">
                     <div class="layer">
                         <h4>Escalation</h4>
-                        <p>A ReactJS demo platform for sustainable brands and marketing innovation.</p>
+                        <p>ReactJS platform for sustainable brands.</p>
                         <a href="https://4usyhq.csb.app/" target="_blank"><i class="fa-solid fa-link"></i></a>
-                        <a href="https://wkwsuj.csb.app/" target="_blank"><i class="fa-solid fa-link"></i></a>
-                        <a href="https://github.com/khs14/escalation-dashboard" target="_blank"><i class="fa-solid fa-link"></i></a>
                     </div>
                 </div>
                 <div class="work">
-                    <img src="images/1.png" alt="project3">
+                    <img src="https://via.placeholder.com/400x300/1a1a1a/4ecdc4?text=Event+Hub" alt="Event Hub">
                     <div class="layer">
                         <h3>Event Hub</h3>
-                        <p>An app made using Kotlin & Jetpack Compose for managing college club events.</p>
+                        <p>Kotlin & Jetpack Compose event management app.</p>
                         <a href="https://github.com/khs14/event_hub" target="_blank"><i class="fa-solid fa-link"></i></a>
                     </div>
                 </div>
@@ -466,7 +826,6 @@
         </div>
     </div>
 
-    <!-- Contact -->
     <div id="contact">
         <div class="container">
             <div class="row">
@@ -479,7 +838,7 @@
                         <a href="https://github.com/khs14" target="_blank"><i class="fa-brands fa-github"></i></a>
                         <a href="https://twitter.com/CodesKhs" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
                     </div>
-                    <a href="images/Resume Kaustubh Hari Sethi.pdf" download class="btn btn2">Download Resume</a>
+                    <a href="#" class="btn btn2">Download Resume</a>
                 </div>
                 <div class="contact-right">
                     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.17/build/spline-viewer.js"></script>
@@ -489,13 +848,11 @@
         </div>
     </div>
 
-    <!-- Contact Form -->
     <div id="contact-form">
         <form name="submit-to-google-sheet">
             <input type="text" name="Name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your E-mail" required>
             <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-            <br>
             <button type="submit" class="btn btn2">Submit</button>
         </form>
     </div>
@@ -504,11 +861,7 @@
         <p>Made by Kaustubh © 2024</p>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
-    <script src="script.js"></script>
-
     <script>
-        // === TAB SWITCHING FUNCTION ===
         function opentab(element, tabname) {
             const tablinks = document.getElementsByClassName("tab-links");
             const tabcontents = document.getElementsByClassName("tab-contents");
@@ -524,101 +877,6 @@
             document.getElementById(tabname).classList.add("active-tab");
         }
 
-        // === ENHANCED NAVIGATION WITH TAB SUPPORT ===
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-container nav ul li a');
-            
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    
-                    // Handle Experience link - scroll to about section and open experience tab
-                    if (href === '#about') {
-                        e.preventDefault();
-                        
-                        // Scroll to about section
-                        const aboutSection = document.getElementById('about');
-                        if (aboutSection) {
-                            aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                        
-                        // Wait for scroll, then open experience tab
-                        setTimeout(() => {
-                            const tablinks = document.getElementsByClassName("tab-links");
-                            const tabcontents = document.getElementsByClassName("tab-contents");
-                            
-                            // Remove active from all
-                            for (let tablink of tablinks) {
-                                tablink.classList.remove("active-link");
-                            }
-                            for (let tabcontent of tabcontents) {
-                                tabcontent.classList.remove("active-tab");
-                            }
-                            
-                            // Activate experience tab
-                            const experienceTab = document.querySelector('.tab-links[onclick*="experience"]');
-                            if (experienceTab) {
-                                experienceTab.classList.add("active-link");
-                                document.getElementById('experience').classList.add("active-tab");
-                            }
-                        }, 500);
-                        
-                        // Close mobile menu if open
-                        if (window.innerWidth <= 768) {
-                            toggleMenu();
-                        }
-                    }
-                    // Handle other section links normally (projects, contact, home)
-                    else if (href.startsWith('#')) {
-                        e.preventDefault();
-                        const targetSection = document.querySelector(href);
-                        if (targetSection) {
-                            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                        
-                        // Close mobile menu if open
-                        if (window.innerWidth <= 768) {
-                            toggleMenu();
-                        }
-                    }
-                });
-            });
-            
-            // Set default tab on page load if none is active
-            const defaultTab = document.querySelector('.tab-links.active-link');
-            if (!defaultTab) {
-                const skillsTab = document.querySelector('.tab-links[onclick*="skills"]');
-                if (skillsTab) {
-                    skillsTab.classList.add('active-link');
-                    document.getElementById('skills').classList.add('active-tab');
-                }
-            }
-        });
-
-        // === URL HASH NAVIGATION (for direct links like #about) ===
-        window.addEventListener('load', function() {
-            if (window.location.hash === '#about') {
-                setTimeout(() => {
-                    const tablinks = document.getElementsByClassName("tab-links");
-                    const tabcontents = document.getElementsByClassName("tab-contents");
-                    
-                    for (let tablink of tablinks) {
-                        tablink.classList.remove("active-link");
-                    }
-                    for (let tabcontent of tabcontents) {
-                        tabcontent.classList.remove("active-tab");
-                    }
-                    
-                    const experienceTab = document.querySelector('.tab-links[onclick*="experience"]');
-                    if (experienceTab) {
-                        experienceTab.classList.add("active-link");
-                        document.getElementById('experience').classList.add("active-tab");
-                    }
-                }, 1000);
-            }
-        });
-
-        // === MOBILE MENU TOGGLE ===
         const burgerMenu = document.getElementById('burger-menu');
         const navContainer = document.getElementById('nav-container');
         const menuOverlay = document.getElementById('menu-overlay');
@@ -633,157 +891,26 @@
         burgerMenu.addEventListener('click', toggleMenu);
         menuOverlay.addEventListener('click', toggleMenu);
 
-        // === GOOGLE SHEET FORM ===
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxGohhAlDtF2M9sOfonWqAyuX2YRsElYG-EzS02tENU1XKk3PMIeT9fWgqAJhf2sZtQIQ/exec';
-        const form = document.forms['submit-to-google-sheet'];
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => console.log('Success!', response))
-                .catch(error => console.error('Error!', error.message));
+        const navLinks = document.querySelectorAll('.nav-container nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    toggleMenu();
+                }
+            });
         });
 
-        // === ENHANCED SMART PRELOADER (Desktop Only) ===
-        const preloader = document.getElementById('preloader');
-        const main = document.getElementById('main');
-        const progressText = document.getElementById('progress-text');
-        const progressFill = document.getElementById('progress-fill');
-        const loadingStage = document.getElementById('loading-stage');
-        
-        // Skip preloader on mobile
-        if (window.innerWidth <= 768) {
-            if (preloader) preloader.style.display = 'none';
-            main.style.opacity = '1';
-        } else {
-            let progress = 0;
-            const loadingStages = [
-                'Loading...',
-                'Initializing...',
-                'Loading assets...',
-                'Preparing interface...',
-                'Almost ready...'
-            ];
-            let currentStage = 0;
-
-            function updateProgress(value, stage) {
-                progress = Math.min(value, 100);
-                progressText.textContent = `LOADING PORTFOLIO... ${Math.round(progress)}%`;
-                progressFill.style.width = `${progress}%`;
-                
-                if (stage !== undefined && stage < loadingStages.length) {
-                    currentStage = stage;
-                    loadingStage.textContent = loadingStages[stage];
-                }
-            }
-
-            function hidePreloader() {
-                updateProgress(100, 4);
-                setTimeout(() => {
-                    preloader.style.opacity = '0';
-                    preloader.style.visibility = 'hidden';
-                    main.style.opacity = '1';
-                }, 300);
-            }
-
-            // Track multiple loading stages
-            const loadTracker = {
-                domReady: false,
-                stylesLoaded: false,
-                splineViewerReady: false,
-                spline1Loaded: false,
-                spline2Loaded: false
-            };
-
-            function checkLoadingProgress() {
-                let completed = 0;
-                const total = Object.keys(loadTracker).length;
-                
-                Object.values(loadTracker).forEach(loaded => {
-                    if (loaded) completed++;
-                });
-                
-                const percentage = (completed / total) * 100;
-                
-                // Update stage based on progress
-                let stage = 0;
-                if (percentage > 20) stage = 1;
-                if (percentage > 40) stage = 2;
-                if (percentage > 60) stage = 3;
-                if (percentage > 80) stage = 4;
-                
-                updateProgress(percentage, stage);
-                
-                if (completed === total) {
-                    hidePreloader();
-                }
-            }
-
-            // Initial progress
-            updateProgress(0, 0);
-
-            // Track DOM ready
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', () => {
-                    loadTracker.domReady = true;
-                    checkLoadingProgress();
-                });
-            } else {
-                loadTracker.domReady = true;
-                checkLoadingProgress();
-            }
-
-            // Track stylesheet loading
+        // Preloader
+        if (window.innerWidth > 768) {
+            const preloader = document.getElementById('preloader');
+            const main = document.getElementById('main');
+            
             setTimeout(() => {
-                loadTracker.stylesLoaded = true;
-                checkLoadingProgress();
-            }, 200);
-
-            // Track Spline viewer script
-            const checkSplineViewer = setInterval(() => {
-                if (typeof customElements !== 'undefined' && customElements.get('spline-viewer')) {
-                    loadTracker.splineViewerReady = true;
-                    checkLoadingProgress();
-                    clearInterval(checkSplineViewer);
-                    
-                    // Now attach listeners to Spline scenes
-                    const splineScenes = document.querySelectorAll('spline-viewer');
-                    
-                    splineScenes.forEach((scene, index) => {
-                        // Track both load and error events
-                        scene.addEventListener('load', () => {
-                            if (index === 0) loadTracker.spline1Loaded = true;
-                            if (index === 1) loadTracker.spline2Loaded = true;
-                            checkLoadingProgress();
-                        });
-                        
-                        scene.addEventListener('error', () => {
-                            console.warn(`Spline scene ${index + 1} failed to load`);
-                            if (index === 0) loadTracker.spline1Loaded = true;
-                            if (index === 1) loadTracker.spline2Loaded = true;
-                            checkLoadingProgress();
-                        });
-                    });
-                }
-            }, 100);
-
-            // Fallback: Force complete after 12 seconds
-            setTimeout(() => {
-                if (progress < 100) {
-                    console.log('Fallback timeout triggered');
-                    Object.keys(loadTracker).forEach(key => {
-                        loadTracker[key] = true;
-                    });
-                    hidePreloader();
-                }
-            }, 12000);
-
-            // Simulate some early progress for better UX
-            setTimeout(() => updateProgress(15, 0), 100);
-            setTimeout(() => updateProgress(25, 1), 300);
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+                main.style.opacity = '1';
+            }, 2000);
         }
     </script>
 </body>
 </html>
-
-
-
