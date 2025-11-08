@@ -285,6 +285,10 @@ nav ul li a:hover::after {
   opacity: 1;
   animation: fadeIn 0.4s ease;
 }
+.highlight-skill {
+  color: rgb(85, 0, 255); /* Matches your theme’s accent */
+  font-weight: 600;
+}
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
@@ -671,6 +675,7 @@ form textarea {
     background: transparent !important;
   }
 }
+
 
 
 
