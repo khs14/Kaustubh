@@ -1,4 +1,4 @@
-* {
+ * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -111,7 +111,7 @@ nav ul li a:hover::after {
     position: sticky;
     top: 80px;
     align-self: start;
-    height: 800px;      
+    height: auto;      
     overflow: hidden;
 }
 
@@ -559,5 +559,6 @@ form input, form textarea {
         padding: 6px 10px;
     }
 }
+
 
 
