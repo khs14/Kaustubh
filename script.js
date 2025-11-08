@@ -73,7 +73,7 @@ if (window.innerWidth > 768) {
 }
 
 // === FORM SUBMISSION ===
-const scriptURL = 'https://script.google.com/macros/s/AKfycbxGohhAlDtF2M9sOfonWqAyuX2YRsElYG-EzS02tENU1XKk3PMIeT9fWgqAJhf2sZtQIQ/exec'; 
+const scriptURL = 'https://script.google.com/macros/s/AKfycbx81o3Zf2UeTLi9Iqf9S3xjoI7M06iPbWwz1gw-kOpKAb4Nk0KXPiwD0cyVzxagKa0Jtg/exec'; 
 const form = document.forms['submit-to-google-sheet'];
 const msg = document.createElement('p'); // message element
 msg.id = "form-message";
@@ -97,3 +97,4 @@ form.addEventListener('submit', e => {
       msg.textContent = "❌ Something went wrong. Please try again.";
     });
 });
+
