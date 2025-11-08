@@ -7,7 +7,15 @@
   <link rel="icon" type="image/x-icon" href="images/portfolio.png" />
   <script src="https://kit.fontawesome.com/38616bc8f6.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Inline enhancement for skill highlights */
+    .highlight-skill {
+      color: rgb(85, 0, 255);
+      font-weight: 600;
+    }
+  </style>
 </head>
+
 <body>
   <!-- === PRELOADER === -->
   <div id="preloader">
@@ -52,6 +60,7 @@
           <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.17/build/spline-viewer.js"></script>
           <spline-viewer url="https://prod.spline.design/oKw6yd1hLqedmLIl/scene.splinecode"></spline-viewer>
         </div>
+
         <div class="about-col-2">
           <h1>About Me</h1>
           <div id="bio">
@@ -68,47 +77,107 @@
               <p class="tab-links" onclick="opentab(this, 'skills')">Skills</p>
             </div>
 
+            <!-- EXPERIENCE TAB -->
             <div class="tab-contents active-tab" id="experience">
               <ul>
                 <li>
                   <span>Kotronix Technologies</span><br />
-                  Feb 2025 - Present | Self Employed<br />
-                  Led service & maintenance of 21 DC fast chargers (~87% cost savings)
+                  Self Employed | On-site | February 2025 – Present<br />
+                  ● Led service and maintenance of 21 DC fast chargers, achieving ~87% cost savings compared to replacement for Lucknow City Transport Service Ltd. (LCTSL).<br />
+                  ● Restored non-functional chargers, optimizing depot operations where idle EV buses were previously unusable.<br />
+                  ● Enabled full utilization of EV bus fleets by reviving critical charging infrastructure and preventing service downtime.<br />
+                  ● Collaborated with government teams to improve maintenance workflows and support the growth of sustainable e-mobility.<br />
+                  <strong class="highlight-skill">Skills:</strong> High-voltage DC systems, electrical diagnostics, preventive maintenance, troubleshooting, safety compliance, government project coordination, business development
                 </li>
+
                 <li>
-                  <span>ISRO</span><br />
-                  Jun 2024 - Dec 2024 | Project Intern<br />
-                  Developed AI-powered disaster monitoring platform
+                  <span>ISRO (Indian Space Research Organisation)</span><br />
+                  Project Intern | On-site | June 2024 – December 2024 (7 months)<br />
+                  ● Developed an AI-powered disaster monitoring platform on NRSC, ISRO Delhi servers, operating 24/7.<br />
+                  ● Built an automated data pipeline using NLP and AI to extract disaster type, sentiment, and location from news feeds, improving relevance 5X over keyword-based methods.<br />
+                  ● Designed a PostgreSQL database and React.js dashboard with advanced filtering for real-time and historical disaster analysis.<br />
+                  ● Conducted data analysis and predictive analytics for disaster trends, integrating Python, Node.js, and AI models for real-time insights.<br />
+                  ● Achieved 90% accuracy for sentiment, 98% for filtering, 96% for location, and 97% for disaster type extraction.<br />
+                  ● A research paper based on this work is under journal review.<br />
+                  <strong class="highlight-skill">Skills:</strong> AI/ML, Data Analysis, Predictive Analytics, Python, PostgreSQL, Node.js, React.js, Data Visualization
                 </li>
+
                 <li>
-                  <span>CWE</span><br />
-                  May 2024 - Jun 2024 | Intern<br />
-                  Built automation tools saving 5 hrs/day
+                  <span>CWE (Catalyst for Women Entrepreneurship)</span><br />
+                  Intern | Remote | May 2024 – June 2024 (1 month)<br />
+                  ● Tailored a custom data automation tool that streamlined admin database cleaning, reducing 5+ hours of manual work to seconds.<br />
+                  <strong class="highlight-skill">Skills:</strong> Data Analytics, Python, Mailchimp, Data Cleaning, Automation
+                </li>
+
+                <li>
+                  <span>Rancho Labs</span><br />
+                  AI/ML Intern | Remote | June 2023 – October 2023 (4 months)<br />
+                  ● Facilitated learning by preparing educational materials and projects on machine learning concepts.<br />
+                  ● Created practical projects demonstrating machine learning algorithms and concepts.<br />
+                  <strong class="highlight-skill">Skills:</strong> Python, ML Algorithms, CNN
+                </li>
+
+                <li>
+                  <span>Leoforce</span><br />
+                  Intern | Remote | May 2023 – July 2023 (2 months)<br />
+                  ● Designed and implemented interactive playgrounds and dashboards for Quality Assurance testing of AI products.<br />
+                  ● Collaborated with the Data Science team to develop and test AI models, improving testing efficiency.<br />
+                  <strong class="highlight-skill">Skills:</strong> JavaScript, REST API, Kubernetes, GitLab
+                </li>
+
+                <li>
+                  <span>Google Developer Student Clubs (GDSC)</span><br />
+                  Technical Team Member | 2023 – 2024<br />
+                  ● Contributed to organizing and conducting technical workshops and events focused on app development and cloud technologies.<br />
+                  <strong class="highlight-skill">Skills:</strong> Google Cloud Platform (GCP), App Development, Team Collaboration
+                </li>
+
+                <li>
+                  <span>Enactus</span><br />
+                  Graphics and Finance Head | 2023 – 2024<br />
+                  ● Led the design and financial operations for social entrepreneurship initiatives, managing creative visuals and project budgets.<br />
+                  <strong class="highlight-skill">Skills:</strong> Financial Management, Graphic Design, Social Media Graphics, Leadership
                 </li>
               </ul>
             </div>
 
+            <!-- EDUCATION TAB -->
             <div class="tab-contents" id="education">
               <ul>
                 <li>
                   <span>The NorthCap University</span><br />
-                  B.Tech CSE (AI/ML) | 2021 - 2025<br />
-                  CGPA: 8.94 | 25% Merit Scholarship
+                  B.Tech in Computer Science and Engineering (AI/ML) | 2021 – 2025<br />
+                  CGPA: 8.94 / 10 (177 credits earned)<br />
+                  ● Awarded a 25% merit scholarship every semester.<br />
+                  ● Served as a peer tutor for Python and Cyber Security.<br />
+                  ● Completed <strong>560+ hours of community service</strong> across four years.<br /><br />
+                  <strong class="highlight-skill">Core Courses:</strong><br />
+                  Computational Linguistics & Natural Language Processing (CSL448)<br />
+                  Computer Vision (CSL447)<br />
+                  Deep Learning (CSL312)<br />
+                  Applied Artificial Intelligence & Expert Systems (CSL347)<br />
+                  Reinforcement Learning (CSL348)
                 </li>
+
                 <li>
                   <span>Sardar Patel Vidyalaya</span><br />
-                  Grade 12: 90.8%
+                  Grade 12 Percentage: 90.8% (2021)<br />
+                  ● Studied Python and MySQL, building a strong foundation in computer science. (2019 - 2021)<br />
+                  ● Served as Class Representative from Grade 9 to 12, developing leadership, teamwork, and communication skills. (2017 - 2021)<br />
+                  ● Completed a one-week internship at Edunext Technologies Pvt. Ltd. (2019)
                 </li>
               </ul>
             </div>
 
+            <!-- SKILLS TAB -->
             <div class="tab-contents" id="skills">
               <ul>
-                <li><span>Programming languages:</span><br />Python, Java, Kotlin, C, JavaScript</li>
-                <li><span>Machine learning:</span><br />TensorFlow, Keras, NLP, CV, DL</li>
-                <li><span>Front-end:</span><br />React.js, Flask, Streamlit, CSS, Tailwind</li>
-                <li><span>Backend:</span><br />MySQL, Python, JavaScript</li>
-                <li><span>AI/ML:</span><br />Deep Learning, NLP, CV, Analytics</li>
+                <li><span>Programming Languages:</span><br />Python, Java, Kotlin, C, JavaScript</li>
+                <li><span>Machine Learning & AI:</span><br />TensorFlow, Keras, Scikit-learn, NLP, Deep Learning, Computer Vision</li>
+                <li><span>Data & Analytics:</span><br />PostgreSQL, MySQL, Pandas, NumPy, Power BI, Data Visualization</li>
+                <li><span>Development Frameworks:</span><br />React.js, Flask, Streamlit, Tailwind CSS, Node.js</li>
+                <li><span>Tools & DevOps:</span><br />Git, GitHub, Docker, Kubernetes, Firebase</li>
+                <li><span>Soft Skills:</span><br />Leadership, Project Management, Technical Writing, Collaboration</li>
               </ul>
             </div>
           </div>
@@ -166,6 +235,7 @@
           </div>
           <a href="#" class="btn btn2">Download Resume</a>
         </div>
+
         <div class="contact-right">
           <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.17/build/spline-viewer.js"></script>
           <spline-viewer url="https://prod.spline.design/BwYaL01FZaW9YoFD/scene.splinecode"></spline-viewer>
