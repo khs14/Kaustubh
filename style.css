@@ -111,7 +111,8 @@ nav ul li a:hover::after {
     position: sticky;
     top: 80px;
     align-self: start;
-    height: fit-content;
+    height: 600px;      
+    overflow: hidden;
 }
 
 .about-col-2 {
@@ -558,3 +559,4 @@ form input, form textarea {
         padding: 6px 10px;
     }
 }
+
