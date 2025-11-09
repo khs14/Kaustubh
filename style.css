@@ -286,7 +286,7 @@ nav ul li a:hover::after {
   animation: fadeIn 0.4s ease;
 }
 .highlight-skill {
-  color: rgb(85, 0, 255); /* Matches your theme’s accent */
+  color: green; /* Matches your theme’s accent */
   font-weight: 600;
 }
 
@@ -675,6 +675,7 @@ form textarea {
     background: transparent !important;
   }
 }
+
 
 
 
