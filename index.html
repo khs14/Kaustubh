@@ -46,77 +46,144 @@
   </div>
 
   <!-- === ABOUT SECTION === -->
-  <div id="about">
-    <div class="container">
-      <div class="row">
-        <div class="about-col-1">
-          <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.17/build/spline-viewer.js"></script>
-          <spline-viewer url="https://prod.spline.design/oKw6yd1hLqedmLIl/scene.splinecode"></spline-viewer>
+  <!-- === ABOUT SECTION (Final Version with Balanced Leadership) === -->
+<div id="about">
+  <div class="container">
+    <div class="row">
+      <div class="about-col-1">
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.17/build/spline-viewer.js"></script>
+        <spline-viewer url="https://prod.spline.design/oKw6yd1hLqedmLIl/scene.splinecode"></spline-viewer>
+      </div>
+
+      <div class="about-col-2">
+        <h1>About Me</h1>
+        <p>
+          22-year-old Computer Science engineer specializing in AI/ML, full-stack, and automation. Passionate about building efficient, scalable, and meaningful solutions that merge creativity with technology.
+        </p>
+
+        <!-- Tabs -->
+        <div class="tab-titles">
+          <p class="tab-links active-link" onclick="opentab(this, 'experience')">Experience</p>
+          <p class="tab-links" onclick="opentab(this, 'undergrad')">Undergraduation</p>
+          <p class="tab-links" onclick="opentab(this, 'highschool')">High School</p>
+          <p class="tab-links" onclick="opentab(this, 'skills')">Skills</p>
+          <p class="tab-links" onclick="opentab(this, 'leadership')">Leadership</p>
         </div>
-        <div class="about-col-2">
-          <h1>About Me</h1>
-          <div id="bio">
-            <p>
-              22-year-old innovative computer science engineering student with
-              expertise in machine learning, mobile app, and web development. A
-              creative problem-solver, dedicated to transforming ideas into impactful
-              technological solutions.
-            </p>
 
-            <div class="tab-titles">
-              <p class="tab-links active-link" onclick="opentab(this, 'experience')">Experience</p>
-              <p class="tab-links" onclick="opentab(this, 'education')">Education</p>
-              <p class="tab-links" onclick="opentab(this, 'skills')">Skills</p>
-            </div>
+        <!-- EXPERIENCE -->
+        <div class="tab-contents active-tab" id="experience">
+          <ul>
+            <li>
+              <span>Kotronix Technologies</span><br />
+              Self Employed | On-site | Feb 2025 – Present<br />
+              • Restored 21+ DC fast chargers for Lucknow City Transport, cutting costs by 87%.<br />
+              • Improved EV depot uptime and maintenance workflows with government collaboration.<br />
+              <strong class="highlight-skill">Skills:</strong> DC Systems, Troubleshooting, Preventive Maintenance
+            </li>
 
-            <div class="tab-contents active-tab" id="experience">
-              <ul>
-                <li>
-                  <span>Kotronix Technologies</span><br />
-                  Feb 2025 - Present | Self Employed<br />
-                  Led service & maintenance of 21 DC fast chargers (~87% cost savings)
-                </li>
-                <li>
-                  <span>ISRO</span><br />
-                  Jun 2024 - Dec 2024 | Project Intern<br />
-                  Developed AI-powered disaster monitoring platform
-                </li>
-                <li>
-                  <span>CWE</span><br />
-                  May 2024 - Jun 2024 | Intern<br />
-                  Built automation tools saving 5 hrs/day
-                </li>
-              </ul>
-            </div>
+            <li>
+              <span>ISRO (Indian Space Research Organisation)</span><br />
+              Project Intern | On-site | Jun 2024 – Dec 2024<br />
+              • Built AI-powered disaster monitoring system on NRSC servers (90–97% accuracy).<br />
+              • Copyright has been granted for the project and research paper for the same is under journal review.<br />
+              • Automated NLP-based news pipeline for real-time alerts.<br />
+              • Designed PostgreSQL + React.js dashboard for analytics.<br />
+              <strong class="highlight-skill">Skills:</strong> Python, NLP, PostgreSQL, React.js, Data Analytics
+            </li>
 
-            <div class="tab-contents" id="education">
-              <ul>
-                <li>
-                  <span>The NorthCap University</span><br />
-                  B.Tech CSE (AI/ML) | 2021 - 2025<br />
-                  CGPA: 8.94 | 25% Merit Scholarship
-                </li>
-                <li>
-                  <span>Sardar Patel Vidyalaya</span><br />
-                  Grade 12: 90.8%
-                </li>
-              </ul>
-            </div>
+            <li>
+              <span>Catalyst for Women Entrepreneurship (CWE)</span><br />
+              Data Intern | Remote | May 2024 – Jun 2024<br />
+              • Built a data automation tool to clean admin databases, reducing manual work by 5+ hours.<br />
+              <strong class="highlight-skill">Skills:</strong> Python, Data Cleaning, Automation
+            </li>
 
-            <div class="tab-contents" id="skills">
-              <ul>
-                <li><span>Programming languages:</span><br />Python, Java, Kotlin, C, JavaScript</li>
-                <li><span>Machine learning:</span><br />TensorFlow, Keras, NLP, CV, DL</li>
-                <li><span>Front-end:</span><br />React.js, Flask, Streamlit, CSS, Tailwind</li>
-                <li><span>Backend:</span><br />MySQL, Python, JavaScript</li>
-                <li><span>AI/ML:</span><br />Deep Learning, NLP, CV, Analytics</li>
-              </ul>
-            </div>
-          </div>
+            <li>
+              <span>Leoforce</span><br />
+              QA Intern | Remote | May 2023 – Jul 2023<br />
+              • Developed dashboards for AI product testing and validation.<br />
+              <strong class="highlight-skill">Skills:</strong> JavaScript, REST APIs, QA, GitLab
+            </li>
+
+            <li>
+              <span>Rancho Labs</span><br />
+              AI/ML Intern | Remote | Jun 2023 – Oct 2023<br />
+              • Created ML educational projects and tutorials for student training.<br />
+              <strong class="highlight-skill">Skills:</strong> Python, ML Algorithms, CNN
+            </li>
+          </ul>
         </div>
+
+        <!-- UNDERGRADUATION -->
+        <div class="tab-contents" id="undergrad">
+          <ul>
+            <li>
+              <span>The NorthCap University</span><br />
+              B.Tech in Computer Science (AI/ML) | 2021 – 2025<br />
+              CGPA: 8.94 / 10 | Merit Scholarship (All Semesters)<br />
+              • Peer Tutor for Python & Cyber Security<br />
+              • Completed <strong>560+ hours</strong> of community service<br /><br />
+              <strong class="highlight-skill">Core Courses:</strong><br />
+              Computational Linguistics & NLP (CSL448)<br />
+              Computer Vision (CSL447)<br />
+              Deep Learning (CSL312)<br />
+              Applied AI & Expert Systems (CSL347)<br />
+              Reinforcement Learning (CSL348)
+            </li>
+          </ul>
+        </div>
+
+        <!-- HIGH SCHOOL -->
+        <div class="tab-contents" id="highschool">
+          <ul>
+            <li>
+              <span>Sardar Patel Vidyalaya</span><br />
+              Grade 12 – 90.8% | 2019 – 2021<br />
+              • Studied Python and MySQL, building strong programming fundamentals.<br />
+              • Class Representative (Grades 9–12), managing class communication and coordination.<br />
+              • Completed internship at Edunext Technologies Pvt. Ltd. (2019).<br />
+              <strong class="highlight-skill">Skills:</strong> Python, MySQL, Leadership, Communication
+            </li>
+          </ul>
+        </div>
+
+        <!-- SKILLS -->
+        <div class="tab-contents" id="skills">
+          <ul>
+            <li><span>Languages:</span> Python, Java, Kotlin, C, JavaScript</li>
+            <li><span>AI/ML:</span> TensorFlow, Keras, Scikit-learn, NLP, Deep Learning, CV</li>
+            <li><span>Data:</span> PostgreSQL, MySQL, Power BI, Pandas, NumPy</li>
+            <li><span>Development:</span> React.js, Flask, Streamlit, Tailwind CSS, Node.js</li>
+            <li><span>DevOps & Tools:</span> Git, Docker, Kubernetes, Firebase</li>
+            <li><span>Soft Skills:</span> Leadership, Technical Writing, Collaboration</li>
+          </ul>
+        </div>
+
+        <!-- LEADERSHIP -->
+        <div class="tab-contents" id="leadership">
+          <ul>
+            <li>
+              <span>Kotronix Technologies</span><br />
+              Led on-site coordination and troubleshooting operations to optimize EV charging infrastructure.
+            </li>
+
+            <li>
+              <span>Google Developer Student Clubs (GDSC)</span><br />
+              Organized and supported technical events focused on app and cloud development.
+            </li>
+
+            <li>
+              <span>Enactus</span><br />
+              Directed creative design and finance operations for university social projects.
+            </li>
+          </ul>
+        </div>
+
       </div>
     </div>
   </div>
+</div>
+
 
   <!-- === PROJECTS SECTION === -->
   <div id="projects">
@@ -193,6 +260,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
