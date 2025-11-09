@@ -280,6 +280,45 @@ nav ul li a:hover::after {
   transition: opacity 0.3s ease;
 }
 
+/* ================================
+   COMPANY LINK STYLING — Green Theme (No Icons)
+   Clean text links for About/Experience section
+================================ */
+.company-link {
+  font-family: 'Gilroy', sans-serif;
+  color: #7fff7f; /* soft neon green that matches highlight-skill */
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 255, 128, 0.25);
+  padding-bottom: 2px;
+  transition: all 0.25s ease;
+}
+
+.company-link:hover {
+  color: #00ff88; /* brighter green for hover */
+  border-bottom-color: #00ff88;
+  text-shadow: 0 0 8px rgba(0, 255, 128, 0.5);
+  transform: translateX(3px);
+}
+
+.company-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 255, 128, 0.35);
+  border-radius: 4px;
+}
+
+/* Keep consistent spacing with your list items */
+.tab-contents ul li {
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+.tab-contents ul li span,
+.tab-contents ul li .company-link {
+  font-size: 1.05rem;
+}
+
+
 .tab-contents.active-tab {
   display: block;
   opacity: 1;
@@ -675,6 +714,7 @@ form textarea {
     background: transparent !important;
   }
 }
+
 
 
 
