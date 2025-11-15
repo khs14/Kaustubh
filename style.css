@@ -318,6 +318,29 @@ nav ul li a:hover::after {
   font-size: 1.05rem;
 }
 
+/* ================================
+   SKILLS SECTION LINKS
+================================== */
+#skills a {
+  color: #7fff7f;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 255, 128, 0.25);
+  padding-bottom: 1px;
+  transition: all 0.25s ease;
+  font-weight: 500;
+}
+
+#skills a:hover {
+  color: #00ff88;
+  border-bottom-color: #00ff88;
+  text-shadow: 0 0 8px rgba(0, 255, 128, 0.5);
+}
+
+#skills a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 255, 128, 0.35);
+  border-radius: 3px;
+}
 
 .tab-contents.active-tab {
   display: block;
@@ -761,6 +784,7 @@ form textarea {
     background: transparent !important;
   }
 }
+
 
 
 
