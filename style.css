@@ -347,6 +347,41 @@ nav ul li a:hover::after {
   font-size: 1.1rem;
   font-weight: 600;
 }
+.certificate-link {
+  font-family: 'Gilroy', sans-serif;
+  color: #00ff88; /* Bright green matching your highlight-skill */
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.certificate-link:hover {
+  color: #00ff88;
+  background: rgba(0, 255, 136, 0.2);
+  border-color: #00ff88;
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 255, 136, 0.3);
+}
+
+.certificate-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.4);
+}
+
+/* Keep consistent spacing in experience lists */
+.tab-contents ul li .certificate-link {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
 
 /* ================================
    PROJECTS
@@ -608,6 +643,11 @@ form textarea {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
 
+  .certificate-link {
+    font-size: 0.85rem;
+    padding: 3px 6px;
+  }
+
   #page1 h1 {
     font-size: 8rem;
     line-height: 12rem;
@@ -673,6 +713,13 @@ form textarea {
     padding: 0 20px;
   }
 
+  .certificate-link {
+    font-size: 0.8rem;
+    padding: 3px 6px;
+    display: inline-block;
+    margin-top: 5px;
+  }
+
   #contact .row {
     grid-template-columns: 1fr;
   }
@@ -714,6 +761,7 @@ form textarea {
     background: transparent !important;
   }
 }
+
 
 
 
