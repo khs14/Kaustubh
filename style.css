@@ -46,13 +46,13 @@ html {
    TEXT SELECTION
 ================================== */
 ::selection {
-  background-color: white;
-  color: black;
+  background-color: white !important;
+  color: black !important;
 }
 
 ::-moz-selection {
-  background-color: white;
-  color: black;
+  background-color: white !important;
+  color: black !important;
 }
 
 ::placeholder {
@@ -822,6 +822,7 @@ form textarea {
     background: transparent !important;
   }
 }
+
 
 
 
