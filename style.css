@@ -6,6 +6,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Gilroy', sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: #006400 #000000;
 }
 
 body {
@@ -15,6 +17,42 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+/* ================================
+   CUSTOM SCROLLBAR
+================================== */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #006400;
+  border-radius: 6px;
+  border: 2px solid #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #008000;
+}
+
+
+
+/* ================================
+   TEXT SELECTION
+================================== */
+::selection {
+  background-color: white;
+  color: black;
+}
+
+::-moz-selection {
+  background-color: white;
+  color: black;
 }
 
 ::placeholder {
@@ -784,6 +822,7 @@ form textarea {
     background: transparent !important;
   }
 }
+
 
 
 
