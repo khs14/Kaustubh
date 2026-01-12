@@ -121,6 +121,16 @@ html {
   transition: opacity 1s ease-in;
 }
 
+#page1 h1 {
+  font-size: 9rem;
+  text-transform: uppercase;
+  color: white;
+  padding-left: 0; /* Remove left padding */
+  text-align: center; /* Add center alignment */
+  line-height: 13.5rem;
+  letter-spacing: -5px;
+}
+
 @media (max-width: 768px) {
   #preloader {
     display: none !important;
@@ -189,13 +199,18 @@ html {
    NAVBAR
 ================================== */
 .nav-container {
-  padding: 10px 15%;
+   padding: 10px 0; /* Remove horizontal padding */
+   text-align: center; /* Center the nav */
 }
 
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+nav ul{
+   display: inline-flex; 
 }
 
 nav ul li {
@@ -822,6 +837,7 @@ form textarea {
     background: transparent !important;
   }
 }
+
 
 
 
