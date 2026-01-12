@@ -6,8 +6,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Gilroy', sans-serif;
-  scrollbar-width: thin;
-  scrollbar-color: #006400 #000000;
+  scrollbar-width: thin !important;
+  scrollbar-color: #006400 #000000 !important;
 }
 
 body {
@@ -822,6 +822,7 @@ form textarea {
     background: transparent !important;
   }
 }
+
 
 
 
