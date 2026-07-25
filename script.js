@@ -86,8 +86,8 @@ form.addEventListener('submit', e => {
   e.preventDefault();
   msg.textContent = "Submitting...";
   
-  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-    .then(response => {
+  fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: new FormData(form) })
+    .then(() => {
       msg.textContent = "✅ Message sent successfully!";
       form.reset();
       setTimeout(() => msg.textContent = "", 4000);
