@@ -271,6 +271,10 @@ nav ul li a:hover::after {
   grid-gap: 20px;
 }
 
+.about-col-1 {
+  align-self: start;
+}
+
 .about-col-2 h1 {
   color: white;
   font-size: 1.8rem;
@@ -688,8 +692,8 @@ form textarea {
 .about-image {
   display: block;
   width: 100%;
-  height: 100%;
-  min-height: 300px; /* keeps the column from collapsing on tall screens */
+  height: 400px;
+  max-height: 55vh;
   object-fit: cover;
   border-radius: 12px;
 }
@@ -766,7 +770,7 @@ form textarea {
   }
 
   .about-image {
-    min-height: 220px;
+    height: 280px;
   }
 }
 
@@ -845,7 +849,7 @@ form textarea {
   }
 
   .about-image {
-    min-height: 180px;
+    height: 220px;
     margin-top: 10px;
   }
 
