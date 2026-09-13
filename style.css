@@ -231,22 +231,26 @@ nav ul li a:hover::after {
 
 /* ================================
    HERO SECTION
+   Name is centered both horizontally and vertically in the viewport.
 ================================== */
 #page1 {
-  min-height: 62.5rem;
+  min-height: 100vh;
   position: relative;
   width: 100%;
   padding: 1.5rem 1.2rem;
   background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #page1 h1 {
   font-size: 9rem;
   text-transform: uppercase;
   color: white;
-  padding-left: 10%;
-  line-height: 13.5rem;
+  line-height: 8.5rem;
   letter-spacing: -5px;
+  text-align: center;
 }
 
 /* ================================
@@ -661,6 +665,66 @@ form textarea {
 }
 
 /* ================================
+   LAZY-LOADED SPLINE VIEWERS
+   Containers stay visible on all screen sizes now — on mobile/tablet
+   they show a lightweight static fallback image instead of the full
+   3D runtime (see script.js), so we no longer hard-hide them here.
+================================== */
+.spline-lazy {
+  width: 100%;
+  height: 100%;
+  min-height: 300px; /* adjust to match your desired embed height */
+  position: relative;
+}
+
+.spline-lazy spline-viewer {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.spline-lazy img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Simple pulsing placeholder shown before the scene/image loads */
+.spline-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  border-radius: 12px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 25%,
+    rgba(255, 255, 255, 0.08) 37%,
+    rgba(255, 255, 255, 0.04) 63%
+  );
+  background-size: 400% 100%;
+  animation: spline-shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes spline-shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: 0 0; }
+}
+
+/* Only used when a container has no fallback image at all */
+.spline-lazy.spline-disabled {
+  display: none;
+}
+
+/* If the runtime fails to load (network/offline), fade the placeholder
+   out quietly rather than showing a broken shimmer forever. */
+.spline-lazy.spline-failed .spline-placeholder {
+  animation: none;
+  opacity: 0.3;
+}
+
+/* ================================
    TABLET VIEW
 ================================== */
 @media only screen and (max-width: 768px) {
@@ -714,8 +778,7 @@ form textarea {
 
   #page1 h1 {
     font-size: 8rem;
-    line-height: 12rem;
-    padding-left: 5%;
+    line-height: 7.5rem;
   }
 
   .row {
@@ -730,6 +793,10 @@ form textarea {
   .tab-links {
     font-size: 0.85rem;
     padding: 8px 12px;
+  }
+
+  .spline-lazy {
+    min-height: 220px;
   }
 }
 
@@ -748,17 +815,12 @@ form textarea {
   #page1 h1 {
     font-size: 3rem;
     line-height: 3.5rem;
-    padding-left: 0;
     letter-spacing: -2px;
-    text-align: left;
+    text-align: center;
   }
 
   nav ul li a {
     font-size: 1.2rem !important;
-  }
-
-  .about-col-1 {
-    display: none !important;
   }
 
   #about {
@@ -788,10 +850,6 @@ form textarea {
     grid-template-columns: 1fr;
   }
 
-  .contact-right {
-    display: none !important;
-  }
-
   #projects {
     padding: 40px 20px;
   }
@@ -815,6 +873,11 @@ form textarea {
     font-size: 0.75rem;
     padding: 6px 10px;
   }
+
+  .spline-lazy {
+    min-height: 180px;
+    margin-top: 10px;
+  }
 }
 
 @media only screen and (min-width: 769px) {
@@ -825,16 +888,3 @@ form textarea {
     background: transparent !important;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
