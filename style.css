@@ -912,8 +912,8 @@ form textarea {
   /* Pull the contact image closer to the text and let it grow larger
      on anything above mobile width */
   #contact .row {
-    grid-template-columns: minmax(320px, 460px) 1fr;
-    grid-gap: 25px;
+     grid-template-columns: minmax(280px, 380px) 1fr;
+     grid-gap: 15px;
   }
 
   .contact-right {
