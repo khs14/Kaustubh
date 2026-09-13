@@ -557,6 +557,7 @@ nav ul li a:hover::after {
   display: grid;
   grid-template-columns: 1fr 0.69fr;
   grid-gap: 40px;
+  align-items: center;
 }
 
 .contact-left p,
@@ -599,6 +600,22 @@ nav ul li a:hover::after {
   background-color: rgb(95, 10, 255); /* slightly lighter shade */
   transform: translateY(-3px);
   box-shadow: 0 4px 15px rgba(85, 0, 255, 0.4);
+}
+
+/* Static contact visual (replaces the Spline embed) — 1600x800 source */
+.contact-right {
+  display: flex;
+  align-items: center;
+}
+
+.contact-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 
@@ -877,6 +894,10 @@ form textarea {
   .spline-lazy {
     min-height: 180px;
     margin-top: 10px;
+  }
+
+  .contact-image {
+    margin-top: 20px;
   }
 }
 
