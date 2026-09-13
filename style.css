@@ -908,4 +908,20 @@ form textarea {
     position: relative !important;
     background: transparent !important;
   }
+
+  /* Pull the contact image closer to the text and let it grow larger
+     on anything above mobile width */
+  #contact .row {
+    grid-template-columns: minmax(320px, 460px) 1fr;
+    grid-gap: 25px;
+  }
+
+  .contact-right {
+    justify-content: flex-start;
+  }
+
+  .contact-image {
+    max-width: 640px;
+    width: 100%;
+  }
 }
