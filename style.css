@@ -510,13 +510,13 @@ nav ul li a:hover::after {
 
 .layer h3,
 .layer h4 {
-  color: white;
+  color: orange;
   font-weight: 500;
   margin-bottom: 20px;
 }
 
 .layer p {
-  color: white;
+  color: orange;
   font-size: 0.8rem;
   margin-bottom: 20px;
 }
@@ -829,6 +829,16 @@ form textarea {
 
   #projects {
     padding: 40px 20px;
+  }
+
+  .work-list {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .work {
+    width: 100%;
+    max-width: 400px;
   }
 
   #contact-form {
