@@ -196,7 +196,7 @@ html {
 nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* centers the menu so it aligns under the name on PC */
 }
 
 
@@ -272,7 +272,10 @@ nav ul li a:hover::after {
 }
 
 .about-col-1 {
-  align-self: start;
+  align-self: center; /* vertically center the image next to the text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .about-col-2 h1 {
@@ -687,14 +690,13 @@ form textarea {
 
 /* ================================
    ABOUT SECTION IMAGE
-   Static image replacing the previous Spline embed
+   Static image replacing the previous Spline embed.
+   height:auto (no crop) — full image is always shown.
 ================================== */
 .about-image {
   display: block;
   width: 100%;
-  height: 400px;
-  max-height: 55vh;
-  object-fit: cover;
+  height: auto;
   border-radius: 12px;
 }
 
@@ -713,6 +715,7 @@ form textarea {
     width: 75%;
     max-width: 350px;
     height: 100vh;
+    padding: 0; /* remove desktop 10px 15% so list centers properly in the flyout */
     background: rgba(10, 10, 10, 0.98);
     transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     z-index: 9999;
@@ -736,6 +739,10 @@ form textarea {
     padding: 0;
     text-align: center;
     width: 100%;
+  }
+
+  .nav-container nav ul li {
+    margin: 0; /* remove leftover desktop 20px 20px margin in the flyout */
   }
 
   .nav-container nav ul li a {
@@ -767,10 +774,6 @@ form textarea {
   .tab-links {
     font-size: 0.85rem;
     padding: 8px 12px;
-  }
-
-  .about-image {
-    height: 280px;
   }
 }
 
@@ -849,7 +852,6 @@ form textarea {
   }
 
   .about-image {
-    height: 220px;
     margin-top: 10px;
   }
 
