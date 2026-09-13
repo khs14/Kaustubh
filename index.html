@@ -1,32 +1,62 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Kaustubh Hari Sethi</title>
+
   <link rel="icon" type="image/x-icon" href="images/portfolio.png" />
-  <script src="https://kit.fontawesome.com/38616bc8f6.js" crossorigin="anonymous"></script>
+
+  <!-- Font Awesome -->
+  <script
+    src="https://kit.fontawesome.com/38616bc8f6.js"
+    crossorigin="anonymous">
+  </script>
+
+  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Spline Viewer - Automatically uses the latest published version -->
+  <script
+    type="module"
+    src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js">
+  </script>
 </head>
+
 <body>
+
   <!-- === PRELOADER === -->
   <div id="preloader">
     <div class="loader"></div>
+
     <p id="progress-text">INITIALIZING... 0%</p>
+
     <div class="progress-bar">
       <div class="progress-fill" id="progress-fill"></div>
     </div>
-    <p class="loading-stage" id="loading-stage">Preparing assets...</p>
+
+    <p class="loading-stage" id="loading-stage">
+      Preparing assets...
+    </p>
   </div>
+
 
   <!-- === BURGER MENU === -->
   <div class="burger-menu" id="burger-menu">
-    <span></span><span></span><span></span>
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
+
   <div class="menu-overlay" id="menu-overlay"></div>
+
 
   <!-- === MAIN CONTENT === -->
   <div id="main">
+
     <div class="nav-container" id="nav-container">
       <nav>
         <ul>
@@ -39,258 +69,916 @@
       </nav>
     </div>
 
+
     <div id="page1">
-      <h1>Kaustubh<br />Hari Sethi</h1>
+      <h1>
+        Kaustubh<br />
+        Hari Sethi
+      </h1>
     </div>
+
   </div>
+
 
   <!-- === ABOUT SECTION === -->
   <div id="about">
+
     <div class="container">
+
       <div class="row">
+
+        <!-- Spline Scene -->
         <div class="about-col-1">
-          <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.17/build/spline-viewer.js"></script>
-          <spline-viewer url="https://prod.spline.design/oKw6yd1hLqedmLIl/scene.splinecode"></spline-viewer>
+          <spline-viewer
+            url="https://prod.spline.design/oKw6yd1hLqedmLIl/scene.splinecode">
+          </spline-viewer>
         </div>
 
+
+        <!-- About Content -->
         <div class="about-col-2">
+
           <h1>About Me</h1>
+
           <p>
-            23-year-old Computer Science engineer specializing in AI/ML, full-stack, and automation. Passionate about building efficient, scalable, and meaningful solutions that merge creativity with technology.
+            23-year-old Computer Science engineer specializing in AI/ML,
+            full-stack, and automation. Passionate about building efficient,
+            scalable, and meaningful solutions that merge creativity with
+            technology.
           </p>
+
 
           <!-- Primary Tabs -->
           <div class="tab-titles">
-            <p class="tab-links active-link" onclick="opentab(this, 'ai_research')">AI & Research</p>
-            <p class="tab-links" onclick="opentab(this, 'postgrad')">Post Graduation</p>
-            <p class="tab-links" onclick="opentab(this, 'software_data')">Software & Data</p>
-            <p class="tab-links" onclick="opentab(this, 'entrepreneurship')">Entrepreneurship</p>
-            <p class="tab-links" onclick="opentab(this, 'undergrad')">Undergraduation</p>
-            <p class="tab-links" onclick="opentab(this, 'highschool')">High School</p>
-            <p class="tab-links" onclick="opentab(this, 'skills')">Skills</p>
-            <p class="tab-links" onclick="opentab(this, 'leadership')">Leadership</p>
+
+            <p
+              class="tab-links active-link"
+              onclick="opentab(this, 'ai_research')">
+              AI & Research
+            </p>
+
+            <p
+              class="tab-links"
+              onclick="opentab(this, 'postgrad')">
+              Post Graduation
+            </p>
+
+            <p
+              class="tab-links"
+              onclick="opentab(this, 'software_data')">
+              Software & Data
+            </p>
+
+            <p
+              class="tab-links"
+              onclick="opentab(this, 'entrepreneurship')">
+              Entrepreneurship
+            </p>
+
+            <p
+              class="tab-links"
+              onclick="opentab(this, 'undergrad')">
+              Undergraduation
+            </p>
+
+            <p
+              class="tab-links"
+              onclick="opentab(this, 'highschool')">
+              High School
+            </p>
+
+            <p
+              class="tab-links"
+              onclick="opentab(this, 'skills')">
+              Skills
+            </p>
+
+            <p
+              class="tab-links"
+              onclick="opentab(this, 'leadership')">
+              Leadership
+            </p>
+
           </div>
+
 
           <!-- === AI & RESEARCH === -->
           <div class="tab-contents active-tab" id="ai_research">
+
             <ul>
-              <li>
-                <a class="company-link" href="https://www.isro.gov.in" target="_blank" rel="noopener noreferrer">ISRO (Indian Space Research Organisation)</a><br />
-                Project Intern | On-site | Jun 2024 – Dec 2024<br />
-                • Developed an AI-powered disaster monitoring system on NRSC servers (90–94% accuracy).<br />
-                • Project received copyright and research paper published in Springer Nature's Earth Systems and Environment. DOI: 10.1007/s41748-026-01305-1.<br />
-                • Built NLP-based pipelines for real-time news extraction and alert classification.<br />
-                • Designed PostgreSQL + React.js dashboard for data visualization and trend analysis.<br />
-                <strong class="highlight-skill">Skills:</strong> Python, NLP, PostgreSQL, React.js, Data Analytics<br />
-                <a href="https://drive.google.com/file/d/1m94_kvE4u02CQiIn72gKpBDWRO5Rs4lB/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="certificate-link">View Certificate</a>|
-                <a href="https://drive.google.com/file/d/1d54zxtdPLNfsHQtBEtQOBBNXmOXShrp4/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="certificate-link">View Copyright</a>|
-                <a href="https://doi.org/10.1007/s41748-026-01305-1" target="_blank" rel="noopener noreferrer" class="certificate-link">View Research Paper</a>
-              </li>
 
               <li>
-                <a class="company-link" href="https://home.rancholabs.com/" target="_blank" rel="noopener noreferrer">Rancho Labs</a><br />
-                Python & AI Intern | Remote | Jun 2023 – Oct 2023<br />
-                • Designed educational ML projects and materials to simplify key AI concepts.<br />
-                <strong class="highlight-skill">Skills:</strong> Python, ML Algorithms, CNN<br />
-                <a href="https://drive.google.com/file/d/1E2iJ8RQtyxp4wymirznvgFPDQ-P0xNRN/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="certificate-link">View Certificate</a>
+
+                <a
+                  class="company-link"
+                  href="https://www.isro.gov.in"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  ISRO (Indian Space Research Organisation)
+                </a>
+
+                <br />
+
+                Project Intern | On-site | Jun 2024 – Dec 2024
+
+                <br />
+
+                • Developed an AI-powered disaster monitoring system on NRSC
+                servers (90–94% accuracy).
+                <br />
+
+                • Project received copyright and research paper published in
+                Springer Nature's Earth Systems and Environment.
+                DOI: 10.1007/s41748-026-01305-1.
+                <br />
+
+                • Built NLP-based pipelines for real-time news extraction and
+                alert classification.
+                <br />
+
+                • Designed PostgreSQL + React.js dashboard for data
+                visualization and trend analysis.
+                <br />
+
+                <strong class="highlight-skill">Skills:</strong>
+                Python, NLP, PostgreSQL, React.js, Data Analytics
+
+                <br />
+
+                <a
+                  href="https://drive.google.com/file/d/1m94_kvE4u02CQiIn72gKpBDWRO5Rs4lB/view?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="certificate-link">
+                  View Certificate
+                </a>
+
+                |
+
+                <a
+                  href="https://drive.google.com/file/d/1d54zxtdPLNfsHQtBEtQOBBNXmOXShrp4/view?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="certificate-link">
+                  View Copyright
+                </a>
+
+                |
+
+                <a
+                  href="https://doi.org/10.1007/s41748-026-01305-1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="certificate-link">
+                  View Research Paper
+                </a>
+
               </li>
+
+
+              <li>
+
+                <a
+                  class="company-link"
+                  href="https://home.rancholabs.com/"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Rancho Labs
+                </a>
+
+                <br />
+
+                Python & AI Intern | Remote | Jun 2023 – Oct 2023
+
+                <br />
+
+                • Designed educational ML projects and materials to simplify
+                key AI concepts.
+
+                <br />
+
+                <strong class="highlight-skill">Skills:</strong>
+                Python, ML Algorithms, CNN
+
+                <br />
+
+                <a
+                  href="https://drive.google.com/file/d/1E2iJ8RQtyxp4wymirznvgFPDQ-P0xNRN/view?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="certificate-link">
+                  View Certificate
+                </a>
+
+              </li>
+
             </ul>
+
           </div>
+
 
           <!-- === POST GRADUATION === -->
           <div class="tab-contents" id="postgrad">
+
             <ul>
+
               <li>
-                <a class="company-link" href="https://umich.edu/" target="_blank" rel="noopener noreferrer">University of Michigan, Ann Arbor</a><br />
-                Master's in Computer Science and Engineering | 2026 – 2028<br />
+
+                <a
+                  class="company-link"
+                  href="https://umich.edu/"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  University of Michigan, Ann Arbor
+                </a>
+
+                <br />
+
+                Master's in Computer Science and Engineering | 2026 – 2028
+
               </li>
+
             </ul>
+
           </div>
+
 
           <!-- === SOFTWARE & DATA === -->
           <div class="tab-contents" id="software_data">
+
             <ul>
-              <li>
-                <a class="company-link" href="https://cwe.org.in" target="_blank" rel="noopener noreferrer">Catalyst for Women Entrepreneurship (CWE)</a><br />
-                Data Intern | Remote | May 2024 – Jun 2024<br />
-                • Automated database cleanup processes, reducing manual work by 5+ hours per week.<br />
-                <strong class="highlight-skill">Skills:</strong> Python, Data Automation, Data Cleaning<br />
-                <a href="https://drive.google.com/file/d/1xXTBDG2QjNH9z997-iyZhfHmv2OGZbrA/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="certificate-link">View Certificate</a>
-              </li>
 
               <li>
-                <a class="company-link" href="https://www.leoforce.com" target="_blank" rel="noopener noreferrer">Leoforce</a><br />
-                QA Intern | Remote | May 2023 – Jul 2023<br />
-                • Developed dashboards for AI product testing and validation workflows.<br />
-                <strong class="highlight-skill">Skills:</strong> JavaScript, REST APIs, QA, GitLab<br />
-                <a href="https://drive.google.com/file/d/1iv9T7XLSjNxSwa_yJUOUj3O8WEllLC9-/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="certificate-link">View Certificate</a>
+
+                <a
+                  class="company-link"
+                  href="https://cwe.org.in"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Catalyst for Women Entrepreneurship (CWE)
+                </a>
+
+                <br />
+
+                Data Intern | Remote | May 2024 – Jun 2024
+
+                <br />
+
+                • Automated database cleanup processes, reducing manual work
+                by 5+ hours per week.
+
+                <br />
+
+                <strong class="highlight-skill">Skills:</strong>
+                Python, Data Automation, Data Cleaning
+
+                <br />
+
+                <a
+                  href="https://drive.google.com/file/d/1xXTBDG2QjNH9z997-iyZhfHmv2OGZbrA/view?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="certificate-link">
+                  View Certificate
+                </a>
+
               </li>
+
+
+              <li>
+
+                <a
+                  class="company-link"
+                  href="https://www.leoforce.com"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Leoforce
+                </a>
+
+                <br />
+
+                QA Intern | Remote | May 2023 – Jul 2023
+
+                <br />
+
+                • Developed dashboards for AI product testing and validation
+                workflows.
+
+                <br />
+
+                <strong class="highlight-skill">Skills:</strong>
+                JavaScript, REST APIs, QA, GitLab
+
+                <br />
+
+                <a
+                  href="https://drive.google.com/file/d/1iv9T7XLSjNxSwa_yJUOUj3O8WEllLC9-/view?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="certificate-link">
+                  View Certificate
+                </a>
+
+              </li>
+
             </ul>
+
           </div>
+
 
           <!-- === ENTREPRENEURSHIP === -->
           <div class="tab-contents" id="entrepreneurship">
+
             <ul>
+
               <li>
-                <a class="company-link" href="https://kotronixtechnologies.com" target="_blank" rel="noopener noreferrer">Kotronix Technologies</a><br />
-                Silent Director | Aug 2026 – Present<br />
-                Sole Proprietor | On-site | Feb 2025 – Aug 2026<br />
-                • Led service and restoration of 24 DC fast charger guns for Lucknow City Transport, saving ~87% replacement cost.<br />
-                • Collaborated with local government to improve EV maintenance efficiency and uptime.<br />
-                • Initiated operational workflows enhancing public e-mobility performance.<br />
-                <strong class="highlight-skill">Skills:</strong> Electrical Systems, Troubleshooting, Project Coordination, Entrepreneurship
+
+                <a
+                  class="company-link"
+                  href="https://kotronixtechnologies.com"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Kotronix Technologies
+                </a>
+
+                <br />
+
+                Silent Director | Aug 2026 – Present
+
+                <br />
+
+                Sole Proprietor | On-site | Feb 2025 – Aug 2026
+
+                <br />
+
+                • Led service and restoration of 24 DC fast charger guns for
+                Lucknow City Transport, saving ~87% replacement cost.
+
+                <br />
+
+                • Collaborated with local government to improve EV
+                maintenance efficiency and uptime.
+
+                <br />
+
+                • Initiated operational workflows enhancing public
+                e-mobility performance.
+
+                <br />
+
+                <strong class="highlight-skill">Skills:</strong>
+                Electrical Systems, Troubleshooting, Project Coordination,
+                Entrepreneurship
+
               </li>
+
             </ul>
+
           </div>
+
 
           <!-- === UNDERGRADUATION === -->
           <div class="tab-contents" id="undergrad">
+
             <ul>
+
               <li>
-                <a class="company-link" href="https://www.ncuindia.edu/" target="_blank" rel="noopener noreferrer">The NorthCap University</a><br />
-                B.Tech in Computer Science (AI/ML) | 2021 – 2025<br />
-                CGPA: 8.94 / 10 (3.58 / 4) | Merit Scholarship (All Semesters)<br />
-                • Peer Tutor for Python & Cyber Security<br />
-                • Completed <strong>560+ hours</strong> of community service<br /><br />
-                <strong class="highlight-skill">Core Courses:</strong><br />
-                Computational Linguistics & NLP (CSL448)<br />
-                Computer Vision (CSL447)<br />
-                Deep Learning (CSL312)<br />
-                Applied AI & Expert Systems (CSL347)<br />
-                Reinforcement Learning (CSL348)<br />
-                <a href="https://drive.google.com/file/d/1a56QlWEmdRvWdIORQaRe7hXBtGe6pvhL/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="certificate-link">View Degree</a>
+
+                <a
+                  class="company-link"
+                  href="https://www.ncuindia.edu/"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  The NorthCap University
+                </a>
+
+                <br />
+
+                B.Tech in Computer Science (AI/ML) | 2021 – 2025
+
+                <br />
+
+                CGPA: 8.94 / 10 (3.58 / 4) |
+                Merit Scholarship (All Semesters)
+
+                <br />
+
+                • Peer Tutor for Python & Cyber Security
+
+                <br />
+
+                • Completed <strong>560+ hours</strong> of community service
+
+                <br /><br />
+
+                <strong class="highlight-skill">Core Courses:</strong>
+
+                <br />
+
+                Computational Linguistics & NLP (CSL448)
+                <br />
+
+                Computer Vision (CSL447)
+                <br />
+
+                Deep Learning (CSL312)
+                <br />
+
+                Applied AI & Expert Systems (CSL347)
+                <br />
+
+                Reinforcement Learning (CSL348)
+
+                <br />
+
+                <a
+                  href="https://drive.google.com/file/d/1a56QlWEmdRvWdIORQaRe7hXBtGe6pvhL/view?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="certificate-link">
+                  View Degree
+                </a>
+
               </li>
+
             </ul>
+
           </div>
+
 
           <!-- === HIGH SCHOOL === -->
           <div class="tab-contents" id="highschool">
+
             <ul>
+
               <li>
-                <a class="company-link" href="https://spvdelhi.org/" target="_blank" rel="noopener noreferrer">Sardar Patel Vidyalaya</a><br />
-                Grade 12 – 90.8% | 2019 – 2021<br />
-                • Studied Python and MySQL, building strong programming fundamentals.<br />
-                • Class Representative (Grades 9–12), managing class communication and coordination.<br />
-                • Completed internship at Edunext Technologies Pvt. Ltd. (2019).<br />
-                <strong class="highlight-skill">Skills:</strong> Python, MySQL, Leadership, Communication
+
+                <a
+                  class="company-link"
+                  href="https://spvdelhi.org/"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Sardar Patel Vidyalaya
+                </a>
+
+                <br />
+
+                Grade 12 – 90.8% | 2019 – 2021
+
+                <br />
+
+                • Studied Python and MySQL, building strong programming
+                fundamentals.
+
+                <br />
+
+                • Class Representative (Grades 9–12), managing class
+                communication and coordination.
+
+                <br />
+
+                • Completed internship at Edunext Technologies Pvt. Ltd.
+                (2019).
+
+                <br />
+
+                <strong class="highlight-skill">Skills:</strong>
+                Python, MySQL, Leadership, Communication
+
               </li>
+
             </ul>
+
           </div>
+
 
           <!-- === SKILLS === -->
           <div class="tab-contents" id="skills">
+
             <ul>
-              <li><span>Languages:</span> <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Python</a>, <a href="https://www.java.com/" target="_blank" rel="noopener noreferrer">Java</a>, <a href="https://kotlinlang.org/" target="_blank" rel="noopener noreferrer">Kotlin</a>, <a href="https://en.wikipedia.org/wiki/C_(programming_language)" target="_blank" rel="noopener noreferrer">C</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">JavaScript</a></li>
-              <li><span>AI/ML:</span> <a href="https://www.tensorflow.org/" target="_blank" rel="noopener noreferrer">TensorFlow</a>, <a href="https://keras.io/" target="_blank" rel="noopener noreferrer">Keras</a>, <a href="https://scikit-learn.org/" target="_blank" rel="noopener noreferrer">Scikit-learn</a>, <a href="https://en.wikipedia.org/wiki/Natural_language_processing" target="_blank" rel="noopener noreferrer">NLP</a>, <a href="https://en.wikipedia.org/wiki/Deep_learning" target="_blank" rel="noopener noreferrer">Deep Learning</a>, <a href="https://en.wikipedia.org/wiki/Computer_vision" target="_blank" rel="noopener noreferrer">CV</a></li>
-              <li><span>Data:</span> <a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer">PostgreSQL</a>, <a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer">MySQL</a>, <a href="https://pandas.pydata.org/" target="_blank" rel="noopener noreferrer">Pandas</a>, <a href="https://numpy.org/" target="_blank" rel="noopener noreferrer">NumPy</a></li>
-              <li><span>Development:</span> <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React.js</a>, <a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener noreferrer">Flask</a>, <a href="https://streamlit.io/" target="_blank" rel="noopener noreferrer">Streamlit</a>, <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Tailwind CSS</a>, <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer">Node.js</a></li>
-              <li><span>DevOps & Tools:</span> <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">Git</a>, <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">Docker</a>, <a href="https://kubernetes.io/" target="_blank" rel="noopener noreferrer">Kubernetes</a>, <a href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer">Firebase</a></li>
-              <li><span>Soft Skills:</span> Leadership, Technical Writing, Collaboration</li>
+
+              <li>
+                <span>Languages:</span>
+                <a href="https://www.python.org/" target="_blank">Python</a>,
+                <a href="https://www.java.com/" target="_blank">Java</a>,
+                <a href="https://kotlinlang.org/" target="_blank">Kotlin</a>,
+                <a
+                  href="https://en.wikipedia.org/wiki/C_(programming_language)"
+                  target="_blank">
+                  C
+                </a>,
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                  target="_blank">
+                  JavaScript
+                </a>
+              </li>
+
+              <li>
+                <span>AI/ML:</span>
+                <a href="https://www.tensorflow.org/" target="_blank">
+                  TensorFlow
+                </a>,
+                <a href="https://keras.io/" target="_blank">Keras</a>,
+                <a
+                  href="https://scikit-learn.org/"
+                  target="_blank">
+                  Scikit-learn
+                </a>,
+                <a
+                  href="https://en.wikipedia.org/wiki/Natural_language_processing"
+                  target="_blank">
+                  NLP
+                </a>,
+                <a
+                  href="https://en.wikipedia.org/wiki/Deep_learning"
+                  target="_blank">
+                  Deep Learning
+                </a>,
+                <a
+                  href="https://en.wikipedia.org/wiki/Computer_vision"
+                  target="_blank">
+                  CV
+                </a>
+              </li>
+
+              <li>
+                <span>Data:</span>
+                <a href="https://www.postgresql.org/" target="_blank">
+                  PostgreSQL
+                </a>,
+                <a href="https://www.mysql.com/" target="_blank">
+                  MySQL
+                </a>,
+                <a href="https://pandas.pydata.org/" target="_blank">
+                  Pandas
+                </a>,
+                <a href="https://numpy.org/" target="_blank">
+                  NumPy
+                </a>
+              </li>
+
+              <li>
+                <span>Development:</span>
+                <a href="https://react.dev/" target="_blank">
+                  React.js
+                </a>,
+                <a
+                  href="https://flask.palletsprojects.com/"
+                  target="_blank">
+                  Flask
+                </a>,
+                <a href="https://streamlit.io/" target="_blank">
+                  Streamlit
+                </a>,
+                <a href="https://tailwindcss.com/" target="_blank">
+                  Tailwind CSS
+                </a>,
+                <a href="https://nodejs.org/" target="_blank">
+                  Node.js
+                </a>
+              </li>
+
+              <li>
+                <span>DevOps & Tools:</span>
+                <a href="https://git-scm.com/" target="_blank">Git</a>,
+                <a href="https://www.docker.com/" target="_blank">
+                  Docker
+                </a>,
+                <a href="https://kubernetes.io/" target="_blank">
+                  Kubernetes
+                </a>,
+                <a href="https://firebase.google.com/" target="_blank">
+                  Firebase
+                </a>
+              </li>
+
+              <li>
+                <span>Soft Skills:</span>
+                Leadership, Technical Writing, Collaboration
+              </li>
+
             </ul>
+
           </div>
+
 
           <!-- === LEADERSHIP === -->
           <div class="tab-contents" id="leadership">
+
             <ul>
-              <li>
-                <a class="company-link" href="https://kotronixtechnologies.com" target="_blank" rel="noopener noreferrer">Kotronix Technologies</a><br />
-                Led on-site coordination and troubleshooting operations to optimize EV charging infrastructure.
-              </li>
 
               <li>
-                <a class="company-link" href="https://gdsc.community.dev" target="_blank" rel="noopener noreferrer">Google Developer Student Clubs (GDSC)</a><br />
-                Organized and supported technical events focused on app and cloud development.
+
+                <a
+                  class="company-link"
+                  href="https://kotronixtechnologies.com"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Kotronix Technologies
+                </a>
+
+                <br />
+
+                Led on-site coordination and troubleshooting operations to
+                optimize EV charging infrastructure.
+
               </li>
 
-              <li>
-                <a class="company-link" href="https://enactus.org" target="_blank" rel="noopener noreferrer">Enactus</a><br />
-                Directed creative design and finance operations for university social projects.
-              </li>
 
               <li>
-                <span>Class Representative (Grades 9–12)</span><br />
+
+                <a
+                  class="company-link"
+                  href="https://gdsc.community.dev"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Google Developer Student Clubs (GDSC)
+                </a>
+
+                <br />
+
+                Organized and supported technical events focused on app and
+                cloud development.
+
+              </li>
+
+
+              <li>
+
+                <a
+                  class="company-link"
+                  href="https://enactus.org"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Enactus
+                </a>
+
+                <br />
+
+                Directed creative design and finance operations for university
+                social projects.
+
+              </li>
+
+
+              <li>
+
+                <span>Class Representative (Grades 9–12)</span>
+
+                <br />
+
                 Managed class communication and coordination.
+
               </li>
+
             </ul>
+
           </div>
 
         </div>
+
       </div>
+
     </div>
+
   </div>
+
 
   <!-- === PROJECTS SECTION === -->
   <div id="projects">
+
     <div class="container">
+
       <h1>PERSONAL PROJECTS</h1>
+
       <div class="work-list">
+
+
         <div class="work">
-          <img src="images/2.png" alt="Offensive Check" />
+
+          <img
+            src="images/2.png"
+            alt="Offensive Check" />
+
           <div class="layer">
+
             <h3>Offensive Check</h3>
-            <p>Predicts if text is offensive using NLP & ML.</p>
-            <a href="https://offensive-check.streamlit.app/" target="_blank"><i class="fa-solid fa-link"></i></a>
+
+            <p>
+              Predicts if text is offensive using NLP & ML.
+            </p>
+
+            <a
+              href="https://offensive-check.streamlit.app/"
+              target="_blank"
+              rel="noopener noreferrer">
+              <i class="fa-solid fa-link"></i>
+            </a>
+
           </div>
+
         </div>
+
+
         <div class="work">
-          <img src="images/3.png" alt="Scholar Stack" />
+
+          <img
+            src="images/3.png"
+            alt="Scholar Stack" />
+
           <div class="layer">
+
             <h3>Scholar Stack</h3>
-            <p>Platform where students can share quality notes and receive community service hours based on originality, quality, and effort</p>
-            <a href="https://scholarstack.in" target="_blank"><i class="fa-solid fa-link"></i></a>
+
+            <p>
+              Platform where students can share quality notes and receive
+              community service hours based on originality, quality, and effort
+            </p>
+
+            <a
+              href="https://scholarstack.in"
+              target="_blank"
+              rel="noopener noreferrer">
+              <i class="fa-solid fa-link"></i>
+            </a>
+
           </div>
+
         </div>
+
+
         <div class="work">
-          <img src="images/1.png" alt="Event Hub" />
+
+          <img
+            src="images/1.png"
+            alt="Event Hub" />
+
           <div class="layer">
+
             <h3>Event Hub</h3>
-            <p>Kotlin + Jetpack Compose event app.</p>
-            <a href="https://github.com/khs14/event_hub" target="_blank"><i class="fa-solid fa-link"></i></a>
+
+            <p>
+              Kotlin + Jetpack Compose event app.
+            </p>
+
+            <a
+              href="https://github.com/khs14/event_hub"
+              target="_blank"
+              rel="noopener noreferrer">
+              <i class="fa-solid fa-link"></i>
+            </a>
+
           </div>
+
         </div>
+
       </div>
-      <a href="https://github.com/khs14" target="_blank" class="btn">See more</a>
+
+
+      <a
+        href="https://github.com/khs14"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn">
+        See more
+      </a>
+
     </div>
+
   </div>
+
 
   <!-- === CONTACT SECTION === -->
   <div id="contact">
+
     <div class="container">
+
       <div class="row">
+
+
         <div class="contact-left">
+
           <h1>Contact Me</h1>
-          <a href="mailto:kaustubhsethi14@gmail.com"><i class="fa-solid fa-envelope"></i> kaustubhsethi14@gmail.com</a>
-          <p><a href="tel:+919205004891"><i class="fa-solid fa-phone"></i> +91 9205004891</a></p>
+
+          <a href="mailto:kaustubhsethi14@gmail.com">
+            <i class="fa-solid fa-envelope"></i>
+            kaustubhsethi14@gmail.com
+          </a>
+
+          <p>
+            <a href="tel:+919205004891">
+              <i class="fa-solid fa-phone"></i>
+              +91 9205004891
+            </a>
+          </p>
+
+
           <div class="social-icons">
-            <a href="https://www.linkedin.com/in/kaustubh-hari-sethi/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/khs14" target="_blank"><i class="fa-brands fa-github"></i></a>
-            <a href="https://twitter.com/CodesKhs" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+
+            <a
+              href="https://www.linkedin.com/in/kaustubh-hari-sethi/"
+              target="_blank"
+              rel="noopener noreferrer">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+
+            <a
+              href="https://github.com/khs14"
+              target="_blank"
+              rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a
+              href="https://twitter.com/CodesKhs"
+              target="_blank"
+              rel="noopener noreferrer">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+
           </div>
-          <a href="ResumeKaustubh.pdf" download="ResumeKaustubh.pdf" class="btn btn2">Download Resume</a>
+
+
+          <a
+            href="ResumeKaustubh.pdf"
+            download="ResumeKaustubh.pdf"
+            class="btn btn2">
+            Download Resume
+          </a>
+
         </div>
+
+
+        <!-- Second Spline Scene -->
         <div class="contact-right">
-          <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.17/build/spline-viewer.js"></script>
-          <spline-viewer url="https://prod.spline.design/BwYaL01FZaW9YoFD/scene.splinecode"></spline-viewer>
+
+          <spline-viewer
+            url="https://prod.spline.design/BwYaL01FZaW9YoFD/scene.splinecode">
+          </spline-viewer>
+
         </div>
+
       </div>
+
     </div>
+
   </div>
 
+
+  <!-- === CONTACT FORM === -->
   <div id="contact-form">
+
     <form name="submit-to-google-sheet">
-      <input type="text" name="Name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your E-mail" required />
-      <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-      <button type="submit" class="btn btn2">Submit</button>
+
+      <input
+        type="text"
+        name="Name"
+        placeholder="Your Name"
+        required />
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Your E-mail"
+        required />
+
+      <textarea
+        name="Message"
+        rows="6"
+        placeholder="Your Message">
+      </textarea>
+
+      <button
+        type="submit"
+        class="btn btn2">
+        Submit
+      </button>
+
     </form>
+
   </div>
 
+
+  <!-- === FOOTER === -->
   <div id="footer">
-    <p>Made by Kaustubh © 2026</p>
+
+    <p>
+      Made by Kaustubh © 2026
+    </p>
+
   </div>
 
-  <!-- GSAP + JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <!-- === GSAP + JS === -->
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
+  </script>
+
   <script src="script.js"></script>
+
 </body>
+
 </html>
+
