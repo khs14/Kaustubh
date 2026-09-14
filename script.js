@@ -75,3 +75,26 @@ form.addEventListener('submit', e => {
       msg.textContent = "❌ Something went wrong. Please try again.";
     });
 });
+
+// === CAREER HIGHLIGHTS MODAL ===
+const highlightsOverlay = document.getElementById('highlights-overlay');
+
+function openHighlights() {
+  highlightsOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeHighlights(event) {
+  // If this was triggered by clicking inside the modal itself, ignore it
+  if (event && event.target !== highlightsOverlay && event.type === 'click') {
+    return;
+  }
+  highlightsOverlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && highlightsOverlay.classList.contains('active')) {
+    closeHighlights();
+  }
+});
