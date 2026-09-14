@@ -649,15 +649,25 @@ nav ul li a:hover::after {
   margin-right: 15px;
 }
 
-/* Phone & email icons animate like the social icons on hover */
+/* Phone & email (icon + text) animate together like the social icons on hover */
+.contact-left a {
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s;
+}
+
 .contact-left a i {
   transition: all 0.3s;
   display: inline-block;
 }
 
-.contact-left a:hover i {
+.contact-left a:hover {
   color: coral;
   transform: translateY(-5px);
+}
+
+.contact-left a:hover i {
+  color: coral;
 }
 
 .social-icons {
