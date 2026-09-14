@@ -50,8 +50,12 @@
         <div class="about-col-2">
           <h1>About Me</h1>
           <p>
-            I’m a Computer Science Engineer specializing in AI systems, full-stack development, and automation. My work spans AI/ML research, software engineering, and real-world technology ventures. I enjoy turning complex ideas into efficient, scalable, and meaningful solutions that bridge creativity with technology.
+            I'm a Computer Science Engineer and a <strong class="highlight-skill">Chartered Engineer (India)</strong> — a professional credential granted by The Institution of Engineers (India) (IEI) — specializing in AI systems, full-stack development, and automation. My work spans AI/ML research, software engineering, and real-world technology ventures. I enjoy turning complex ideas into efficient, scalable, and meaningful solutions that bridge creativity with technology.
           </p>
+
+          <button class="career-highlights-btn" id="career-highlights-btn" onclick="openHighlights()">
+            <i class="fa-solid fa-star"></i> Career Highlights
+          </button>
 
           <!-- Primary Tabs -->
           <div class="tab-titles">
@@ -285,6 +289,21 @@
       <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
       <button type="submit" class="btn btn2">Submit</button>
     </form>
+  </div>
+
+  <!-- === CAREER HIGHLIGHTS MODAL === -->
+  <div class="highlights-overlay" id="highlights-overlay" onclick="closeHighlights(event)">
+    <div class="highlights-modal" role="dialog" aria-modal="true" aria-labelledby="highlights-title" onclick="event.stopPropagation()">
+      <button class="highlights-close" id="highlights-close" onclick="closeHighlights()" aria-label="Close">&times;</button>
+      <h2 id="highlights-title">Career Highlights</h2>
+      <ul class="highlights-list">
+        <li>Achievement 1 — edit this with your top highlight.</li>
+        <li>Achievement 2 — edit this with your top highlight.</li>
+        <li>Achievement 3 — edit this with your top highlight.</li>
+        <li>Achievement 4 — edit this with your top highlight.</li>
+        <li>Achievement 5 — edit this with your top highlight.</li>
+      </ul>
+    </div>
   </div>
 
   <div id="footer">
