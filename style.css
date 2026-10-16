@@ -175,10 +175,10 @@ nav ul li a:hover::after {
 }
 
 #page1 h1 {
-  font-size: 7rem;
+  font-size: 9rem;
   text-transform: uppercase;
   color: white;
-  line-height: 6.6rem;
+  line-height: 8.5rem;
   letter-spacing: -5px;
   text-align: center;
 }
@@ -251,7 +251,7 @@ nav ul li a:hover::after {
   justify-content: center;
 }
 
-.about-col-2 h1 {
+.about-col-2 h2 {
   color: white;
   font-size: 1.8rem;
   margin-bottom: 20px;
@@ -880,7 +880,7 @@ nav ul li a:hover::after {
   padding: 50px 30px;
 }
 
-#projects h1 {
+#projects h2 {
   color: white;
   font-size: 1.8rem;
   margin-bottom: 30px;
@@ -969,7 +969,7 @@ nav ul li a:hover::after {
   padding: 50px 0;
 }
 
-#contact h1 {
+#contact h2 {
   color: white;
   font-size: 1.8rem;
   margin-bottom: 30px;
