@@ -66,8 +66,8 @@
   </div>
   <div class="menu-overlay" id="menu-overlay"></div>
 
-  <!-- === MAIN CONTENT === -->
-  <div id="main">
+  <!-- === HEADER: nav + name === -->
+  <header id="site-header">
     <div class="nav-container" id="nav-container">
       <nav>
         <ul>
@@ -92,7 +92,10 @@
         </p>
       </div>
     </div>
-  </div>
+  </header>
+
+  <!-- === MAIN CONTENT (landmark for screen readers) === -->
+  <main id="main-content">
 
   <!-- === ABOUT SECTION === -->
   <div id="about">
@@ -389,6 +392,8 @@
     </form>
   </div>
 
+  </main>
+
   <!-- === CAREER HIGHLIGHTS MODAL === -->
   <div class="highlights-overlay" id="highlights-overlay" onclick="closeHighlights(event)">
     <div class="highlights-modal" role="dialog" aria-modal="true" aria-labelledby="highlights-title" onclick="event.stopPropagation()">
@@ -413,9 +418,9 @@
     </div>
   </div>
 
-  <div id="footer">
+  <footer id="footer">
     <p>Made by Kaustubh © 2026</p>
-  </div>
+  </footer>
 
   <!-- GSAP + JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
