@@ -199,12 +199,12 @@ nav ul li a:hover::after {
 
 /* Hero subheading */
 .hero-subtitle {
-  margin-top: 2rem;
+  margin-top: 0.35rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.1rem;
   max-width: 900px;
 }
 
