@@ -252,6 +252,48 @@ nav ul li a:hover::after {
   outline: none;
   box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.4);
 }
+/* ================================
+   CAREER HIGHLIGHTS STAR ANIMATION
+================================== */
+
+.career-highlights-btn .fa-star {
+  display: inline-block;
+  transform-origin: center;
+  animation: starBreatheRotate 7s ease-in-out infinite;
+}
+
+@keyframes starBreatheRotate {
+  0% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 0px #00ff88);
+  }
+
+  35% {
+    transform: scale(1.2) rotate(0deg);
+    filter: drop-shadow(0 0 6px #00ff88);
+  }
+
+  60% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 0px #00ff88);
+  }
+
+  85% {
+    transform: scale(1.2) rotate(360deg);
+    filter: drop-shadow(0 0 8px #00ff88);
+  }
+
+  100% {
+    transform: scale(1) rotate(360deg);
+    filter: drop-shadow(0 0 0px #00ff88);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .career-highlights-btn .fa-star {
+    animation: none;
+  }
+}
 
 /* ================================
    CAREER HIGHLIGHTS MODAL
