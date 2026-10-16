@@ -185,7 +185,7 @@ nav ul li a:hover::after {
 
 /* Hero subheading */
 .hero-subtitle {
-  margin-top: 0.5rem;
+  margin-top: 0.35rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -708,37 +708,58 @@ nav ul li a:hover::after {
 /* ================================
    TAB MENU
 ================================== */
+/* Even grid: every tab the same width. 4 x 2 by default,
+   2 x 4 where the column is narrow (see media queries below). */
 .tab-titles {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
   background: rgba(255, 255, 255, 0.05);
-  padding: 12px 20px;
+  padding: 10px;
   border-radius: 10px;
   margin: 25px 0 35px;
   backdrop-filter: blur(10px);
 }
 
-.tab-links {
+/* ".tab-titles .tab-links" so these win over ".about-col-2 p" */
+.tab-titles .tab-links {
   position: relative;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 44px; /* comfortable tap target */
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.5px;
+  color: #cccccc;
   cursor: pointer;
-  padding: 10px 18px;
+  padding: 8px 6px;
+  border: 1px solid transparent;
   border-radius: 6px;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
   text-transform: uppercase;
 }
 
-.tab-links:hover {
-  color: #008000;
-  background-color: rgba(0, 128, 0, 0.1);
+.tab-titles .tab-links:hover {
+  color: #7fff7f;
+  background-color: rgba(0, 255, 136, 0.08);
 }
 
-.tab-links.active-link {
-  color: #008000;
-  background-color: rgba(0, 128, 0, 0.2);
+/* Bright green on a dark tint: about 13:1 contrast (minimum is 4.5:1) */
+.tab-titles .tab-links.active-link {
+  color: #7fff7f;
+  background-color: rgba(0, 255, 136, 0.14);
+  border-color: rgba(0, 255, 136, 0.35);
+}
+
+/* Desktop with the narrower two-column layout: switch to 2 x 4 */
+@media only screen and (min-width: 769px) and (max-width: 1199px) {
+  .tab-titles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .tab-contents {
@@ -1467,15 +1488,6 @@ form textarea {
     position: static; /* no sticky once the image stacks above the text */
   }
 
-  .tab-titles {
-    gap: 10px;
-    padding: 10px 15px;
-  }
-
-  .tab-links {
-    font-size: 0.85rem;
-    padding: 8px 12px;
-  }
 }
 
 /* ================================
@@ -1552,15 +1564,15 @@ form textarea {
     font-size: 0.8rem;
   }
 
+  /* Phones: 2 x 4 */
   .tab-titles {
-    gap: 8px;
-    padding: 8px 10px;
-    justify-content: center;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    padding: 8px;
   }
 
-  .tab-links {
+  .tab-titles .tab-links {
     font-size: 0.75rem;
-    padding: 6px 10px;
   }
 
   .about-col-1 .image-zoom-wrap {
@@ -1587,6 +1599,15 @@ form textarea {
   .career-highlights-btn {
     font-size: 0.85rem;
     padding: 8px 14px;
+  }
+}
+
+/* Very small phones (e.g. 320px): fit the longest tab names */
+@media only screen and (max-width: 360px) {
+  .tab-titles .tab-links {
+    font-size: 0.68rem;
+    letter-spacing: 0;
+    padding: 8px 4px;
   }
 }
 
