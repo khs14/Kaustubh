@@ -252,6 +252,7 @@ nav ul li a:hover::after {
   outline: none;
   box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.4);
 }
+
 /* ================================
    CAREER HIGHLIGHTS STAR ANIMATION
 ================================== */
@@ -259,7 +260,7 @@ nav ul li a:hover::after {
 .career-highlights-btn .fa-star {
   display: inline-block;
   transform-origin: center;
-  animation: starBreatheRotate 7s ease-in-out infinite;
+  animation: starBreatheRotate 5s ease-in-out infinite;
 }
 
 @keyframes starBreatheRotate {
