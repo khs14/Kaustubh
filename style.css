@@ -61,6 +61,20 @@ html {
 }
 
 /* ================================
+   ICONS
+   Inline SVG icons (shapes from Font Awesome Free, CC BY 4.0).
+   They size with font-size and take the text color, like the old icon font.
+================================== */
+.icon {
+  display: inline-block;
+  height: 1em;
+  width: auto;
+  fill: currentColor;
+  vertical-align: -0.125em;
+  overflow: visible;
+}
+
+/* ================================
    BURGER MENU
 ================================== */
 .burger-menu {
@@ -185,12 +199,12 @@ nav ul li a:hover::after {
 
 /* Hero subheading */
 .hero-subtitle {
-  margin-top: 0.35rem;
+  margin-top: 2rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.1rem;
+  gap: 0.6rem;
   max-width: 900px;
 }
 
@@ -1257,7 +1271,7 @@ nav ul li a:hover::after {
   text-decoration: none;
 }
 
-.contact-left i {
+.contact-left .icon {
   color: rgb(85, 0, 255);
   margin-right: 15px;
 }
@@ -1269,7 +1283,7 @@ nav ul li a:hover::after {
   transition: all 0.3s;
 }
 
-.contact-left a i {
+.contact-left a .icon {
   transition: all 0.3s;
   display: inline-block;
 }
@@ -1279,7 +1293,7 @@ nav ul li a:hover::after {
   transform: translateY(-5px);
 }
 
-.contact-left a:hover i {
+.contact-left a:hover .icon {
   color: coral;
 }
 
@@ -1287,14 +1301,14 @@ nav ul li a:hover::after {
   margin-top: 30px;
 }
 
-.social-icons a i {
+.social-icons a .icon {
   color: rgb(85, 0, 255);
   font-size: 52px;
   margin-right: 15px;
   transition: all 0.3s;
 }
 
-.social-icons a i:hover {
+.social-icons a .icon:hover {
   color: coral;
   transform: translateY(-5px);
 }
