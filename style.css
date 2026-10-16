@@ -161,26 +161,67 @@ nav ul li a:hover::after {
 
 /* ================================
    HERO SECTION
-   Name is centered both horizontally and vertically in the viewport.
+   Name sits just under the nav, with the subheading below it.
 ================================== */
 #page1 {
-  min-height: 100vh;
   position: relative;
   width: 100%;
-  padding: 1.5rem 1.2rem;
+  padding: 1rem 1.2rem 5rem;
   background-color: black;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 #page1 h1 {
-  font-size: 9rem;
+  font-size: 7rem;
   text-transform: uppercase;
   color: white;
-  line-height: 8.5rem;
+  line-height: 6.6rem;
   letter-spacing: -5px;
   text-align: center;
+}
+
+/* Hero subheading */
+.hero-subtitle {
+  margin-top: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  max-width: 900px;
+}
+
+.hero-subtitle p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Keep each phrase together; wrap only between phrases */
+.hero-subtitle span {
+  white-space: nowrap;
+}
+
+.hero-role {
+  font-size: clamp(1.15rem, 2.4vw, 1.75rem);
+  font-weight: 600;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.hero-tagline {
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-weight: 500;
+  color: #00ff88;
+}
+
+.hero-focus {
+  font-size: clamp(0.8rem, 1.3vw, 1rem);
+  color: #a8a8a8;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 /* ================================
@@ -202,7 +243,9 @@ nav ul li a:hover::after {
 }
 
 .about-col-1 {
-  align-self: center; /* vertically center the image next to the text */
+  align-self: start;  /* stay level with "About Me" instead of re-centering when tabs change */
+  position: sticky;   /* keep the image in view while scrolling long tabs (desktop) */
+  top: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -450,6 +493,216 @@ nav ul li a:hover::after {
 @keyframes glowPulse {
   0%, 100% { box-shadow: 0 0 5px rgba(0, 255, 136, 0.3); }
   50% { box-shadow: 0 0 15px rgba(0, 255, 136, 0.6); }
+}
+
+/* ================================
+   IMAGE HOVER + ZOOM BUTTON
+   Green by default (About), add .orange for Contact.
+================================== */
+.image-zoom-wrap {
+  --zoom-rgb: 0 255 136;
+  position: relative;
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.image-zoom-wrap.orange {
+  --zoom-rgb: 255 140 0;
+}
+
+.image-zoom-wrap img {
+  transition: transform 0.6s ease;
+}
+
+/* Colored fade over the image */
+.image-zoom-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgb(var(--zoom-rgb) / 0.45),
+    rgb(var(--zoom-rgb) / 0.1)
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.image-zoom-wrap:hover::after,
+.image-zoom-wrap:has(.zoom-btn:focus-visible)::after {
+  opacity: 1;
+}
+
+.image-zoom-wrap:hover img {
+  transform: scale(1.04);
+}
+
+/* Zoom button in the middle */
+.zoom-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(var(--zoom-rgb));
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgb(var(--zoom-rgb) / 0.6);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Small expand-arrows icon */
+.zoom-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.image-zoom-wrap:hover .zoom-btn,
+.zoom-btn:focus-visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.zoom-btn:hover {
+  background: rgb(var(--zoom-rgb) / 0.2);
+  box-shadow: 0 0 18px rgb(var(--zoom-rgb) / 0.6);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.zoom-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(var(--zoom-rgb) / 0.5);
+}
+
+/* Desktop only: no fade, zoom or button on touch screens, tablets and phones */
+@media (hover: none), (max-width: 768px) {
+  .zoom-btn,
+  .image-zoom-wrap::after {
+    display: none;
+  }
+
+  .image-zoom-wrap:hover img {
+    transform: none;
+  }
+}
+
+/* ================================
+   IMAGE ZOOM MODAL
+   Same look as Career Highlights; .orange swaps the color.
+================================== */
+.image-overlay {
+  --zoom-rgb: 0 255 136;
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  z-index: 10050;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-overlay.orange {
+  --zoom-rgb: 255 140 0;
+}
+
+.image-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.image-modal {
+  position: relative;
+  background: #0d0d0d;
+  border: 1px solid rgb(var(--zoom-rgb) / 0.3);
+  border-radius: 12px;
+  padding: 60px 16px 16px;
+  max-width: min(1000px, 100%);
+  max-height: 90vh;
+  box-shadow: 0 0 30px rgb(var(--zoom-rgb) / 0.15);
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+
+.image-overlay.active .image-modal {
+  transform: translateY(0);
+}
+
+.image-modal img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(90vh - 80px);
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.image-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgb(var(--zoom-rgb) / 0.08);
+  border: 1px solid rgb(var(--zoom-rgb) / 0.35);
+  color: rgb(var(--zoom-rgb));
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  animation: zoomGlowPulse 2s infinite ease-in-out;
+}
+
+.image-close:hover {
+  background: rgb(var(--zoom-rgb) / 0.25);
+  box-shadow: 0 0 15px rgb(var(--zoom-rgb) / 0.6);
+  transform: rotate(90deg);
+}
+
+.image-close:focus-visible {
+  outline: none;
+  box-shadow: 0 0 15px rgb(var(--zoom-rgb) / 0.6);
+}
+
+@keyframes zoomGlowPulse {
+  0%, 100% { box-shadow: 0 0 5px rgb(var(--zoom-rgb) / 0.3); }
+  50%      { box-shadow: 0 0 15px rgb(var(--zoom-rgb) / 0.6); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-zoom-wrap img,
+  .image-zoom-wrap:hover img {
+    transition: none;
+    transform: none;
+  }
+
+  .image-close {
+    animation: none;
+  }
 }
 
 /* ================================
@@ -791,6 +1044,7 @@ nav ul li a:hover::after {
   transform: translateY(-3px);
   box-shadow: 0 4px 15px rgba(85, 0, 255, 0.4);
 }
+
 /* Download Resume: orange with white text on hover */
 .contact-left .btn.btn2:hover {
   background-color: #ff8c00;
@@ -812,6 +1066,9 @@ nav ul li a:hover::after {
   object-fit: cover;
   border-radius: 12px;
   display: block;
+}
+
+.contact-right .image-zoom-wrap {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
@@ -947,13 +1204,21 @@ form textarea {
     padding: 3px 6px;
   }
 
+  #page1 {
+    padding-top: 90px; /* clears the burger menu button */
+  }
+
   #page1 h1 {
-    font-size: 8rem;
-    line-height: 7.5rem;
+    font-size: min(8rem, 14vw); /* shrink with the screen so it never overflows */
+    line-height: 0.95;
   }
 
   .row {
     grid-template-columns: 1fr;
+  }
+
+  .about-col-1 {
+    position: static; /* no sticky once the image stacks above the text */
   }
 
   .tab-titles {
@@ -972,11 +1237,12 @@ form textarea {
 ================================== */
 @media only screen and (max-width: 600px) {
   #page1 {
-    min-height: 100vh;
-    padding: 100px 20px 40px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 90px 20px 40px 20px; /* clears the burger menu button */
+  }
+
+  .hero-subtitle {
+    margin-top: 1.5rem;
+    gap: 0.5rem;
   }
 
   #page1 h1 {
@@ -1051,11 +1317,11 @@ form textarea {
     padding: 6px 10px;
   }
 
-  .about-image {
+  .about-col-1 .image-zoom-wrap {
     margin-top: 10px;
   }
 
-  .contact-image {
+  .contact-right .image-zoom-wrap {
     margin-top: 20px;
   }
 
@@ -1100,5 +1366,9 @@ form textarea {
   .contact-image {
     max-width: 1000px;
     width: 100%;
+  }
+
+  .contact-right .image-zoom-wrap {
+    max-width: 1000px;
   }
 }

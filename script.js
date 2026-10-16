@@ -7,10 +7,19 @@ function loadinganimation() {
     duration: 0.9,
     stagger: 0.3,
   });
+  // Subheading lines fade up one after another as the name settles
+  gsap.from(".hero-subtitle p", {
+    y: 20,
+    opacity: 0,
+    delay: 0.6,
+    duration: 0.6,
+    stagger: 0.15,
+    ease: "power2.out",
+  });
   gsap.from("#about", {
     scale: 0.9,
     opacity: 0,
-    delay: 0.9,
+    delay: 1.1,
     duration: 0.3,
   });
 }

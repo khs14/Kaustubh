@@ -82,6 +82,15 @@
 
     <div id="page1">
       <h1>Kaustubh<br />Hari Sethi</h1>
+      <div class="hero-subtitle">
+        <p class="hero-role">Computer Science Engineer</p>
+        <p class="hero-tagline">
+          <span>Full-Stack Developer</span> • <span>Technical Researcher</span>
+        </p>
+        <p class="hero-focus">
+          <span>Production AI Systems</span> • <span>NLP</span> • <span>Computer Vision</span> • <span>Responsible AI</span>
+        </p>
+      </div>
     </div>
   </div>
 
@@ -90,12 +99,17 @@
     <div class="container">
       <div class="row">
         <div class="about-col-1">
-          <img
-            src="images/about_me_image.png"
-            alt="About Kaustubh"
-            class="about-image"
-            loading="lazy"
-          />
+          <div class="image-zoom-wrap">
+            <img
+              src="images/about_me_image.png"
+              alt="About Kaustubh"
+              class="about-image"
+              loading="lazy"
+            />
+            <button class="zoom-btn" type="button" onclick="openImageModal(this)" aria-label="Enlarge image">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7"/></svg>
+            </button>
+          </div>
         </div>
 
         <div class="about-col-2">
@@ -323,14 +337,19 @@
           <a href="ResumeKaustubh.pdf" download="ResumeKaustubh.pdf" class="btn btn2">Download Resume</a>
         </div>
         <div class="contact-right">
-          <img
-            src="images/contact_me_image.png"
-            alt="Contact illustration"
-            class="contact-image"
-            width="1600"
-            height="800"
-            loading="lazy"
-          />
+          <div class="image-zoom-wrap orange">
+            <img
+              src="images/contact_me_image.png"
+              alt="Contact illustration"
+              class="contact-image"
+              width="1600"
+              height="800"
+              loading="lazy"
+            />
+            <button class="zoom-btn" type="button" onclick="openImageModal(this)" aria-label="Enlarge image">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7"/></svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -361,6 +380,14 @@
     </div>
   </div>
 
+  <!-- === IMAGE ZOOM MODAL === -->
+  <div class="image-overlay" id="image-overlay" onclick="closeImageModal()">
+    <div class="image-modal" role="dialog" aria-modal="true" aria-label="Enlarged image" onclick="event.stopPropagation()">
+      <button class="image-close" id="image-close" onclick="closeImageModal()" aria-label="Close">&times;</button>
+      <img id="image-modal-img" src="" alt="" />
+    </div>
+  </div>
+
   <div id="footer">
     <p>Made by Kaustubh © 2026</p>
   </div>
@@ -368,5 +395,44 @@
   <!-- GSAP + JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="script.js"></script>
+
+  <!-- Image zoom modal -->
+  <script>
+    let imageModalTrigger = null;
+    let imageModalFromKeyboard = false;
+
+    function openImageModal(btn) {
+      const wrap = btn.closest('.image-zoom-wrap');
+      const source = wrap.querySelector('img');
+      const overlay = document.getElementById('image-overlay');
+      const modalImg = document.getElementById('image-modal-img');
+
+      modalImg.src = source.currentSrc || source.src;
+      modalImg.alt = source.alt;
+      overlay.classList.toggle('orange', wrap.classList.contains('orange'));
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      imageModalTrigger = btn;
+      imageModalFromKeyboard = btn.matches(':focus-visible');
+      document.getElementById('image-close').focus();
+    }
+
+    function closeImageModal() {
+      const overlay = document.getElementById('image-overlay');
+      if (!overlay.classList.contains('active')) return;
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+      if (!imageModalTrigger) return;
+      // Keyboard users get focus back on the zoom button; mouse users don't,
+      // so the hover fade isn't left stuck on.
+      if (imageModalFromKeyboard) imageModalTrigger.focus();
+      else imageModalTrigger.blur();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeImageModal();
+    });
+  </script>
 </body>
 </html>
