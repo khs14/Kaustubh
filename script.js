@@ -107,3 +107,78 @@ document.addEventListener('keydown', (e) => {
     closeHighlights();
   }
 });
+
+// === SKILLS EXPLORER ===
+// The skill list lives in skills-data.js (loaded before this file).
+
+(function buildSkillsExplorer() {
+  const skillsTab = document.getElementById("skills");
+  const groupsEl = document.getElementById("skill-groups");
+  const panelEl = document.getElementById("skill-panel");
+  if (!skillsTab || !groupsEl || !panelEl || typeof SKILL_GROUPS === "undefined") return;
+
+  const TYPE_LABEL = { work: "Work", project: "Project", education: "Education", activity: "Activity" };
+  const TYPE_ORDER = ["work", "project", "education", "activity"];
+
+  function escapeHTML(s) {
+    return s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  }
+
+  // Back to the full list: every chip and heading visible, box hidden
+  function clearSkill() {
+    groupsEl.querySelectorAll(".skill-chip").forEach(c => {
+      c.classList.remove("selected");
+      c.setAttribute("aria-pressed", "false");
+    });
+    groupsEl.querySelectorAll(".skill-group").forEach(g => g.classList.remove("active-group"));
+    skillsTab.classList.remove("skill-focused");
+    panelEl.innerHTML = "";
+  }
+
+  // Focus on one skill: only its chip and the evidence box stay visible
+  function showSkill(name, places, chip) {
+    clearSkill();
+    chip.classList.add("selected");
+    chip.setAttribute("aria-pressed", "true");
+    chip.closest(".skill-group").classList.add("active-group");
+    skillsTab.classList.add("skill-focused");
+
+    const sorted = [...places].sort((a, b) => TYPE_ORDER.indexOf(a[0]) - TYPE_ORDER.indexOf(b[0]));
+    const items = sorted.map(([type, place, how, url]) => {
+      const title = url
+        ? `<a href="${url}" target="_blank" rel="noopener noreferrer">${escapeHTML(place)}</a>`
+        : escapeHTML(place);
+      return `<div class="skill-place">
+          <span class="place-type ${type}">${TYPE_LABEL[type]}</span>
+          <div><span class="place-name">${title}</span><span class="place-how">${escapeHTML(how)}</span></div>
+        </div>`;
+    }).join("");
+
+    panelEl.innerHTML = `<p class="skill-panel-title">${escapeHTML(name)}
+        <span>· used in ${places.length} ${places.length === 1 ? "place" : "places"}</span></p>${items}`;
+  }
+
+  for (const [group, skills] of Object.entries(SKILL_GROUPS)) {
+    const section = document.createElement("div");
+    section.className = "skill-group";
+    section.innerHTML = `<p class="skill-group-title">${group}</p><div class="skill-chips"></div>`;
+    const chipsEl = section.querySelector(".skill-chips");
+
+    // Strongest skills first
+    const ordered = Object.entries(skills).sort((a, b) => b[1].length - a[1].length);
+    for (const [name, places] of ordered) {
+      const chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "skill-chip";
+      chip.setAttribute("aria-pressed", "false");
+      chip.innerHTML = `${escapeHTML(name)} <span class="skill-count">${places.length}</span><span class="skill-close" aria-hidden="true">×</span>`;
+      // Click to focus on a skill; click it again to go back to all skills
+      chip.addEventListener("click", () => {
+        if (chip.classList.contains("selected")) clearSkill();
+        else showSkill(name, places, chip);
+      });
+      chipsEl.appendChild(chip);
+    }
+    groupsEl.appendChild(section);
+  }
+})();

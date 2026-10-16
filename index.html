@@ -277,14 +277,9 @@
 
           <!-- === SKILLS === -->
           <div class="tab-contents" id="skills">
-            <ul>
-              <li><span>Languages:</span> Python, Java, Kotlin, C, JavaScript</li>
-              <li><span>AI/ML:</span> TensorFlow, Keras, Scikit-learn, NLP, Deep Learning, CV</li>
-              <li><span>Data:</span> PostgreSQL, MySQL, Pandas, NumPy</li>
-              <li><span>Development:</span> React.js, Flask, Streamlit, Tailwind CSS, Node.js</li>
-              <li><span>DevOps & Tools:</span> Git, Docker, Kubernetes, Firebase</li>
-              <li><span>Soft Skills:</span> Leadership, Technical Writing, Collaboration</li>
-            </ul>
+            <p class="skills-intro">Select a skill to see every role, project and course where I've used it.</p>
+            <div id="skill-groups"></div>
+            <div class="skill-panel" id="skill-panel" aria-live="polite"></div>
           </div>
 
           <!-- === LEADERSHIP === -->
@@ -424,6 +419,7 @@
 
   <!-- GSAP + JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="skills-data.js"></script>
   <script src="script.js"></script>
 
   <!-- Image zoom modal -->
