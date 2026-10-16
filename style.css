@@ -791,7 +791,7 @@ nav ul li a:hover::after {
   animation: fadeIn 0.4s ease;
 }
 .highlight-skill {
-  color: green; /* Matches your theme’s accent */
+  color: #7fff7f; /* same green as the company names */
   font-weight: 600;
 }
 
@@ -805,7 +805,53 @@ nav ul li a:hover::after {
   margin: 12px 0;
   font-size: 0.95rem;
   line-height: 1.6rem;
-  color: #eaeaea;
+  color: #c4c4c4; /* slightly dimmed so bold white impact phrases stand out */
+}
+
+/* Experience entries: muted role line, real bullets, one highlight style */
+.tab-contents > ul > li {
+  margin-bottom: 28px;
+}
+
+.tab-contents .role-line {
+  margin: 2px 0 4px;
+  font-size: 0.85rem;
+  color: #8c8c8c;
+  letter-spacing: 0.2px;
+}
+
+.tab-contents ul.points {
+  margin: 4px 0 10px;
+  padding-left: 1.15rem;
+}
+
+.tab-contents ul.points li {
+  list-style: disc;
+  margin: 5px 0;
+  padding-left: 4px;
+  color: #c4c4c4;
+}
+
+.tab-contents ul.points li::marker {
+  color: #6a6a6a;
+}
+
+.tab-contents .impact {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.tab-contents .skills-line {
+  margin: 6px 0 0;
+  font-size: 0.95rem;
+  color: #c4c4c4;
+}
+
+.tab-contents .cert-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
 }
 
 .tab-contents ul li span {
