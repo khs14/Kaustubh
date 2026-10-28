@@ -1167,14 +1167,21 @@ nav ul li a:hover::after {
   margin-bottom: 30px;
 }
 
+/* Cards wrap on their own: 3 per row on desktop, 2 on tablets
+   (the third centered underneath), 1 on phones. Width is capped so
+   cards never get huge on wide monitors. Images are 1200 x 1200 (1:1). */
 .work-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 40px;
-  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(20px, 3vw, 40px);
+  max-width: 1220px;
+  margin: 50px auto 0;
 }
 
 .work {
+  flex: 1 1 280px;
+  max-width: 380px;
   border-radius: 10px;
   position: relative;
   overflow: hidden;
@@ -1182,6 +1189,9 @@ nav ul li a:hover::after {
 
 .work img {
   width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
   border-radius: 10px;
   display: block;
   transition: transform 0.5s;
@@ -1199,8 +1209,9 @@ nav ul li a:hover::after {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  padding: 0 40px;
+  padding: 0 clamp(16px, 8%, 40px);
   text-align: center;
+  overflow: hidden;
   transition: height 0.5s;
 }
 
@@ -1208,21 +1219,81 @@ nav ul li a:hover::after {
 .layer h4 {
   color: orange;
   font-weight: 500;
-  margin-bottom: 20px;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  margin-bottom: 14px;
 }
 
 .layer p {
   color: orange;
-  font-size: 0.8rem;
-  margin-bottom: 20px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 16px;
 }
 
-.work:hover img {
+.layer a {
+  color: white;
+  font-size: 1.4rem;
+  display: inline-flex;
+  padding: 8px; /* bigger tap target around the link icon */
+}
+
+.layer a:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Overlay opens on mouse hover, or when the link gets keyboard focus */
+.work:hover img,
+.work:focus-within img {
   transform: scale(1.1);
 }
 
-.work:hover .layer {
+.work:hover .layer,
+.work:focus-within .layer {
   height: 100%;
+}
+
+/* Touch screens (phones, tablets) have no hover, so the overlay would
+   never open. Show the title, description and link under the image instead. */
+@media (hover: none) {
+  .work {
+    background: #0d0d0d;
+  }
+
+  .work img {
+    border-radius: 10px 10px 0 0;
+  }
+
+  .work:hover img,
+  .work:focus-within img {
+    transform: none;
+  }
+
+  .layer,
+  .work:hover .layer,
+  .work:focus-within .layer {
+    position: static;
+    height: auto;
+    border-radius: 0 0 10px 10px;
+    padding: 18px 20px 12px;
+  }
+
+  .layer p {
+    margin-bottom: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work img,
+  .layer {
+    transition: none;
+  }
+
+  .work:hover img,
+  .work:focus-within img {
+    transform: none;
+  }
 }
 
 .btn {
@@ -1559,13 +1630,21 @@ form textarea {
     padding: 40px 20px;
   }
 
+  #projects .container {
+    padding: 0; /* section already has 20px sides; avoid 70px total */
+  }
+
+  #projects .btn {
+    padding: 14px 28px;
+    text-align: center;
+  }
+
   .work-list {
-    grid-template-columns: 1fr;
-    justify-items: center;
+    margin-top: 30px;
   }
 
   .work {
-    width: 100%;
+    flex-basis: 100%;
     max-width: 400px;
   }
 
