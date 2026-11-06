@@ -109,6 +109,7 @@
               class="about-image"
               loading="lazy"
             />
+            <canvas class="night-sky" id="about-night-sky" aria-hidden="true"></canvas>
             <button class="zoom-btn" type="button" onclick="openImageModal(this)" aria-label="Enlarge image">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7"/></svg>
             </button>
@@ -417,7 +418,10 @@
   <div class="image-overlay" id="image-overlay" onclick="closeImageModal()">
     <div class="image-modal" role="dialog" aria-modal="true" aria-label="Enlarged image" onclick="event.stopPropagation()">
       <button class="image-close" id="image-close" onclick="closeImageModal()" aria-label="Close">&times;</button>
-      <img id="image-modal-img" src="" alt="" />
+      <div class="image-modal-frame">
+        <img id="image-modal-img" src="" alt="" />
+        <canvas class="night-sky" id="modal-night-sky" aria-hidden="true"></canvas>
+      </div>
     </div>
   </div>
 
@@ -444,6 +448,8 @@
       modalImg.src = source.currentSrc || source.src;
       modalImg.alt = source.alt;
       overlay.classList.toggle('orange', wrap.classList.contains('orange'));
+      // Stars only for the About image
+      overlay.classList.toggle('has-sky', !!wrap.querySelector('.night-sky'));
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
 
