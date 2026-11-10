@@ -1,5 +1,8 @@
 // === GSAP Page Load Animation ===
 function loadinganimation() {
+  // If the GSAP script didn't load (CDN down or blocked), skip the intro
+  // animation instead of stopping the rest of this file
+  if (typeof gsap === "undefined") return;
   gsap.from("#page1 h1", {
     y: 100,
     opacity: 0,

@@ -1487,6 +1487,182 @@ form textarea {
   color: white;
 }
 
+/* Ask AI: links that open an AI chat with a starting prompt about this site */
+.ask-ai {
+  max-width: 640px;
+  margin: 0 auto 22px;
+  padding: 0 16px 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+#footer .ask-ai-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+#footer .ask-ai-sub {
+  color: #cfcfcf;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+/* Sparkle: slow, soft twinkle that rests most of the time so it doesn't
+   distract; spins half a turn when the section is hovered */
+.ask-ai-title .icon {
+  color: #00ff88;
+  animation: askAiTwinkle 6s ease-in-out infinite;
+  transition: rotate 0.6s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+.ask-ai:hover .ask-ai-title .icon,
+.ask-ai:focus-within .ask-ai-title .icon {
+  rotate: 180deg;
+}
+
+@keyframes askAiTwinkle {
+  0%,
+  60%,
+  100% {
+    scale: 1;
+    filter: brightness(0.9) drop-shadow(0 0 0 rgb(0 255 136 / 0));
+  }
+  75% {
+    scale: 1.15;
+    filter: brightness(1.3) drop-shadow(0 0 4px rgb(0 255 136 / 0.6));
+  }
+  85% {
+    scale: 1;
+    filter: brightness(1.05) drop-shadow(0 0 2px rgb(0 255 136 / 0.3));
+  }
+}
+
+/* Four equal-width buttons in one row */
+.ask-ai-links {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  max-width: 500px;
+  margin: 0 auto 14px;
+  padding: 0;
+}
+
+.ask-ai-links a {
+  display: block;
+  padding: 7px 10px;
+  border: 1px solid rgba(0, 255, 136, 0.5);
+  border-radius: 999px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    color 0.25s ease;
+}
+
+/* Hover / keyboard focus: lift up with a soft green glow */
+.ask-ai-links a:hover,
+.ask-ai-links a:focus-visible {
+  transform: translateY(-3px);
+  background: rgba(0, 255, 136, 0.15);
+  border-color: #00ff88;
+  color: #00ff88;
+  box-shadow: 0 6px 16px rgba(0, 255, 136, 0.25);
+}
+
+/* Press down when clicked or tapped */
+.ask-ai-links a:active {
+  transform: translateY(0) scale(0.96);
+  box-shadow: 0 2px 6px rgba(0, 255, 136, 0.2);
+}
+
+.ask-ai-links a:focus-visible {
+  outline: 2px solid #00ff88;
+  outline-offset: 2px;
+}
+
+/* Disclaimer: small and quiet */
+#footer .ask-ai-note {
+  color: #8f8f8f;
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.ask-ai-note a {
+  color: #00ff88;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-underline-offset 0.2s ease, color 0.2s ease;
+}
+
+.ask-ai-note a:hover,
+.ask-ai-note a:focus-visible {
+  color: #7dffc4;
+  text-underline-offset: 5px;
+}
+
+/* Touch screens: no lift that would stay stuck after a tap */
+@media (hover: none) {
+  .ask-ai-links a:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* Phones: 2 x 2 buttons with bigger tap targets */
+@media only screen and (max-width: 600px) {
+  .ask-ai {
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+  }
+
+  #footer .ask-ai-title {
+    font-size: 1rem;
+  }
+
+  #footer .ask-ai-sub {
+    font-size: 0.8rem;
+  }
+
+  .ask-ai-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 320px;
+  }
+
+  .ask-ai-links a {
+    padding: 10px 12px;
+  }
+
+}
+
+/* Reduced motion: no twinkle, spin or lift; colour changes only */
+@media (prefers-reduced-motion: reduce) {
+  .ask-ai-title .icon {
+    animation: none;
+    transition: none;
+  }
+
+  .ask-ai:hover .ask-ai-title .icon,
+  .ask-ai:focus-within .ask-ai-title .icon {
+    rotate: none;
+  }
+
+  .ask-ai-links a,
+  .ask-ai-links a:hover,
+  .ask-ai-links a:focus-visible,
+  .ask-ai-links a:active {
+    transform: none;
+  }
+}
+
 /* ================================
    ABOUT SECTION IMAGE
    Static image replacing the previous Spline embed.
